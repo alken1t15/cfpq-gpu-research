@@ -1,0 +1,6 @@
+Consolidate compiler generated dependencies of target cubool
+[ 87%] Built target cubool
+Consolidate compiler generated dependencies of target cfra
+[ 89%] Building CXX object CMakeFiles/cfra.dir/src/grammar/grammar.cpp.o
+[ 90%] Linking CXX executable cfra
+[100%] Built target cfra

@@ -1,0 +1,134 @@
+[
+  {
+    "variant": "baseline",
+    "repeat": 0,
+    "warmup": true,
+    "wall_seconds": 13.650152358,
+    "analysis_seconds": 13.545,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.545\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "fast_path",
+    "repeat": 0,
+    "warmup": true,
+    "wall_seconds": 8.214372011000009,
+    "analysis_seconds": 8.09178,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 8.09178\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "fast_path",
+    "repeat": 1,
+    "warmup": false,
+    "wall_seconds": 8.265302809000005,
+    "analysis_seconds": 8.13849,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 8.13849\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "baseline",
+    "repeat": 1,
+    "warmup": false,
+    "wall_seconds": 13.408232353000002,
+    "analysis_seconds": 13.3081,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.3081\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "baseline",
+    "repeat": 2,
+    "warmup": false,
+    "wall_seconds": 13.036370340000005,
+    "analysis_seconds": 12.9343,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 12.9343\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "fast_path",
+    "repeat": 2,
+    "warmup": false,
+    "wall_seconds": 8.243922054999999,
+    "analysis_seconds": 8.12672,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 8.12672\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "fast_path",
+    "repeat": 3,
+    "warmup": false,
+    "wall_seconds": 8.278869799999995,
+    "analysis_seconds": 8.15351,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 8.15351\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "baseline",
+    "repeat": 3,
+    "warmup": false,
+    "wall_seconds": 13.218113001999996,
+    "analysis_seconds": 13.1198,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.1198\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "baseline",
+    "repeat": 4,
+    "warmup": false,
+    "wall_seconds": 13.240788895999998,
+    "analysis_seconds": 13.1422,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.1422\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "fast_path",
+    "repeat": 4,
+    "warmup": false,
+    "wall_seconds": 7.975902950000005,
+    "analysis_seconds": 7.84695,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 7.84695\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "fast_path",
+    "repeat": 5,
+    "warmup": false,
+    "wall_seconds": 8.186039117000007,
+    "analysis_seconds": 8.06983,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 8.06983\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "variant": "baseline",
+    "repeat": 5,
+    "warmup": false,
+    "wall_seconds": 13.53993144399999,
+    "analysis_seconds": 13.4387,
+    "pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.4387\n#SEdges: 9677\n",
+    "stderr": ""
+  }
+]

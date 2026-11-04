@@ -1,0 +1,24 @@
+{
+  "reference_url": "https://cfpq-data.storage.yandexcloud.net/6.0.0/reachable_pairs.csv",
+  "reference_sha256": "831a8fd8d0532a82fb82cccc4efbc5d219a75343ed4b65d556ba1fba8f4a86db",
+  "inputs": [
+    {
+      "graph": "atom",
+      "url": "https://cfpq-data.storage.yandexcloud.net/6.0.0/graph/atom.tar.gz",
+      "archive_sha256": "d6ea6982ddc180009826c86c0b3f42094cbf8a95a4ac712472b03401e390c991",
+      "graph_sha256": "5b5046e0b3015121290ab1f02ab6d4b525528cc56a4effeab4601295eb15d4de",
+      "vertices": 291,
+      "edges_with_reverse": 850,
+      "conversion": "zero-based; add transpose with _r suffix"
+    },
+    {
+      "graph": "bzip",
+      "url": "https://cfpq-data.storage.yandexcloud.net/6.0.0/graph/bzip.tar.gz",
+      "archive_sha256": "1e438d092ed3678f24911854460f95a7fbb326714e9538186f94058da2320ca8",
+      "graph_sha256": "9028471950bc5d245c66696541af934db179cf88936c6d421fe13dda8001e8e0",
+      "vertices": 632,
+      "edges_with_reverse": 1112,
+      "conversion": "zero-based; add transpose with _r suffix"
+    }
+  ]
+}

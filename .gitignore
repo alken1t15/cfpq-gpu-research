@@ -1,0 +1,27 @@
+# Вложенный репозиторий с собственной историей
+/src/cfra/
+
+# Большие входы и локальные сборки
+/data/
+/build/
+/downloads/
+.venv/
+__pycache__/
+*.pyc
+/experiments/2026-11-03-java/cfra-upstream
+perf.data
+perf.data.old
+
+# Локальные секреты
+/lecture-d7021d11-7c27-4a20-8391-a29d86571694.md
+.env
+.env.*
+!.env.example
+
+# Локальные инструкции и память ИИ-сессий
+/AGENTS.md
+/docs/WORKFLOW.md
+/docs/GIT_WORKFLOW.md
+/docs/NEW_CHAT.md
+/docs/STATE.md
+/docs/TEACHER_REQUIREMENTS.md

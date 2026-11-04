@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "wall_seconds": {
+      "n": 5,
+      "median": 13.240788895999998,
+      "minimum": 13.036370340000005,
+      "maximum": 13.53993144399999,
+      "sample_stdev": 0.19258340825379908
+    },
+    "analysis_seconds": {
+      "n": 5,
+      "median": 13.1422,
+      "minimum": 12.9343,
+      "maximum": 13.4387,
+      "sample_stdev": 0.19260396413365957
+    }
+  },
+  "fast_path": {
+    "wall_seconds": {
+      "n": 5,
+      "median": 8.243922054999999,
+      "minimum": 7.975902950000005,
+      "maximum": 8.278869799999995,
+      "sample_stdev": 0.12482906067274543
+    },
+    "analysis_seconds": {
+      "n": 5,
+      "median": 8.12672,
+      "minimum": 7.84695,
+      "maximum": 8.15351,
+      "sample_stdev": 0.1270740335395082
+    }
+  },
+  "wall_speedup_ratio_of_medians": 1.606127375739726
+}

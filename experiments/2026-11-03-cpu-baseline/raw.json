@@ -1,0 +1,62 @@
+[
+  {
+    "run": 0,
+    "warmup": true,
+    "wall_seconds": 13.683772258999994,
+    "analysis_seconds": 13.5814,
+    "actual_pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.5814\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "run": 1,
+    "warmup": false,
+    "wall_seconds": 13.382553790000003,
+    "analysis_seconds": 13.2824,
+    "actual_pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.2824\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "run": 2,
+    "warmup": false,
+    "wall_seconds": 13.481163975000001,
+    "analysis_seconds": 13.3831,
+    "actual_pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.3831\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "run": 3,
+    "warmup": false,
+    "wall_seconds": 13.333091687999996,
+    "analysis_seconds": 13.233,
+    "actual_pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.233\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "run": 4,
+    "warmup": false,
+    "wall_seconds": 13.466798490999992,
+    "analysis_seconds": 13.3691,
+    "actual_pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.3691\n#SEdges: 9677\n",
+    "stderr": ""
+  },
+  {
+    "run": 5,
+    "warmup": false,
+    "wall_seconds": 13.351903948,
+    "analysis_seconds": 13.2478,
+    "actual_pairs": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.2478\n#SEdges: 9677\n",
+    "stderr": ""
+  }
+]

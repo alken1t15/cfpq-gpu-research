@@ -1,0 +1,14 @@
+{
+  "base_sha": "3bc9794a509ca2f40c82b04e6c31e21ef9d1dbf1",
+  "binary_sha256": "dae6a8647c631071985a523284bb562197258fdaec449412c4c65f9691d9316a",
+  "graph_sha256": "12b3a475bf86953838b29a7a9d20e5b602c9e2fce12e727b42a03499345b65c3",
+  "grammar_sha256": "179f94c638f4f5945e33f15224d6bae8ac0c1acb03b633939d55c6983b75809a",
+  "patch_sha256": "55dd250046546d58eb6269c1073f1f47d9bbf938be7ad6b3732315de0c98705d",
+  "expected_pairs": 9677,
+  "backend": "cuBool CPU sequential",
+  "algorithm": "incremental",
+  "warmup_processes": 1,
+  "measured_processes": 5,
+  "timeout_seconds": 120,
+  "note": "Fresh process per run; warmup warms system caches, not an in-process backend."
+}

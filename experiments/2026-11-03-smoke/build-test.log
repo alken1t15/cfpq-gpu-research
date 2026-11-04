@@ -1,0 +1,112 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Build cubool in release mode
+-- Add CPU sequential fallback backend
+CMake Warning (dev) at CMakeLists.txt:15 (target_sources):
+  Policy CMP0076 is not set: target_sources() command converts relative paths
+  to absolute.  Run "cmake --help-policy CMP0076" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+  An interface source of target "cfra" has a relative path.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/d/semen_task_avtomat/src/cfra/build
+[  1%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/core/library.cpp.o
+[  2%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/core/object.cpp.o
+[  4%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/core/matrix.cpp.o
+[  5%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/core/vector.cpp.o
+[  6%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/io/logger.cpp.o
+[  8%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/utils/data_utils.cpp.o
+[  9%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_GetAbout.cpp.o
+[ 10%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_GetVersion.cpp.o
+[ 12%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_GetLicenseInfo.cpp.o
+[ 13%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_GetDeviceCaps.cpp.o
+[ 14%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Initialize.cpp.o
+[ 16%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Finalize.cpp.o
+[ 17%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_SetupLogger.cpp.o
+[ 18%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_New.cpp.o
+[ 20%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Build.cpp.o
+[ 21%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_SetElement.cpp.o
+[ 22%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_SetMarker.cpp.o
+[ 24%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Marker.cpp.o
+[ 25%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_ExtractPairs.cpp.o
+[ 27%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_ExtractSubMatrix.cpp.o
+[ 28%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_ExtractRow.cpp.o
+[ 29%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_ExtractCol.cpp.o
+[ 31%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Duplicate.cpp.o
+[ 32%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Transpose.cpp.o
+[ 33%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Nvals.cpp.o
+[ 35%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Nrows.cpp.o
+[ 36%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Ncols.cpp.o
+[ 37%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Free.cpp.o
+[ 39%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Reduce.cpp.o
+[ 40%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Reduce2.cpp.o
+[ 41%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_EWiseAdd.cpp.o
+[ 43%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_EWiseMult.cpp.o
+[ 44%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_EWiseMultInverted.cpp.o
+[ 45%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_New.cpp.o
+[ 47%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Build.cpp.o
+[ 48%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_SetElement.cpp.o
+[ 50%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_SetMarker.cpp.o
+[ 51%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Marker.cpp.o
+[ 52%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_ExtractValues.cpp.o
+[ 54%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_ExtractSubVector.cpp.o
+[ 55%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Duplicate.cpp.o
+[ 56%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Nvals.cpp.o
+[ 58%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Nrows.cpp.o
+[ 59%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Free.cpp.o
+[ 60%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Reduce.cpp.o
+[ 62%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_EWiseAdd.cpp.o
+[ 63%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_EWiseMult.cpp.o
+[ 64%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_MxM.cpp.o
+[ 66%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_MxV.cpp.o
+[ 67%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_VxM.cpp.o
+[ 68%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Kronecker.cpp.o
+[ 70%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_backend.cpp.o
+[ 71%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_matrix.cpp.o
+[ 72%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_vector.cpp.o
+[ 74%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_transpose.cpp.o
+[ 75%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_kronecker.cpp.o
+[ 77%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_ewiseadd.cpp.o
+[ 78%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_ewisemult.cpp.o
+[ 79%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_ewisemultinverted.cpp.o
+[ 81%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_spgemm.cpp.o
+[ 82%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_spgemv.cpp.o
+[ 83%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_reduce.cpp.o
+[ 85%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_submatrix.cpp.o
+[ 86%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/sequential/sq_subvector.cpp.o
+[ 87%] Linking CXX shared library libcubool.so
+[ 87%] Built target cubool
+[ 90%] Building CXX object CMakeFiles/cfra.dir/src/main.cpp.o
+[ 90%] Building CXX object CMakeFiles/cfra.dir/src/grammar/grammar.cpp.o
+[ 93%] Building CXX object CMakeFiles/cfra.dir/src/graph/graph.cpp.o
+[ 93%] Building CXX object CMakeFiles/cfra.dir/src/base_algo/base_algo.cpp.o
+In file included from /mnt/d/semen_task_avtomat/src/cfra/src/base_algo/base_algo.hpp:5,
+                 from /mnt/d/semen_task_avtomat/src/cfra/src/base_algo/base_algo.cpp:1:
+/mnt/d/semen_task_avtomat/src/cfra/src/common.hpp:7:10: fatal error: format: No such file or directory
+    7 | #include <format>
+      |          ^~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/cfra.dir/build.make:118: CMakeFiles/cfra.dir/src/base_algo/base_algo.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from /mnt/d/semen_task_avtomat/src/cfra/src/base_algo/base_algo.hpp:5,
+                 from /mnt/d/semen_task_avtomat/src/cfra/src/main.cpp:3:
+/mnt/d/semen_task_avtomat/src/cfra/src/common.hpp:7:10: fatal error: format: No such file or directory
+    7 | #include <format>
+      |          ^~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/cfra.dir/build.make:76: CMakeFiles/cfra.dir/src/main.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:115: CMakeFiles/cfra.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2

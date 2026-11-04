@@ -1,0 +1,688 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2K of event 'cpu-clock:u'
+# Event count (approx.): 13276380250
+#
+# Overhead  Shared Object      
+# ........  ...................
+#
+    95.72%  libcubool.so       
+            |          
+            |--44.10%--cubool::sq_spgemm
+            |          cubool::SqMatrix::multiply
+            |          cuBool_MxM
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--41.26%--cubool::sq_ewiseadd
+            |          |          
+            |          |--37.66%--cubool::SqMatrix::multiply
+            |          |          cuBool_MxM
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --3.60%--cubool::SqMatrix::eWiseAdd
+            |                     cuBool_Matrix_EWiseAdd
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--5.53%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+            |          |          
+            |          |--3.97%--cubool::sq_ewiseadd
+            |          |          |          
+            |          |          |--3.94%--cubool::SqMatrix::multiply
+            |          |          |          cuBool_MxM
+            |          |          |          run_cflr_incremental
+            |          |          |          main
+            |          |          |          __libc_start_call_main
+            |          |          |          __libc_start_main_impl (inlined)
+            |          |          |          _start
+            |          |          |          
+            |          |           --0.04%--cubool::SqMatrix::eWiseAdd
+            |          |                     cuBool_Matrix_EWiseAdd
+            |          |                     run_cflr_incremental
+            |          |                     main
+            |          |                     __libc_start_call_main
+            |          |                     __libc_start_main_impl (inlined)
+            |          |                     _start
+            |          |          
+            |          |--0.61%--cubool::SqMatrix::allocateStorage
+            |          |          |          
+            |          |          |--0.57%--cubool::SqMatrix::multiply
+            |          |          |          cuBool_MxM
+            |          |          |          run_cflr_incremental
+            |          |          |          main
+            |          |          |          __libc_start_call_main
+            |          |          |          __libc_start_main_impl (inlined)
+            |          |          |          _start
+            |          |          |          
+            |          |           --0.04%--cubool::SqMatrix::eWiseMultInverted
+            |          |                     cuBool_Matrix_EWiseMulInverted
+            |          |                     run_cflr_incremental
+            |          |                     main
+            |          |                     __libc_start_call_main
+            |          |                     __libc_start_main_impl (inlined)
+            |          |                     _start
+            |          |          
+            |          |--0.45%--cubool::sq_spgemm
+            |          |          cubool::SqMatrix::multiply
+            |          |          cuBool_MxM
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |          |--0.45%--cubool::sq_ewisemultinverted
+            |          |          cubool::SqMatrix::eWiseMultInverted
+            |          |          cuBool_Matrix_EWiseMulInverted
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --0.04%--cubool::DataUtils::buildFromData
+            |                     cubool::SqMatrix::build
+            |                     cubool::Matrix::build
+            |                     cuBool_Matrix_Build
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--3.22%--cubool::sq_ewisemultinverted
+            |          cubool::SqMatrix::eWiseMultInverted
+            |          cuBool_Matrix_EWiseMulInverted
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.72%--cubool::DataUtils::buildFromData
+            |          cubool::SqMatrix::build
+            |          cubool::Matrix::build
+            |          cuBool_Matrix_Build
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.38%--cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          |          
+            |          |--0.34%--MatrixStore::get_ensure
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --0.04%--run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.08%--cubool::SqMatrix::~SqMatrix
+            |          cubool::Matrix::~Matrix
+            |          cubool::Matrix::~Matrix
+            |          cubool::Library::releaseMatrix
+            |          cuBool_Matrix_Free
+            |          |          
+            |          |--0.04%--MatrixStore::clear
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --0.04%--MatrixStore::~MatrixStore
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.08%--cubool::DummyLogger::isDummy
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          |          
+            |          |--0.04%--run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --0.04%--MatrixStore::get_ensure
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.08%--cubool::Object::getDebugMarker
+            |          cubool::Library::releaseMatrix
+            |          cuBool_Matrix_Free
+            |          |          
+            |          |--0.04%--MatrixStore::clear
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --0.04%--MatrixStore::~MatrixStore
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.08%--cubool::Library::releaseMatrix
+            |          cuBool_Matrix_Free
+            |          MatrixStore::~MatrixStore
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--cubool::SqMatrix::multiply
+            |          cuBool_MxM
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--cubool::SqMatrix::getNvals
+            |          cuBool_Matrix_Nvals
+            |          MatrixStore::nvals_of
+            |          MatrixStore::is_empty
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--cubool::Matrix::eWiseMultInverted
+            |          cuBool_Matrix_EWiseMulInverted
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--cubool::Object::Object
+            |          cubool::Matrix::Matrix
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_Duplicate
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--std::_Hashtable<cubool::Matrix*, cubool::Matrix*, std::allocator<cubool::Matrix*>, std::__detail::_Identity, std::equal_to<cubool::Matrix*>, std::hash<cubool::Matrix*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, true, true> >::_M_rehash
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_Duplicate
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+             --0.04%--0x7f9c4ab30ed0
+                       cubool::Matrix::getNvals
+                       cuBool_Matrix_Nvals
+                       MatrixStore::nvals_of
+                       MatrixStore::is_empty
+                       run_cflr_incremental
+                       main
+                       __libc_start_call_main
+                       __libc_start_main_impl (inlined)
+                       _start
+
+     2.31%  libc.so.6          
+            |          
+            |--1.55%--__memset_evex_unaligned_erms
+            |          |          
+            |          |--0.76%--cubool::sq_spgemm
+            |          |          cubool::SqMatrix::multiply
+            |          |          cuBool_MxM
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |          |--0.72%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_default_append
+            |          |          cubool::sq_spgemm
+            |          |          cubool::SqMatrix::multiply
+            |          |          cuBool_MxM
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --0.08%--cubool::DataUtils::buildFromData
+            |                     cubool::SqMatrix::build
+            |                     cubool::Matrix::build
+            |                     cuBool_Matrix_Build
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.15%--_int_free
+            |          __GI___libc_free (inlined)
+            |          |          
+            |          |--0.11%--cubool::SqMatrix::~SqMatrix
+            |          |          cubool::Matrix::~Matrix
+            |          |          cubool::Matrix::~Matrix
+            |          |          cubool::Library::releaseMatrix
+            |          |          cuBool_Matrix_Free
+            |          |          |          
+            |          |          |--0.08%--MatrixStore::~MatrixStore
+            |          |          |          run_cflr_incremental
+            |          |          |          main
+            |          |          |          __libc_start_call_main
+            |          |          |          __libc_start_main_impl (inlined)
+            |          |          |          _start
+            |          |          |          
+            |          |           --0.04%--MatrixStore::clear
+            |          |                     run_cflr_incremental
+            |          |                     main
+            |          |                     __libc_start_call_main
+            |          |                     __libc_start_main_impl (inlined)
+            |          |                     _start
+            |          |          
+            |           --0.04%--cubool::SqMatrix::multiply
+            |                     cuBool_MxM
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.15%--__GI___libc_free (inlined)
+            |          |          
+            |          |--0.08%--cubool::SqMatrix::~SqMatrix
+            |          |          cubool::Matrix::~Matrix
+            |          |          cubool::Matrix::~Matrix
+            |          |          cubool::Library::releaseMatrix
+            |          |          cuBool_Matrix_Free
+            |          |          |          
+            |          |          |--0.04%--MatrixStore::clear
+            |          |          |          run_cflr_incremental
+            |          |          |          main
+            |          |          |          __libc_start_call_main
+            |          |          |          __libc_start_main_impl (inlined)
+            |          |          |          _start
+            |          |          |          
+            |          |           --0.04%--MatrixStore::~MatrixStore
+            |          |                     run_cflr_incremental
+            |          |                     main
+            |          |                     __libc_start_call_main
+            |          |                     __libc_start_main_impl (inlined)
+            |          |                     _start
+            |          |          
+            |          |--0.04%--cubool::SqMatrix::multiply
+            |          |          cuBool_MxM
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --0.04%--cubool::Library::releaseMatrix
+            |                     cuBool_Matrix_Free
+            |                     MatrixStore::clear
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.11%--_int_malloc
+            |          __GI___libc_malloc (inlined)
+            |          operator new
+            |          |          
+            |          |--0.08%--std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[]
+            |          |          |          
+            |          |          |--0.04%--MatrixStore::get_ensure
+            |          |          |          run_cflr_incremental
+            |          |          |          main
+            |          |          |          __libc_start_call_main
+            |          |          |          __libc_start_main_impl (inlined)
+            |          |          |          _start
+            |          |          |          
+            |          |           --0.04%--MatrixStore::nvals_of
+            |          |                     MatrixStore::is_empty
+            |          |                     run_cflr_incremental
+            |          |                     main
+            |          |                     __libc_start_call_main
+            |          |                     __libc_start_main_impl (inlined)
+            |          |                     _start
+            |          |          
+            |           --0.04%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+            |                     cubool::sq_ewiseadd
+            |                     cubool::SqMatrix::multiply
+            |                     cuBool_MxM
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.11%--malloc_consolidate
+            |          _int_free
+            |          __GI___libc_free (inlined)
+            |          cubool::SqMatrix::~SqMatrix
+            |          cubool::Matrix::~Matrix
+            |          cubool::Matrix::~Matrix
+            |          cubool::Library::releaseMatrix
+            |          cuBool_Matrix_Free
+            |          MatrixStore::~MatrixStore
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.11%--__memcpy_evex_unaligned_erms (inlined)
+            |          cubool::SqMatrix::clone
+            |          cuBool_Matrix_Duplicate
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--checked_request2size (inlined)
+            |          _int_malloc
+            |          __GI___libc_malloc (inlined)
+            |          operator new
+            |          std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+            |          cubool::sq_ewiseadd
+            |          cubool::SqMatrix::multiply
+            |          cuBool_MxM
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--__memcmp_evex_movbe
+            |          MatrixStore::nvals_of
+            |          MatrixStore::is_empty
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+             --0.04%--__GI___libc_malloc (inlined)
+                       operator new
+                       std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[]
+                       MatrixStore::get_ensure
+                       run_cflr_incremental
+                       main
+                       __libc_start_call_main
+                       __libc_start_main_impl (inlined)
+                       _start
+
+     1.40%  cfra               
+            |          
+            |--0.61%--MatrixStore::nvals_of
+            |          |          
+            |          |--0.57%--MatrixStore::is_empty
+            |          |          run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --0.04%--run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.34%--std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, cuBool_Matrix_t*>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, cuBool_Matrix_t*> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[]
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.23%--MatrixStore::get
+            |          |          
+            |          |--0.19%--run_cflr_incremental
+            |          |          main
+            |          |          __libc_start_call_main
+            |          |          __libc_start_main_impl (inlined)
+            |          |          _start
+            |          |          
+            |           --0.04%--MatrixStore::nvals_of
+            |                     MatrixStore::is_empty
+            |                     run_cflr_incremental
+            |                     main
+            |                     __libc_start_call_main
+            |                     __libc_start_main_impl (inlined)
+            |                     _start
+            |          
+            |--0.08%--std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[]
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.08%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, unsigned int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_erase
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--MatrixStore::replace
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+             --0.04%--MatrixStore::~MatrixStore
+                       run_cflr_incremental
+                       main
+                       __libc_start_call_main
+                       __libc_start_main_impl (inlined)
+                       _start
+
+     0.57%  libstdc++.so.6.0.35
+            |          
+            |--0.08%--std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow
+            |          std::basic_streambuf<char, std::char_traits<char> >::xsputn
+            |          std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>
+            |          std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put
+            |          std::ostream::_M_insert<void const*>
+            |          cubool::Object::Object
+            |          cubool::Matrix::Matrix
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.08%--std::ostream::_M_insert<void const*>
+            |          cubool::Object::Object
+            |          cubool::Matrix::Matrix
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--std::__timepunct<wchar_t>::__timepunct
+            |          std::locale::_Impl::_Impl
+            |          0x7f9c4a96e75c
+            |          std::locale::locale
+            |          std::ios_base::Init::Init (inlined)
+            |          0x7f9c4a93ab13
+            |          call_init (inlined)
+            |          call_init (inlined)
+            |          _dl_init
+            |          _dl_start_user
+            |          
+            |--0.04%--std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::_M_pbump
+            |          std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow
+            |          std::basic_streambuf<char, std::char_traits<char> >::xsputn
+            |          std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>
+            |          std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put
+            |          std::ostream::_M_insert<void const*>
+            |          cubool::Object::Object
+            |          cubool::Matrix::Matrix
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put
+            |          std::ostream::_M_insert<void const*>
+            |          cubool::Object::Object
+            |          cubool::Matrix::Matrix
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>
+            |          std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put
+            |          std::ostream::_M_insert<void const*>
+            |          cubool::Object::Object
+            |          cubool::Matrix::Matrix
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--std::locale::locale
+            |          cubool::Object::Object
+            |          cubool::Matrix::Matrix
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--std::getline<char, std::char_traits<char>, std::allocator<char> >
+            |          LabeledGraph::load
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--std::locale::~locale
+            |          std::ios_base::_M_init
+            |          std::basic_ios<char, std::char_traits<char> >::init
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--std::ios_base::_M_init
+            |          std::basic_ios<char, std::char_traits<char> >::init
+            |          cubool::Object::Object
+            |          cubool::Matrix::Matrix
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--0x7f9c4a926400
+            |          std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace
+            |          cubool::Object::Object
+            |          cubool::Matrix::Matrix
+            |          cubool::Library::createMatrix
+            |          cuBool_Matrix_New
+            |          MatrixStore::get_ensure
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--0.04%--0x7f9c4a925900
+            |          std::basic_ios<char, std::char_traits<char> >::init
+            |          cubool::Library::releaseMatrix
+            |          cuBool_Matrix_Free
+            |          MatrixStore::~MatrixStore
+            |          run_cflr_incremental
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+             --0.04%--0x7f9c4a922940
+                       std::ios_base::~ios_base
+                       LabeledGraph::load
+                       main
+                       __libc_start_call_main
+                       __libc_start_main_impl (inlined)
+                       _start
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

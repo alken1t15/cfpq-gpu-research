@@ -1,0 +1,12 @@
+atom nested_parentheses_subClassOf.cnf base 2 2 True
+atom nested_parentheses_subClassOf.cnf incremental 2 2 True
+atom nested_parentheses_subClassOf.cnf lazy 2 2 True
+atom nested_parentheses_subClassOf_type.cnf base 6 6 True
+atom nested_parentheses_subClassOf_type.cnf incremental 6 6 True
+atom nested_parentheses_subClassOf_type.cnf lazy 6 6 True
+atom nested_parentheses_type.cnf base 4 4 True
+atom nested_parentheses_type.cnf incremental 4 4 True
+atom nested_parentheses_type.cnf lazy 4 4 True
+bzip c_alias.cnf base 315 315 True
+bzip c_alias.cnf incremental 315 315 True
+bzip c_alias.cnf lazy 315 315 True

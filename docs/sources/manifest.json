@@ -1,0 +1,52 @@
+[
+  {
+    "file": "atom.html",
+    "sha256": "aa1f6330a2d61a0a4207bc2911cddfb9bf863b103230e5d6e807350842b40787",
+    "retrieved": "2026-11-03"
+  },
+  {
+    "file": "bzip.html",
+    "sha256": "3a7709f7f3a33745abfefb71d8821252672995044b59c313e966ee1eaf15310e",
+    "retrieved": "2026-11-03"
+  },
+  {
+    "file": "cfpq-index.html",
+    "sha256": "7102bb51a81d58fa5f38c1bd8312dacccb2c1456076f94c203020fce2bb23e43",
+    "retrieved": "2026-11-03"
+  },
+  {
+    "file": "dataset.html",
+    "sha256": "5c8d826033e2f8d7d84b38c197895cbf7cbe95a437f52a5857f3d23979a54c5a",
+    "retrieved": "2026-11-03"
+  },
+  {
+    "file": "example-report-README.md",
+    "sha256": "9aadf2a153f0e774d462bb3ad8f2deccc3f922367890c27f0aedde2611e07dbb",
+    "retrieved": "2026-11-03"
+  },
+  {
+    "file": "file_structure.html",
+    "sha256": "69388a10a652084f196c6f52769f9a13479a8f01783187348c7f1709dd8b29f9",
+    "retrieved": "2026-11-03"
+  },
+  {
+    "file": "graphs-index.html",
+    "sha256": "c7a20b762845a699e30afe9e07541533d9d888ffbab311fcd5e491bc317e4fdd",
+    "retrieved": "2026-11-03"
+  },
+  {
+    "file": "reachable_pairs.csv",
+    "sha256": "831a8fd8d0532a82fb82cccc4efbc5d219a75343ed4b65d556ba1fba8f4a86db",
+    "retrieved": "2026-11-03"
+  },
+  {
+    "file": "reachable_pairs.html",
+    "sha256": "f3990a16a6360fcb4549c1579e399847daae4ce3383bf1a534ce9ba272d0cf4f",
+    "retrieved": "2026-11-03"
+  },
+  {
+    "file": "luindex.html",
+    "sha256": "aea2e6a531e96a5685512f3061be645ad22b5a50d298bd18db712cdce7850d6a",
+    "retrieved": "2026-11-03"
+  }
+]

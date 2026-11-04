@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/mnt/d/semen_task_avtomat/scripts/check-cubool-mxm-pairs.py", line 107, in <module>
+    main()
+  File "/mnt/d/semen_task_avtomat/scripts/check-cubool-mxm-pairs.py", line 94, in main
+    assert actual == expected, (fixture, pending, accumulate, alias, expected, actual)
+AssertionError: (({(0, 1)}, {(1, 2)}, set()), False, False, 'left', {(0, 2)}, set())

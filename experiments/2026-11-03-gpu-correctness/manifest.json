@@ -1,0 +1,9 @@
+{
+  "device": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "cuda_supported": true,
+  "compute_capability": "8.6",
+  "memory_KiB": 6290944,
+  "binary_sha256": "a127b69c1489de2c36a0a8a4b98d2c77a2289d3826acf34f726cbb87e66c967f",
+  "library_sha256": "4db96e8c23abf95507842b2ca29ac9656187f6a61f77ea11b8a4aab6ddc2493b",
+  "cpu_fallback": false
+}

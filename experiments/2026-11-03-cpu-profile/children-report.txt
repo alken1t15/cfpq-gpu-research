@@ -1,0 +1,286 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2K of event 'cpu-clock:u'
+# Event count (approx.): 13276380250
+#
+# Children      Self  Shared Object         Symbol                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               IPC   [IPC Coverage]
+# ........  ........  ....................  ...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................  ....................
+#
+    99.96%     0.00%  cfra                  [.] _start                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           -      -            
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+                --99.89%--run_cflr_incremental
+                          |          
+                          |--88.38%--cuBool_MxM
+                          |          cubool::SqMatrix::multiply
+                          |          |          
+                          |          |--46.03%--cubool::sq_spgemm
+                          |          |          
+                          |           --41.67%--cubool::sq_ewiseadd
+                          |                     |          
+                          |                      --4.01%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+                          |          
+                          |--3.75%--cuBool_Matrix_EWiseMulInverted
+                          |          |          
+                          |           --3.71%--cubool::SqMatrix::eWiseMultInverted
+                          |                     |          
+                          |                      --3.67%--cubool::sq_ewisemultinverted
+                          |          
+                          |--3.63%--cuBool_Matrix_EWiseAdd
+                          |          cubool::SqMatrix::eWiseAdd
+                          |          cubool::sq_ewiseadd
+                          |          
+                           --1.29%--MatrixStore::get_ensure
+
+    99.96%     0.00%  libc.so.6             [.] __libc_start_call_main                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           -      -            
+            |
+            ---__libc_start_call_main
+               main
+               |          
+                --99.89%--run_cflr_incremental
+                          |          
+                          |--88.38%--cuBool_MxM
+                          |          cubool::SqMatrix::multiply
+                          |          |          
+                          |          |--46.03%--cubool::sq_spgemm
+                          |          |          
+                          |           --41.67%--cubool::sq_ewiseadd
+                          |                     |          
+                          |                      --4.01%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+                          |          
+                          |--3.75%--cuBool_Matrix_EWiseMulInverted
+                          |          |          
+                          |           --3.71%--cubool::SqMatrix::eWiseMultInverted
+                          |                     |          
+                          |                      --3.67%--cubool::sq_ewisemultinverted
+                          |          
+                          |--3.63%--cuBool_Matrix_EWiseAdd
+                          |          cubool::SqMatrix::eWiseAdd
+                          |          cubool::sq_ewiseadd
+                          |          
+                           --1.29%--MatrixStore::get_ensure
+
+    99.96%     0.00%  cfra                  [.] main                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             -      -            
+            |
+            ---main
+               |          
+                --99.89%--run_cflr_incremental
+                          |          
+                          |--88.38%--cuBool_MxM
+                          |          cubool::SqMatrix::multiply
+                          |          |          
+                          |          |--46.03%--cubool::sq_spgemm
+                          |          |          
+                          |           --41.67%--cubool::sq_ewiseadd
+                          |                     |          
+                          |                      --4.01%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+                          |          
+                          |--3.75%--cuBool_Matrix_EWiseMulInverted
+                          |          |          
+                          |           --3.71%--cubool::SqMatrix::eWiseMultInverted
+                          |                     |          
+                          |                      --3.67%--cubool::sq_ewisemultinverted
+                          |          
+                          |--3.63%--cuBool_Matrix_EWiseAdd
+                          |          cubool::SqMatrix::eWiseAdd
+                          |          cubool::sq_ewiseadd
+                          |          
+                           --1.29%--MatrixStore::get_ensure
+
+    99.89%     0.00%  cfra                  [.] run_cflr_incremental                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             -      -            
+            |
+            ---run_cflr_incremental
+               |          
+               |--88.38%--cuBool_MxM
+               |          cubool::SqMatrix::multiply
+               |          |          
+               |          |--46.03%--cubool::sq_spgemm
+               |          |          
+               |           --41.67%--cubool::sq_ewiseadd
+               |                     |          
+               |                      --4.01%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+               |          
+               |--3.75%--cuBool_Matrix_EWiseMulInverted
+               |          |          
+               |           --3.71%--cubool::SqMatrix::eWiseMultInverted
+               |                     |          
+               |                      --3.67%--cubool::sq_ewisemultinverted
+               |          
+               |--3.63%--cuBool_Matrix_EWiseAdd
+               |          cubool::SqMatrix::eWiseAdd
+               |          cubool::sq_ewiseadd
+               |          
+                --1.29%--MatrixStore::get_ensure
+
+    96.63%     0.00%  libc.so.6             [.] __libc_start_main_impl (inlined)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               run_cflr_incremental
+               |          
+               |--86.45%--cuBool_MxM
+               |          cubool::SqMatrix::multiply
+               |          |          
+               |          |--44.85%--cubool::sq_spgemm
+               |          |          
+               |           --40.92%--cubool::sq_ewiseadd
+               |                     |          
+               |                      --4.01%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+               |          
+               |--3.75%--cuBool_Matrix_EWiseMulInverted
+               |          |          
+               |           --3.71%--cubool::SqMatrix::eWiseMultInverted
+               |                     |          
+               |                      --3.67%--cubool::sq_ewisemultinverted
+               |          
+               |--3.63%--cuBool_Matrix_EWiseAdd
+               |          cubool::SqMatrix::eWiseAdd
+               |          cubool::sq_ewiseadd
+               |          
+                --1.14%--MatrixStore::get_ensure
+
+    88.38%     0.00%  libcubool.so          [.] cuBool_MxM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       -      -            
+            |
+            ---cuBool_MxM
+               cubool::SqMatrix::multiply
+               |          
+               |--46.03%--cubool::sq_spgemm
+               |          
+                --41.67%--cubool::sq_ewiseadd
+                          |          
+                           --4.01%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+
+    88.38%     0.04%  libcubool.so          [.] cubool::SqMatrix::multiply                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       -      -            
+            |          
+             --88.34%--cubool::SqMatrix::multiply
+                       |          
+                       |--46.03%--cubool::sq_spgemm
+                       |          
+                        --41.67%--cubool::sq_ewiseadd
+                                  |          
+                                   --4.01%--std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+
+    46.03%    44.10%  libcubool.so          [.] cubool::sq_spgemm                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                -      -            
+            |          
+            |--44.10%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          run_cflr_incremental
+            |          cuBool_MxM
+            |          cubool::SqMatrix::multiply
+            |          cubool::sq_spgemm
+            |          
+             --1.93%--cubool::sq_spgemm
+
+    45.31%    41.26%  libcubool.so          [.] cubool::sq_ewiseadd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              -      -            
+            |          
+            |--41.26%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          run_cflr_incremental
+            |          |          
+            |          |--37.66%--cuBool_MxM
+            |          |          cubool::SqMatrix::multiply
+            |          |          cubool::sq_ewiseadd
+            |          |          
+            |           --3.60%--cuBool_Matrix_EWiseAdd
+            |                     cubool::SqMatrix::eWiseAdd
+            |                     cubool::sq_ewiseadd
+            |          
+             --4.05%--cubool::sq_ewiseadd
+                       std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+
+     5.60%     5.53%  libcubool.so          [.] std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         -      -            
+            |          
+             --5.53%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       run_cflr_incremental
+                       |          
+                        --4.96%--cuBool_MxM
+                                  cubool::SqMatrix::multiply
+                                  |          
+                                   --3.94%--cubool::sq_ewiseadd
+                                             std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert
+
+     3.75%     0.00%  libcubool.so          [.] cuBool_Matrix_EWiseMulInverted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   -      -            
+            |
+            ---cuBool_Matrix_EWiseMulInverted
+               |          
+                --3.71%--cubool::SqMatrix::eWiseMultInverted
+                          |          
+                           --3.67%--cubool::sq_ewisemultinverted
+
+     3.71%     0.00%  libcubool.so          [.] cubool::SqMatrix::eWiseMultInverted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              -      -            
+            |
+            ---cubool::SqMatrix::eWiseMultInverted
+               |          
+                --3.67%--cubool::sq_ewisemultinverted
+
+     3.67%     3.22%  libcubool.so          [.] cubool::sq_ewisemultinverted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     -      -            
+            |          
+             --3.22%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       run_cflr_incremental
+                       cuBool_Matrix_EWiseMulInverted
+                       cubool::SqMatrix::eWiseMultInverted
+                       cubool::sq_ewisemultinverted
+
+     3.63%     0.00%  libcubool.so          [.] cuBool_Matrix_EWiseAdd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           -      -            
+            |
+            ---cuBool_Matrix_EWiseAdd
+               cubool::SqMatrix::eWiseAdd
+               cubool::sq_ewiseadd
+
+     3.63%     0.00%  libcubool.so          [.] cubool::SqMatrix::eWiseAdd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       -      -            
+            |
+            ---cubool::SqMatrix::eWiseAdd
+               cubool::sq_ewiseadd
+
+     3.33%     0.00%  libc.so.6             [.] __libc_start_main_impl (inlined)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 -      -            
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+                --3.26%--run_cflr_incremental
+                          |          
+                           --1.93%--cuBool_MxM
+                                     cubool::SqMatrix::multiply
+                                     |          
+                                      --1.17%--cubool::sq_spgemm
+
+     1.55%     1.55%  libc.so.6             [.] __memset_evex_unaligned_erms                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     -      -            
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               run_cflr_incremental
+               |          
+                --1.48%--cuBool_MxM
+                          cubool::SqMatrix::multiply
+                          cubool::sq_spgemm
+
+     1.29%     0.00%  cfra                  [.] MatrixStore::get_ensure                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          -      -            
+            |
+            ---MatrixStore::get_ensure
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

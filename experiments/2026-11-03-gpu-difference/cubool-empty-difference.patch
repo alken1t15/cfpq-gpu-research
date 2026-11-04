@@ -1,0 +1,16 @@
+--- a/cubool/sources/cuda/cuda_matrix_ewisemult_inverted.cu
++++ b/cubool/sources/cuda/cuda_matrix_ewisemult_inverted.cu
+@@ -44,8 +44,12 @@
+         assert(b->getNrows() == M);
+         assert(b->getNcols() == N);
+ 
+-        if (a->isMatrixEmpty() || b->isMatrixEmpty()) {
++        if (a->isMatrixEmpty()) {
+             this->clearAndResizeStorageToDim();
++            return;
++        }
++        if (b->isMatrixEmpty()) {
++            if (this != a) this->clone(aBase);
+             return;
+         }
+ 

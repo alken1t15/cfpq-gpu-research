@@ -1,0 +1,14 @@
+--- a/cubool/sources/sequential/sq_matrix.cpp
++++ b/cubool/sources/sequential/sq_matrix.cpp
+@@ -161,6 +161,11 @@
+             out2.ncols = this->getNcols();
+ 
+             this->allocateStorage();
++            if (out.nvals == 0) return;
++            if (this->mData.nvals == 0) {
++                this->mData = std::move(out);
++                return;
++            }
+             sq_ewiseadd(this->mData, out, out2);
+ 
+             std::swap(out2, out);

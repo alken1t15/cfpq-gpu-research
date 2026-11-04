@@ -1,0 +1,9 @@
+{
+  "binary_sha256": "dae6a8647c631071985a523284bb562197258fdaec449412c4c65f9691d9316a",
+  "library_sha256": {
+    "baseline": "fa82b08d113c5c3c1a5584824392b24e09a177a7572828579d80233a056cc86f",
+    "fast_path": "845daceb0b84039d4887c2d20ec386fc093d78feb667f70016983e1f1b50b765"
+  },
+  "reference_sha256": "831a8fd8d0532a82fb82cccc4efbc5d219a75343ed4b65d556ba1fba8f4a86db",
+  "timeout_seconds": 120
+}

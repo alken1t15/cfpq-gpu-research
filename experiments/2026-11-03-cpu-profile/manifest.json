@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-03",
+  "base_sha": "3bc9794a509ca2f40c82b04e6c31e21ef9d1dbf1",
+  "binary_sha256": "dae6a8647c631071985a523284bb562197258fdaec449412c4c65f9691d9316a",
+  "library_sha256": "fa82b08d113c5c3c1a5584824392b24e09a177a7572828579d80233a056cc86f",
+  "graph_sha256": "12b3a475bf86953838b29a7a9d20e5b602c9e2fce12e727b42a03499345b65c3",
+  "grammar_sha256": "179f94c638f4f5945e33f15224d6bae8ac0c1acb03b633939d55c6983b75809a",
+  "perf_data_sha256": "1593dd318c4f2da3d3ca8694c262e61db80e527239e4f46e95a2afea070dbc32",
+  "perf_binary": "/usr/lib/linux-tools/5.15.0-202-generic/perf",
+  "perf_version": "5.15.222",
+  "event": "cpu-clock:u",
+  "frequency_hz": 199,
+  "callgraph": "dwarf,8192",
+  "samples": 2642,
+  "lost_samples": 0,
+  "answer": 9677,
+  "matches_baseline_binary": true
+}

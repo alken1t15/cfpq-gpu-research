@@ -1,0 +1,8 @@
+{
+  "baseline_library_sha256": "4db96e8c23abf95507842b2ca29ac9656187f6a61f77ea11b8a4aab6ddc2493b",
+  "trial_library_sha256": "99c0fb2f76a6e7731d97f696003f37df3b042fa09c656a618b244b19b8a78196",
+  "trial_source_sha256": "5cf86a85d4e1366d6cb94fb5c447cee9a997f036c7e879f76cfadc8d219b0e6c",
+  "primitive_passed": 23,
+  "primitive_total": 24,
+  "atom_pairs": 6
+}

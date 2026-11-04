@@ -1,0 +1,19 @@
+{
+  "binary_sha256": "dae6a8647c631071985a523284bb562197258fdaec449412c4c65f9691d9316a",
+  "baseline_library_sha256": "fa82b08d113c5c3c1a5584824392b24e09a177a7572828579d80233a056cc86f",
+  "instrumented_library_sha256": "8c276398b1e44881bcadfc5591543ebcaa076a3c4801775609c884093ac8b9ee",
+  "original_source_sha256": "939b15902c4c8017a653fb57881d9bb00ba6fde7327d9c0edb399b4985b6409c",
+  "instrumented_source_sha256": "d9928de16b890a4078e886d23db9754c2a6e7fe7b604149343e0d2cd1e9ae8d6",
+  "command": [
+    "/mnt/d/semen_task_avtomat/src/cfra/build-cpu-gcc13/cfra",
+    "--graph",
+    "/mnt/d/semen_task_avtomat/data/catalog-v6/luindex/cfra-adapted.txt",
+    "--grammar",
+    "/mnt/d/semen_task_avtomat/data/catalog-v6/luindex/java_points_to.cnf",
+    "--algo",
+    "incremental",
+    "--cpu"
+  ],
+  "LD_LIBRARY_PATH": "/mnt/d/semen_task_avtomat/build/cpu-mxm-counters",
+  "exit_code": 0
+}

@@ -1,0 +1,21 @@
+WARNING: perf not found for kernel 5.15.167.4-microsoft
+
+  You may need to install the following packages for this specific kernel:
+    linux-tools-5.15.167.4-microsoft-standard-WSL2
+    linux-cloud-tools-5.15.167.4-microsoft-standard-WSL2
+
+  You may also want to install one of the following packages to keep up to date:
+    linux-tools-standard-WSL2
+    linux-cloud-tools-standard-WSL2
+perf version 5.15.222
+
+ Performance counter stats for 'true':
+
+              0.35 msec task-clock:u              #    0.198 CPUs utilized          
+
+       0.001782948 seconds time elapsed
+
+       0.000962000 seconds user
+       0.000000000 seconds sys
+
+

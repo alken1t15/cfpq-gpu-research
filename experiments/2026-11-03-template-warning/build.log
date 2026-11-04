@@ -1,0 +1,4 @@
+[ 87%] Built target cubool
+[ 89%] Building CXX object CMakeFiles/cfra.dir/src/grammar/grammar.cpp.o
+[ 90%] Linking CXX executable cfra
+[100%] Built target cfra

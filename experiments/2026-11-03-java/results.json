@@ -1,0 +1,134 @@
+[
+  {
+    "exit_code": 0,
+    "actual": 7472,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 5 complex rules, 5 nonterminals\nAnalysisTime: 0.190592\n#SEdges: 7472\n",
+    "stderr": "",
+    "format": "raw",
+    "version": "upstream",
+    "algo": "base",
+    "expected": 9677,
+    "wall_seconds": 0.2750137499999994
+  },
+  {
+    "exit_code": 0,
+    "actual": 7472,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 5 complex rules, 5 nonterminals\nAnalysisTime: 0.153464\n#SEdges: 7472\n",
+    "stderr": "",
+    "format": "raw",
+    "version": "upstream",
+    "algo": "incremental",
+    "expected": 9677,
+    "wall_seconds": 0.23825728399999946
+  },
+  {
+    "exit_code": 0,
+    "actual": 7472,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 5 complex rules, 5 nonterminals\nAnalysisTime: 0.161896\n#SEdges: 7472\n",
+    "stderr": "",
+    "format": "raw",
+    "version": "upstream",
+    "algo": "lazy",
+    "expected": 9677,
+    "wall_seconds": 0.24451188499999787
+  },
+  {
+    "exit_code": 0,
+    "actual": 7472,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 5 complex rules, 5 nonterminals\nAnalysisTime: 0.180483\n#SEdges: 7472\n",
+    "stderr": "",
+    "format": "raw",
+    "version": "fixed",
+    "algo": "base",
+    "expected": 9677,
+    "wall_seconds": 0.2710868739999981
+  },
+  {
+    "exit_code": 0,
+    "actual": 7472,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 5 complex rules, 5 nonterminals\nAnalysisTime: 0.152759\n#SEdges: 7472\n",
+    "stderr": "",
+    "format": "raw",
+    "version": "fixed",
+    "algo": "incremental",
+    "expected": 9677,
+    "wall_seconds": 0.24272156299999992
+  },
+  {
+    "exit_code": 0,
+    "actual": 7472,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 5 complex rules, 5 nonterminals\nAnalysisTime: 0.148362\n#SEdges: 7472\n",
+    "stderr": "",
+    "format": "raw",
+    "version": "fixed",
+    "algo": "lazy",
+    "expected": 9677,
+    "wall_seconds": 0.23460422000000136
+  },
+  {
+    "exit_code": 0,
+    "actual": 7472,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 4475 nonterminals\nAnalysisTime: 0.193625\n#SEdges: 7472\n",
+    "stderr": "",
+    "format": "adapted",
+    "version": "upstream",
+    "algo": "base",
+    "expected": 9677,
+    "wall_seconds": 0.2837537129999994
+  },
+  {
+    "exit_code": 0,
+    "actual": 7472,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 4475 nonterminals\nAnalysisTime: 0.170706\n#SEdges: 7472\n",
+    "stderr": "",
+    "format": "adapted",
+    "version": "upstream",
+    "algo": "incremental",
+    "expected": 9677,
+    "wall_seconds": 0.2607152060000004
+  },
+  {
+    "exit_code": 0,
+    "actual": 7472,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 4475 nonterminals\nAnalysisTime: 0.162914\n#SEdges: 7472\n",
+    "stderr": "",
+    "format": "adapted",
+    "version": "upstream",
+    "algo": "lazy",
+    "expected": 9677,
+    "wall_seconds": 0.2506564739999959
+  },
+  {
+    "exit_code": 0,
+    "actual": 9677,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 32.9145\n#SEdges: 9677\n",
+    "stderr": "",
+    "format": "adapted",
+    "version": "fixed",
+    "algo": "base",
+    "expected": 9677,
+    "wall_seconds": 33.011826928999994
+  },
+  {
+    "exit_code": 0,
+    "actual": 9677,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.2542\n#SEdges: 9677\n",
+    "stderr": "",
+    "format": "adapted",
+    "version": "fixed",
+    "algo": "incremental",
+    "expected": 9677,
+    "wall_seconds": 13.356980168000007
+  },
+  {
+    "exit_code": 0,
+    "actual": 9677,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 13.2673\n#SEdges: 9677\n",
+    "stderr": "",
+    "format": "adapted",
+    "version": "fixed",
+    "algo": "lazy",
+    "expected": 9677,
+    "wall_seconds": 13.366810654999995
+  }
+]

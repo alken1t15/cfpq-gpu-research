@@ -1,0 +1,37 @@
+[
+  {
+    "self_percent": 44.1,
+    "object": "libcubool.so",
+    "symbol": "cubool::sq_spgemm"
+  },
+  {
+    "self_percent": 41.26,
+    "object": "libcubool.so",
+    "symbol": "cubool::sq_ewiseadd"
+  },
+  {
+    "self_percent": 5.53,
+    "object": "libcubool.so",
+    "symbol": "std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_insert"
+  },
+  {
+    "self_percent": 3.22,
+    "object": "libcubool.so",
+    "symbol": "cubool::sq_ewisemultinverted"
+  },
+  {
+    "self_percent": 1.55,
+    "object": "libc.so.6",
+    "symbol": "__memset_evex_unaligned_erms"
+  },
+  {
+    "self_percent": 0.72,
+    "object": "libcubool.so",
+    "symbol": "cubool::DataUtils::buildFromData"
+  },
+  {
+    "self_percent": 0.61,
+    "object": "cfra",
+    "symbol": "MatrixStore::nvals_of"
+  }
+]

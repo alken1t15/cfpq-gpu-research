@@ -1,0 +1,36 @@
+g++-13 (Ubuntu 13.4.0-6ubuntu1~22~ppa2) 13.4.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+cmake version 3.22.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+-- Build cubool in release mode
+-- Add CPU sequential fallback backend
+CMake Warning (dev) at CMakeLists.txt:15 (target_sources):
+  Policy CMP0076 is not set: target_sources() command converts relative paths
+  to absolute.  Run "cmake --help-policy CMP0076" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+  An interface source of target "cfra" has a relative path.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/d/semen_task_avtomat/src/cfra/build-cpu-gcc13
+Consolidate compiler generated dependencies of target cubool
+[ 87%] Built target cubool
+Consolidate compiler generated dependencies of target cfra
+[100%] Built target cfra
+  PASS  an_bn [base] #SEdges=20
+  PASS  an_bn [incremental] #SEdges=20
+  PASS  an_bn [lazy] #SEdges=20
+  PASS  transitive [base] #SEdges=21
+  PASS  transitive [incremental] #SEdges=21
+  PASS  transitive [lazy] #SEdges=21
+  PASS  indexed_pair [base] #SEdges=1
+  PASS  indexed_pair [incremental] #SEdges=1
+  PASS  indexed_pair [lazy] #SEdges=1
+
+9 passed, 0 failed

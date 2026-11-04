@@ -1,0 +1,29 @@
+diff --git a/ci/test.sh b/ci/test.sh
+index 75100db..dae161c 100644
+--- a/ci/test.sh
++++ b/ci/test.sh
+@@ -28,6 +28,10 @@ check transitive test_data/transitive_loop/graph.txt test_data/transitive_loop/g
+ check transitive test_data/transitive_loop/graph.txt test_data/transitive_loop/grammar.cnf 21 incremental
+ check transitive test_data/transitive_loop/graph.txt test_data/transitive_loop/grammar.cnf 21 lazy
+ 
++check indexed_pair test_data/indexed_pair/graph.txt test_data/indexed_pair/grammar.cnf 1 base
++check indexed_pair test_data/indexed_pair/graph.txt test_data/indexed_pair/grammar.cnf 1 incremental
++check indexed_pair test_data/indexed_pair/graph.txt test_data/indexed_pair/grammar.cnf 1 lazy
++
+ echo ""
+ echo "$PASS passed, $FAIL failed"
+ [ "$FAIL" -eq 0 ]
+\ No newline at end of file
+diff --git a/src/grammar/grammar.cpp b/src/grammar/grammar.cpp
+index 881fc2c..36afe13 100644
+--- a/src/grammar/grammar.cpp
++++ b/src/grammar/grammar.cpp
+@@ -18,7 +18,7 @@ static bool is_template(const std::string &s) {
+ }
+ 
+ static std::string instantiate(const std::string& symbol, int index) {
+-    return symbol.substr(0, symbol.size() - 1) + std::to_string(index);
++    return symbol + "_" + std::to_string(index);
+ }
+ 
+ TemplateGrammar TemplateGrammar::load(const std::string &path) {

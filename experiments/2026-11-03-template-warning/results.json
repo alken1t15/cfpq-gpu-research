@@ -1,0 +1,122 @@
+[
+  {
+    "case": "raw_indexed",
+    "algo": "base",
+    "passed": true,
+    "expected_warning": true,
+    "expected_count": 0,
+    "exit_code": 0,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 0 complex rules, 0 nonterminals\nAnalysisTime: 0.000531466\n#SEdges: 0\n",
+    "stderr": "Warning: grammar contains indexed templates, but no matching graph-label indices were found. Indexed rules will not be expanded. Expected labels such as load_i_3 for template load_i; check the input label format.\n"
+  },
+  {
+    "case": "raw_indexed",
+    "algo": "incremental",
+    "passed": true,
+    "expected_warning": true,
+    "expected_count": 0,
+    "exit_code": 0,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 0 complex rules, 0 nonterminals\nAnalysisTime: 0.000630739\n#SEdges: 0\n",
+    "stderr": "Warning: grammar contains indexed templates, but no matching graph-label indices were found. Indexed rules will not be expanded. Expected labels such as load_i_3 for template load_i; check the input label format.\n"
+  },
+  {
+    "case": "raw_indexed",
+    "algo": "lazy",
+    "passed": true,
+    "expected_warning": true,
+    "expected_count": 0,
+    "exit_code": 0,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 0 complex rules, 0 nonterminals\nAnalysisTime: 0.000647179\n#SEdges: 0\n",
+    "stderr": "Warning: grammar contains indexed templates, but no matching graph-label indices were found. Indexed rules will not be expanded. Expected labels such as load_i_3 for template load_i; check the input label format.\n"
+  },
+  {
+    "case": "adapted_indexed",
+    "algo": "base",
+    "passed": true,
+    "expected_warning": false,
+    "expected_count": 1,
+    "exit_code": 0,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000675215\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "adapted_indexed",
+    "algo": "incremental",
+    "passed": true,
+    "expected_warning": false,
+    "expected_count": 1,
+    "exit_code": 0,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000436186\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "adapted_indexed",
+    "algo": "lazy",
+    "passed": true,
+    "expected_warning": false,
+    "expected_count": 1,
+    "exit_code": 0,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000649097\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "non_indexed",
+    "algo": "base",
+    "passed": true,
+    "expected_warning": false,
+    "expected_count": 1,
+    "exit_code": 0,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 0 epsilon rules, 1 terminal rules, 0 chain rules, 0 complex rules, 1 nonterminals\nAnalysisTime: 0.000627801\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "non_indexed",
+    "algo": "incremental",
+    "passed": true,
+    "expected_warning": false,
+    "expected_count": 1,
+    "exit_code": 0,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 0 epsilon rules, 1 terminal rules, 0 chain rules, 0 complex rules, 1 nonterminals\nAnalysisTime: 0.000766217\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "non_indexed",
+    "algo": "lazy",
+    "passed": true,
+    "expected_warning": false,
+    "expected_count": 1,
+    "exit_code": 0,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 0 epsilon rules, 1 terminal rules, 0 chain rules, 0 complex rules, 1 nonterminals\nAnalysisTime: 0.000758189\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "epsilon_no_indices",
+    "algo": "base",
+    "passed": true,
+    "expected_warning": true,
+    "expected_count": 2,
+    "exit_code": 0,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 1 epsilon rules, 0 terminal rules, 0 chain rules, 0 complex rules, 1 nonterminals\nAnalysisTime: 0.000786506\n#SEdges: 2\n",
+    "stderr": "Warning: grammar contains indexed templates, but no matching graph-label indices were found. Indexed rules will not be expanded. Expected labels such as load_i_3 for template load_i; check the input label format.\n"
+  },
+  {
+    "case": "epsilon_no_indices",
+    "algo": "incremental",
+    "passed": true,
+    "expected_warning": true,
+    "expected_count": 2,
+    "exit_code": 0,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 1 epsilon rules, 0 terminal rules, 0 chain rules, 0 complex rules, 1 nonterminals\nAnalysisTime: 0.000590256\n#SEdges: 2\n",
+    "stderr": "Warning: grammar contains indexed templates, but no matching graph-label indices were found. Indexed rules will not be expanded. Expected labels such as load_i_3 for template load_i; check the input label format.\n"
+  },
+  {
+    "case": "epsilon_no_indices",
+    "algo": "lazy",
+    "passed": true,
+    "expected_warning": true,
+    "expected_count": 2,
+    "exit_code": 0,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 1 epsilon rules, 0 terminal rules, 0 chain rules, 0 complex rules, 1 nonterminals\nAnalysisTime: 0.000819108\n#SEdges: 2\n",
+    "stderr": "Warning: grammar contains indexed templates, but no matching graph-label indices were found. Indexed rules will not be expanded. Expected labels such as load_i_3 for template load_i; check the input label format.\n"
+  }
+]

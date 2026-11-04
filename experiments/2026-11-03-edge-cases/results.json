@@ -1,0 +1,419 @@
+[
+  {
+    "case": "chain",
+    "algo": "base",
+    "expected_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 3 vertices, 1 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 1 terminal rules, 1 chain rules, 0 complex rules, 2 nonterminals\nAnalysisTime: 0.000703171\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "chain",
+    "algo": "incremental",
+    "expected_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 3 vertices, 1 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 1 terminal rules, 1 chain rules, 0 complex rules, 2 nonterminals\nAnalysisTime: 0.00123278\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "chain",
+    "algo": "lazy",
+    "expected_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 3 vertices, 1 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 1 terminal rules, 1 chain rules, 0 complex rules, 2 nonterminals\nAnalysisTime: 0.000571771\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "epsilon_chain",
+    "algo": "base",
+    "expected_pairs": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 1 epsilon rules, 0 terminal rules, 1 chain rules, 0 complex rules, 2 nonterminals\nAnalysisTime: 0.000755993\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "epsilon_chain",
+    "algo": "incremental",
+    "expected_pairs": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 1 epsilon rules, 0 terminal rules, 1 chain rules, 0 complex rules, 2 nonterminals\nAnalysisTime: 0.000979359\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "epsilon_chain",
+    "algo": "lazy",
+    "expected_pairs": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 1 epsilon rules, 0 terminal rules, 1 chain rules, 0 complex rules, 2 nonterminals\nAnalysisTime: 0.000818556\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "epsilon_product",
+    "algo": "base",
+    "expected_pairs": [
+      [
+        0,
+        1
+      ]
+    ],
+    "expected_count": 1,
+    "actual": 1,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 1 epsilon rules, 1 terminal rules, 0 chain rules, 1 complex rules, 3 nonterminals\nAnalysisTime: 0.000756262\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "epsilon_product",
+    "algo": "incremental",
+    "expected_pairs": [
+      [
+        0,
+        1
+      ]
+    ],
+    "expected_count": 1,
+    "actual": 1,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 1 epsilon rules, 1 terminal rules, 0 chain rules, 1 complex rules, 3 nonterminals\nAnalysisTime: 0.000775454\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "epsilon_product",
+    "algo": "lazy",
+    "expected_pairs": [
+      [
+        0,
+        1
+      ]
+    ],
+    "expected_count": 1,
+    "actual": 1,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 1 epsilon rules, 1 terminal rules, 0 chain rules, 1 complex rules, 3 nonterminals\nAnalysisTime: 0.000789452\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "duplicates_loop",
+    "algo": "base",
+    "expected_pairs": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 3 edges\nExpanded grammar: 0 epsilon rules, 1 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000658121\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "duplicates_loop",
+    "algo": "incremental",
+    "expected_pairs": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 3 edges\nExpanded grammar: 0 epsilon rules, 1 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.00074961\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "duplicates_loop",
+    "algo": "lazy",
+    "expected_pairs": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 3 edges\nExpanded grammar: 0 epsilon rules, 1 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.00107834\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "absent_terminal",
+    "algo": "base",
+    "expected_pairs": [],
+    "expected_count": 0,
+    "actual": 0,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 1 chain rules, 0 complex rules, 1 nonterminals\nAnalysisTime: 0.000732197\n#SEdges: 0\n",
+    "stderr": ""
+  },
+  {
+    "case": "absent_terminal",
+    "algo": "incremental",
+    "expected_pairs": [],
+    "expected_count": 0,
+    "actual": 0,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 1 chain rules, 0 complex rules, 1 nonterminals\nAnalysisTime: 0.000610875\n#SEdges: 0\n",
+    "stderr": ""
+  },
+  {
+    "case": "absent_terminal",
+    "algo": "lazy",
+    "expected_pairs": [],
+    "expected_count": 0,
+    "actual": 0,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 2 vertices, 1 labels, 1 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 1 chain rules, 0 complex rules, 1 nonterminals\nAnalysisTime: 0.000765198\n#SEdges: 0\n",
+    "stderr": ""
+  },
+  {
+    "case": "indexed_explicit",
+    "algo": "base",
+    "expected_pairs": [
+      [
+        0,
+        2
+      ]
+    ],
+    "expected_count": 1,
+    "actual": 1,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000563899\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "indexed_explicit",
+    "algo": "incremental",
+    "expected_pairs": [
+      [
+        0,
+        2
+      ]
+    ],
+    "expected_count": 1,
+    "actual": 1,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000565769\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "indexed_explicit",
+    "algo": "lazy",
+    "expected_pairs": [
+      [
+        0,
+        2
+      ]
+    ],
+    "expected_count": 1,
+    "actual": 1,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000617095\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "indexed_template",
+    "algo": "base",
+    "expected_pairs": [
+      [
+        0,
+        2
+      ]
+    ],
+    "expected_count": 1,
+    "actual": 1,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000746123\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "indexed_template",
+    "algo": "incremental",
+    "expected_pairs": [
+      [
+        0,
+        2
+      ]
+    ],
+    "expected_count": 1,
+    "actual": 1,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000713372\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "indexed_template",
+    "algo": "lazy",
+    "expected_pairs": [
+      [
+        0,
+        2
+      ]
+    ],
+    "expected_count": 1,
+    "actual": 1,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 3 vertices, 2 labels, 2 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 1 complex rules, 1 nonterminals\nAnalysisTime: 0.000571746\n#SEdges: 1\n",
+    "stderr": ""
+  },
+  {
+    "case": "indexed_two_values",
+    "algo": "base",
+    "expected_pairs": [
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 5 vertices, 4 labels, 4 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 2 complex rules, 1 nonterminals\nAnalysisTime: 0.000619405\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "indexed_two_values",
+    "algo": "incremental",
+    "expected_pairs": [
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 5 vertices, 4 labels, 4 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 2 complex rules, 1 nonterminals\nAnalysisTime: 0.000610965\n#SEdges: 2\n",
+    "stderr": ""
+  },
+  {
+    "case": "indexed_two_values",
+    "algo": "lazy",
+    "expected_pairs": [
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "expected_count": 2,
+    "actual": 2,
+    "exit_code": 0,
+    "passed": true,
+    "stdout": "Graph: 5 vertices, 4 labels, 4 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 2 complex rules, 1 nonterminals\nAnalysisTime: 0.000723217\n#SEdges: 2\n",
+    "stderr": ""
+  }
+]

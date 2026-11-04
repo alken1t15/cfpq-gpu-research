@@ -1,0 +1,11 @@
+  PASS  an_bn [base] #SEdges=20
+  PASS  an_bn [incremental] #SEdges=20
+  PASS  an_bn [lazy] #SEdges=20
+  PASS  transitive [base] #SEdges=21
+  PASS  transitive [incremental] #SEdges=21
+  PASS  transitive [lazy] #SEdges=21
+  PASS  indexed_pair [base] #SEdges=1
+  PASS  indexed_pair [incremental] #SEdges=1
+  PASS  indexed_pair [lazy] #SEdges=1
+
+9 passed, 0 failed

@@ -1,0 +1,142 @@
+[
+  {
+    "exit_code": 0,
+    "actual": 6,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.257375\n#SEdges: 6\n",
+    "stderr": "",
+    "graph": "atom",
+    "algo": "base",
+    "expected": 6,
+    "passed": true
+  },
+  {
+    "exit_code": 0,
+    "actual": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.0969812\n#SEdges: 0\n",
+    "stderr": "",
+    "graph": "atom",
+    "algo": "incremental",
+    "expected": 6,
+    "passed": false
+  },
+  {
+    "exit_code": 0,
+    "actual": 6,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.103972\n#SEdges: 6\n",
+    "stderr": "",
+    "graph": "atom",
+    "algo": "lazy",
+    "expected": 6,
+    "passed": true
+  },
+  {
+    "exit_code": 0,
+    "actual": 2223,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 8.01734\n#SEdges: 2223\n",
+    "stderr": "",
+    "graph": "bzip",
+    "algo": "base",
+    "expected": 315,
+    "passed": false
+  },
+  {
+    "exit_code": 0,
+    "actual": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.104889\n#SEdges: 0\n",
+    "stderr": "",
+    "graph": "bzip",
+    "algo": "incremental",
+    "expected": 315,
+    "passed": false
+  },
+  {
+    "exit_code": 0,
+    "actual": 301,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.370843\n#SEdges: 301\n",
+    "stderr": "",
+    "graph": "bzip",
+    "algo": "lazy",
+    "expected": 315,
+    "passed": false
+  },
+  {
+    "exit_code": 0,
+    "actual": 1354,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.446899\n#SEdges: 1354\n",
+    "stderr": "",
+    "graph": "pizza",
+    "algo": "base",
+    "expected": 1356,
+    "passed": false
+  },
+  {
+    "exit_code": 0,
+    "actual": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.0990327\n#SEdges: 0\n",
+    "stderr": "",
+    "graph": "pizza",
+    "algo": "incremental",
+    "expected": 1356,
+    "passed": false
+  },
+  {
+    "exit_code": 0,
+    "actual": 1357,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.123213\n#SEdges: 1357\n",
+    "stderr": "",
+    "graph": "pizza",
+    "algo": "lazy",
+    "expected": 1356,
+    "passed": false
+  },
+  {
+    "exit_code": -6,
+    "actual": null,
+    "stdout": "",
+    "stderr": "terminate called after throwing an instance of 'cubool::TException<(cuBool_Status)4>'\n  what():  \"Failed to deallocate Gpu memory: an illegal memory access was encountered\" in\n/mnt/d/semen_task_avtomat/src/cfra/cuBool/cubool/sources/cuda/cuda_instance.cu: line: 74 function: deallocateOnGpu\n",
+    "graph": "gzip",
+    "algo": "base",
+    "expected": 1458,
+    "passed": false
+  },
+  {
+    "exit_code": 0,
+    "actual": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.113271\n#SEdges: 0\n",
+    "stderr": "",
+    "graph": "gzip",
+    "algo": "incremental",
+    "expected": 1458,
+    "passed": false
+  },
+  {
+    "exit_code": 0,
+    "actual": 1299,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.607549\n#SEdges: 1299\n",
+    "stderr": "",
+    "graph": "gzip",
+    "algo": "lazy",
+    "expected": 1458,
+    "passed": false
+  },
+  {
+    "exit_code": -6,
+    "actual": null,
+    "stdout": "",
+    "stderr": "terminate called after throwing an instance of 'cubool::TException<(cuBool_Status)4>'\n  what():  \"Failed to deallocate Gpu memory: an illegal memory access was encountered\" in\n/mnt/d/semen_task_avtomat/src/cfra/cuBool/cubool/sources/cuda/cuda_instance.cu: line: 74 function: deallocateOnGpu\n",
+    "graph": "luindex",
+    "algo": "base",
+    "expected": 9677,
+    "passed": false
+  },
+  {
+    "exit_code": 0,
+    "actual": 5810,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 22.7084\n#SEdges: 5810\n",
+    "stderr": "",
+    "graph": "luindex",
+    "algo": "incremental",
+    "expected": 9677,
+    "passed": false
+  }
+]

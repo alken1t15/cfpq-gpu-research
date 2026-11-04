@@ -1,0 +1,106 @@
+From db61e32f6046a32f605314e7071b49710e6f1bd3 Mon Sep 17 00:00:00 2001
+From: Alexey Zarubin <alken1t15@gmail.com>
+Date: Wed, 4 Nov 2026 14:23:36 +0300
+Subject: [PATCH] Fix indexed template expansion and document input labels
+
+---
+ README.md                          | 17 +++++++++++++++++
+ ci/test.sh                         |  4 ++++
+ src/grammar/grammar.cpp            |  9 ++++++++-
+ test_data/indexed_pair/grammar.cnf |  3 +++
+ test_data/indexed_pair/graph.txt   |  2 ++
+ 5 files changed, 34 insertions(+), 1 deletion(-)
+ create mode 100644 test_data/indexed_pair/grammar.cnf
+ create mode 100644 test_data/indexed_pair/graph.txt
+
+diff --git a/README.md b/README.md
+index 36194c0..6ce1351 100644
+--- a/README.md
++++ b/README.md
+@@ -100,6 +100,23 @@ PT                      # start nonterminal
+ ```
+ 
+ Symbols ending with `_i` are automatically expanded using indices found in the graph.
++For example, `load_i` and `AS_i` expand to `load_i_3` and `AS_i_3` for index 3.
++The `_i` part is preserved. Indices are discovered from labels matching a grammar
++template followed by `_` and a canonical decimal integer.
++
++The FLPQ_Data archives use a different naming convention. Before using Java
++points-to graphs, convert `load_3` to `load_i_3` and `store_3` to `store_i_3`.
++Add reverse edges and name them `load_r_i_3` and `store_r_i_3`, respectively;
++this matches the grammar templates `load_r_i` and `store_r_i`. Non-indexed
++labels such as `alloc` use the usual reverse name `alloc_r`. Apply the same
++mapping consistently to all indexed labels; do not change the grammar language.
++
++If a grammar contains indexed templates but no matching indices are found,
++CFRA prints a warning to stderr. Execution continues: the graph may legitimately
++have no indexed edges. Indexed rules are then omitted, so check this warning
++before treating the result as an answer for an imported dataset. Finding some
++indices does not guarantee that every label was imported correctly.
++
+ 
+ ## Benchmarking
+ 
+diff --git a/ci/test.sh b/ci/test.sh
+index 75100db..dae161c 100644
+--- a/ci/test.sh
++++ b/ci/test.sh
+@@ -28,6 +28,10 @@ check transitive test_data/transitive_loop/graph.txt test_data/transitive_loop/g
+ check transitive test_data/transitive_loop/graph.txt test_data/transitive_loop/grammar.cnf 21 incremental
+ check transitive test_data/transitive_loop/graph.txt test_data/transitive_loop/grammar.cnf 21 lazy
+ 
++check indexed_pair test_data/indexed_pair/graph.txt test_data/indexed_pair/grammar.cnf 1 base
++check indexed_pair test_data/indexed_pair/graph.txt test_data/indexed_pair/grammar.cnf 1 incremental
++check indexed_pair test_data/indexed_pair/graph.txt test_data/indexed_pair/grammar.cnf 1 lazy
++
+ echo ""
+ echo "$PASS passed, $FAIL failed"
+ [ "$FAIL" -eq 0 ]
+\ No newline at end of file
+diff --git a/src/grammar/grammar.cpp b/src/grammar/grammar.cpp
+index 881fc2c..6acb567 100644
+--- a/src/grammar/grammar.cpp
++++ b/src/grammar/grammar.cpp
+@@ -18,7 +18,7 @@ static bool is_template(const std::string &s) {
+ }
+ 
+ static std::string instantiate(const std::string& symbol, int index) {
+-    return symbol.substr(0, symbol.size() - 1) + std::to_string(index);
++    return symbol + "_" + std::to_string(index);
+ }
+ 
+ TemplateGrammar TemplateGrammar::load(const std::string &path) {
+@@ -104,6 +104,13 @@ CnfGrammar CnfGrammar::expand(const TemplateGrammar& tmpl,
+         }
+     }
+ 
++    if (!template_syms.empty() && indices.empty()) {
++        std::cerr << "Warning: grammar contains indexed templates, but no matching "
++                     "graph-label indices were found. Indexed rules will not be expanded. "
++                     "Expected labels such as load_i_3 for template load_i; "
++                     "check the input label format.\n";
++    }
++
+     auto expand_sym = [](const std::string& sym, int idx) -> std::string {
+         return is_template(sym) ? instantiate(sym, idx) : sym;
+     };
+diff --git a/test_data/indexed_pair/grammar.cnf b/test_data/indexed_pair/grammar.cnf
+new file mode 100644
+index 0000000..af58193
+--- /dev/null
++++ b/test_data/indexed_pair/grammar.cnf
+@@ -0,0 +1,3 @@
++S open_i close_i
++Count:
++S
+diff --git a/test_data/indexed_pair/graph.txt b/test_data/indexed_pair/graph.txt
+new file mode 100644
+index 0000000..82231f6
+--- /dev/null
++++ b/test_data/indexed_pair/graph.txt
+@@ -0,0 +1,2 @@
++0 1 open_i_3
++1 2 close_i_3
+-- 
+2.46.0.windows.1
+
