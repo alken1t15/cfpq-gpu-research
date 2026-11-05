@@ -1,0 +1,59 @@
+add_executable(test_library_api test_library_api.cpp)
+target_link_libraries(test_library_api PUBLIC testing)
+
+add_executable(test_matrix_setup test_matrix_setup.cpp)
+target_link_libraries(test_matrix_setup PUBLIC testing)
+
+add_executable(test_matrix_element test_matrix_element.cpp)
+target_link_libraries(test_matrix_element PUBLIC testing)
+
+add_executable(test_matrix_misc test_matrix_misc.cpp)
+target_link_libraries(test_matrix_misc PUBLIC testing)
+
+add_executable(test_matrix_transpose test_matrix_transpose.cpp)
+target_link_libraries(test_matrix_transpose PUBLIC testing)
+
+add_executable(test_matrix_sub_matrix test_matrix_sub_matrix.cpp)
+target_link_libraries(test_matrix_sub_matrix PUBLIC testing)
+
+add_executable(test_matrix_extract_vector test_matrix_extract_vector.cpp)
+target_link_libraries(test_matrix_extract_vector PUBLIC testing)
+
+add_executable(test_matrix_reduce test_matrix_reduce.cpp)
+target_link_libraries(test_matrix_reduce PUBLIC testing)
+
+add_executable(test_matrix_mxm test_matrix_mxm.cpp)
+target_link_libraries(test_matrix_mxm PUBLIC testing)
+
+add_executable(test_matrix_kronecker test_matrix_kronecker.cpp)
+target_link_libraries(test_matrix_kronecker PUBLIC testing)
+
+add_executable(test_matrix_ewiseadd test_matrix_ewiseadd.cpp)
+target_link_libraries(test_matrix_ewiseadd PUBLIC testing)
+
+add_executable(test_matrix_ewisemult test_matrix_ewisemult.cpp)
+target_link_libraries(test_matrix_ewisemult PUBLIC testing)
+
+add_executable(test_matrix_ewisemult_inverted test_matrix_ewisemult_inverted.cpp)
+target_link_libraries(test_matrix_ewisemult_inverted PUBLIC testing)
+
+add_executable(test_vector_misc test_vector_misc.cpp)
+target_link_libraries(test_vector_misc PUBLIC testing)
+
+add_executable(test_vector_element test_vector_element.cpp)
+target_link_libraries(test_vector_element PUBLIC testing)
+
+add_executable(test_vector_ewiseadd test_vector_ewiseadd.cpp)
+target_link_libraries(test_vector_ewiseadd PUBLIC testing)
+
+add_executable(test_vector_ewisemult test_vector_ewisemult.cpp)
+target_link_libraries(test_vector_ewisemult PUBLIC testing)
+
+add_executable(test_vector_mxv test_vector_mxv.cpp)
+target_link_libraries(test_vector_mxv PUBLIC testing)
+
+add_executable(test_vector_vxm test_vector_vxm.cpp)
+target_link_libraries(test_vector_vxm PUBLIC testing)
+
+add_executable(test_vector_sub_vector test_vector_sub_vector.cpp)
+target_link_libraries(test_vector_sub_vector PUBLIC testing)

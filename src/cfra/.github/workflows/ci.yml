@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main, feature]
+  pull_request:
+    branches: [main, feature]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          submodules: recursive
+
+      - name: Build
+        run: |
+          cmake -B build -S . \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCUBOOL_WITH_CUDA=OFF \
+            -DCUBOOL_COPY_TO_PY_PACKAGE=OFF \
+            -DCUBOOL_BUILD_TESTS=OFF
+          cmake --build build -j$(nproc)
+
+      - name: Test
+        run: bash ci/test.sh

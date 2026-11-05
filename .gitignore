@@ -1,5 +1,6 @@
 # Вложенный репозиторий с собственной историей
-/src/cfra/
+/src/cfra/build*/
+/src/cfra/cuBool/python/data/
 
 # Большие входы и локальные сборки
 /data/
@@ -25,3 +26,4 @@ perf.data.old
 /docs/NEW_CHAT.md
 /docs/STATE.md
 /docs/TEACHER_REQUIREMENTS.md
+
