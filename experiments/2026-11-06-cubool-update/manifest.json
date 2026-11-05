@@ -1,0 +1,16 @@
+{
+  "cubool_fork": "https://github.com/vano105/cuBool",
+  "cubool_sha": "37ccfd818f3bc9c5cb6483a2e76fc73ee93a01f3",
+  "gpu_only": true,
+  "sha256": {
+    "build/gpu-cubool-pr19/cuBool/cubool/libcubool.so": "8c7975ec1c4fec6bc1f06d26c9c8b125bf62a84873c22c3d2779cecefcca35d5",
+    "build/gpu-cubool-pr19/cfra": "e0c1063ff9e699c8303bee23ab5a02a25c77e884ef42266e6d4f66c81e2c33cd"
+  },
+  "primitive_command": [
+    "/usr/bin/python3",
+    "/mnt/d/semen_task_avtomat/scripts/probe-matrix-primitives.py",
+    "/mnt/d/semen_task_avtomat/build/gpu-cubool-pr19/cuBool/cubool/libcubool.so",
+    "--gpu"
+  ],
+  "primitive_exit_code": 1
+}

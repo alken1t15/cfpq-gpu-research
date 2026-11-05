@@ -1,0 +1,698 @@
+{
+  "library": "/mnt/d/semen_task_avtomat/build/gpu-cubool-pr19/cuBool/cubool/libcubool.so",
+  "gpu": true,
+  "total": 24,
+  "passed": 23,
+  "results": [
+    {
+      "operation": "cuBool_Matrix_EWiseAdd",
+      "a": [],
+      "b": [],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMult",
+      "a": [],
+      "b": [],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMulInverted",
+      "a": [],
+      "b": [],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_MxM",
+      "a": [],
+      "b": [],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseAdd",
+      "a": [
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [],
+      "expected": [
+        [
+          0,
+          1
+        ]
+      ],
+      "actual": [
+        [
+          0,
+          1
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMult",
+      "a": [
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMulInverted",
+      "a": [
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [],
+      "expected": [
+        [
+          0,
+          1
+        ]
+      ],
+      "actual": [
+        [
+          0,
+          1
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_MxM",
+      "a": [
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseAdd",
+      "a": [],
+      "b": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ]
+      ],
+      "actual": [
+        [
+          1,
+          2
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMult",
+      "a": [],
+      "b": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMulInverted",
+      "a": [],
+      "b": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_MxM",
+      "a": [],
+      "b": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseAdd",
+      "a": [
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "actual": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMult",
+      "a": [
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMulInverted",
+      "a": [
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ]
+      ],
+      "actual": [
+        [
+          0,
+          1
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_MxM",
+      "a": [
+        [
+          0,
+          1
+        ]
+      ],
+      "b": [
+        [
+          1,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          2
+        ]
+      ],
+      "actual": [
+        [
+          0,
+          2
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseAdd",
+      "a": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "b": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "actual": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMult",
+      "a": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "b": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1
+        ]
+      ],
+      "actual": [
+        [
+          0,
+          1
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMulInverted",
+      "a": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "b": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2
+        ]
+      ],
+      "actual": [
+        [
+          1,
+          2
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_MxM",
+      "a": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "b": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseAdd",
+      "a": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "b": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "actual": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMult",
+      "a": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "b": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "actual": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_Matrix_EWiseMulInverted",
+      "a": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "b": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "actual": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "operation": "cuBool_MxM",
+      "a": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "b": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "actual": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "passed": false
+    }
+  ]
+}

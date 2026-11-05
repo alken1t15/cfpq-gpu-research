@@ -1,0 +1,56 @@
+[
+  {
+    "algorithm": "base",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-cubool-pr19/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "base"
+    ],
+    "exit_code": 0,
+    "expected": 6,
+    "actual": 6,
+    "passed": true,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.185309\n#SEdges: 6\n",
+    "stderr": ""
+  },
+  {
+    "algorithm": "incremental",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-cubool-pr19/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "exit_code": 0,
+    "expected": 6,
+    "actual": 6,
+    "passed": true,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.171465\n#SEdges: 6\n",
+    "stderr": ""
+  },
+  {
+    "algorithm": "lazy",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-cubool-pr19/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "exit_code": 0,
+    "expected": 6,
+    "actual": 6,
+    "passed": true,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.166051\n#SEdges: 6\n",
+    "stderr": ""
+  }
+]
