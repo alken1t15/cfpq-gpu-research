@@ -1,0 +1,80 @@
+[
+  {
+    "variant": "baseline",
+    "command": [
+      "/usr/local/cuda-12.4/bin/nvcc",
+      "-ccbin",
+      "/usr/bin/g++-11",
+      "-std=c++14",
+      "-O3",
+      "-arch=sm_86",
+      "--expt-extended-lambda",
+      "--expt-relaxed-constexpr",
+      "-I/mnt/d/semen_task_avtomat/build/mxm-diagnosis/baseline",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/cuBool/deps/nsparse-um/include",
+      "/mnt/d/semen_task_avtomat/experiments/2026-11-06-mxm-diagnosis/count-probe.cu",
+      "-o",
+      "/mnt/d/semen_task_avtomat/build/mxm-diagnosis/baseline/probe"
+    ],
+    "compile_exit": 0,
+    "compile_stderr": "",
+    "header_sha256": "1285312d762ae639a9fd6d52f753a1c33f6b05e0d0b8c26ad1619a82b5e8d62c",
+    "exit_code": 0,
+    "stdout": "[0,2,1]\n[0,2,1]\n[0,2,1]\n[0,2,1]\n[0,2,1]\n",
+    "stderr": "",
+    "expected": "[0,2,3]",
+    "passed": false
+  },
+  {
+    "variant": "sync_before_mask",
+    "command": [
+      "/usr/local/cuda-12.4/bin/nvcc",
+      "-ccbin",
+      "/usr/bin/g++-11",
+      "-std=c++14",
+      "-O3",
+      "-arch=sm_86",
+      "--expt-extended-lambda",
+      "--expt-relaxed-constexpr",
+      "-I/mnt/d/semen_task_avtomat/build/mxm-diagnosis/sync_before_mask",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/cuBool/deps/nsparse-um/include",
+      "/mnt/d/semen_task_avtomat/experiments/2026-11-06-mxm-diagnosis/count-probe.cu",
+      "-o",
+      "/mnt/d/semen_task_avtomat/build/mxm-diagnosis/sync_before_mask/probe"
+    ],
+    "compile_exit": 0,
+    "compile_stderr": "",
+    "header_sha256": "cd24151362dd511ebd5adec8ffbe6177f656c5763567d402d632f6bc4739b34f",
+    "exit_code": 0,
+    "stdout": "[0,2,3]\n[0,2,3]\n[0,2,3]\n[0,2,3]\n[0,2,3]\n",
+    "stderr": "",
+    "expected": "[0,2,3]",
+    "passed": true
+  },
+  {
+    "variant": "early_mask",
+    "command": [
+      "/usr/local/cuda-12.4/bin/nvcc",
+      "-ccbin",
+      "/usr/bin/g++-11",
+      "-std=c++14",
+      "-O3",
+      "-arch=sm_86",
+      "--expt-extended-lambda",
+      "--expt-relaxed-constexpr",
+      "-I/mnt/d/semen_task_avtomat/build/mxm-diagnosis/early_mask",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/cuBool/deps/nsparse-um/include",
+      "/mnt/d/semen_task_avtomat/experiments/2026-11-06-mxm-diagnosis/count-probe.cu",
+      "-o",
+      "/mnt/d/semen_task_avtomat/build/mxm-diagnosis/early_mask/probe"
+    ],
+    "compile_exit": 0,
+    "compile_stderr": "",
+    "header_sha256": "7ad331f77451c5aaf11984c23e64fe96fc19868021b2afd35dffd48a35fbc9c2",
+    "exit_code": 0,
+    "stdout": "[0,2,3]\n[0,2,3]\n[0,2,3]\n[0,2,3]\n[0,2,3]\n",
+    "stderr": "",
+    "expected": "[0,2,3]",
+    "passed": true
+  }
+]

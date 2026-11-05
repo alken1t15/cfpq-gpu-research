@@ -1,0 +1,28 @@
+{
+  "baseline_sha256": "8c7975ec1c4fec6bc1f06d26c9c8b125bf62a84873c22c3d2779cecefcca35d5",
+  "trial_sha256": "4e9db6c03c89d50fe31aa24f638d064c703da45f6802e883800975f8aeb6ae17",
+  "source_commit": "4c74a2d25aa31eef2a9bdfcca0c49c2003a8939a",
+  "commands": [
+    {
+      "name": "primitive-trial",
+      "command": [
+        "python3",
+        "/mnt/d/semen_task_avtomat/scripts/probe-matrix-primitives.py",
+        "/mnt/d/semen_task_avtomat/build/mxm-diagnosis/libcubool.so",
+        "--gpu"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "matrix-trial",
+      "command": [
+        "python3",
+        "/mnt/d/semen_task_avtomat/scripts/check-cubool-mxm-pairs.py",
+        "/mnt/d/semen_task_avtomat/build/mxm-diagnosis/libcubool.so",
+        "--gpu",
+        "--collect-failures"
+      ],
+      "exit_code": 1
+    }
+  ]
+}

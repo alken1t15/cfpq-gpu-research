@@ -1,0 +1,19 @@
+--- a/deps/nsparse-um/include/nsparse/detail/count_nz.cuh
++++ b/deps/nsparse-um/include/nsparse/detail/count_nz.cuh
+@@ -149,6 +149,7 @@
+ 
+   rid = rows_in_bins[rid];  // permutation
+   T nz = 0;
++  auto stable_mask = __activemask();
+ 
+   for (T j = rpt_a[rid] + i; j < rpt_a[rid + 1]; j += pwarp) {
+     T a_col = col_a[j];
+@@ -176,7 +177,7 @@
+     }
+   }
+ 
+-  auto mask = __activemask();
++  auto mask = stable_mask;
+   for (auto j = pwarp / 2; j >= 1; j /= 2) {
+     nz += __shfl_xor_sync(mask, nz, j);
+   }

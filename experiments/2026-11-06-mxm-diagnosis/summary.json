@@ -1,0 +1,27 @@
+[
+  {
+    "version": "baseline",
+    "passed": 592,
+    "total": 864,
+    "failures_by_alias_accumulate": {
+      "('left', False)": 82,
+      "('right', False)": 82,
+      "('both', False)": 78,
+      "('both', True)": 6,
+      "('distinct', False)": 8,
+      "('distinct', True)": 6,
+      "('left', True)": 6,
+      "('right', True)": 4
+    }
+  },
+  {
+    "version": "trial",
+    "passed": 622,
+    "total": 864,
+    "failures_by_alias_accumulate": {
+      "('left', False)": 82,
+      "('right', False)": 82,
+      "('both', False)": 78
+    }
+  }
+]
