@@ -1,0 +1,2 @@
+[ perf record: Woken up 84 times to write data ]
+[ perf record: Captured and wrote 21.048 MB /mnt/d/semen_task_avtomat/build/gpu-host-profile/perf.data (5070 samples) ]

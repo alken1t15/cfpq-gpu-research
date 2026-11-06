@@ -1,0 +1,24 @@
+[
+  {
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 223.566\n#SEdges: 9677\n",
+    "stderr": "",
+    "run": 0,
+    "warmup": true,
+    "wall_seconds": 224.85573109899997,
+    "actual_pairs": 9677,
+    "analysis_seconds": 223.566,
+    "passed": true
+  },
+  {
+    "status": "timeout",
+    "stdout": "",
+    "stderr": "",
+    "run": 1,
+    "warmup": false,
+    "wall_seconds": 300.37149140299994,
+    "actual_pairs": null,
+    "analysis_seconds": null,
+    "passed": false
+  }
+]

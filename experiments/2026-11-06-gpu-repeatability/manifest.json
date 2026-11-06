@@ -1,0 +1,23 @@
+{
+  "source_head": "6ee19232a079f0a85e211fbce8514f59040e0891",
+  "hashes": {
+    "build/gpu-row-mask-integrated/cfra": "de06920c26ce8fd4d85c6e071d7e140ad14835bb96e0acaa6db60083a7297222",
+    "build/gpu-row-mask-integrated/cuBool/cubool/libcubool.so": "7e9ad798af460cdb0a3ea7a3c9082ac07fe519d5591a866ee11f0fe3e9948c23",
+    "data/trial-catalog/luindex/cfra-graph.txt": "12b3a475bf86953838b29a7a9d20e5b602c9e2fce12e727b42a03499345b65c3",
+    "data/trial-catalog/luindex/java_points_to.cnf": "179f94c638f4f5945e33f15224d6bae8ac0c1acb03b633939d55c6983b75809a"
+  },
+  "command": [
+    "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+    "--graph",
+    "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/cfra-graph.txt",
+    "--grammar",
+    "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/java_points_to.cnf",
+    "--algo",
+    "incremental"
+  ],
+  "timeout_seconds": 300,
+  "warmup_processes": 1,
+  "measured_processes": 2,
+  "scope": "Full subprocess wall time including startup, input, CUDA initialization, analysis, output and finalize",
+  "note": "Fresh process each time; warmup warms system caches, not an in-process CUDA context. Preliminary sample, not a stable performance baseline."
+}
