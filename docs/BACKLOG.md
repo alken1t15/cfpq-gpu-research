@@ -77,3 +77,12 @@
 - [ ] Запустить ComputeSanitizer в поддерживаемом окружении; здесь WDDM debugger interface не инициализируется.
 - [x] Проверить guard после count+fill:исходный logical_size3при5записях меняет2guard-ячейки; fixedmask logical_size5,guardцел. Повторено5разнаобеихверсиях.
 - [x] Изолированно перенести tile creation до return:trial138/138, без нового отличия от mask-only. Отдельный сбой старого варианта не воспроизведён; кандидат не интегрирован.
+
+## Интеграция row mask — 2026-11-06
+
+- [x] Интегрировать explicit mask без alias/tile; полная новая CUDA-only сборка cfra и test_matrix_mxm прошла.
+- [x] Новая сборка: C++ 2/2, примитивы 24/24, границы 138/138; alias diagnostics 622/864, все 242 ошибки только nonaccumulate alias.
+- [x] Внешний каталог 13/13, включая luindex/incremental: 9677, exit0 при лимите 180 с (AnalysisTime 170.584, один запуск, не baseline).
+- [ ] Снять профиль luindex и повторяемость перед GPU performance baseline; согласовать alias-контракт отдельно.
+
+Протокол: experiments/2026-11-06-row-mask-integration. Предыдущие пункты об отсутствии интеграции/непроверенном luindex являются историческими. Создание tile уже проверено отдельным отрицательным экспериментом; отдельный сбой не воспроизведён.

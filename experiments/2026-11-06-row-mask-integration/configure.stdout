@@ -1,0 +1,8 @@
+-- Build cubool in release mode
+-- Add nsparse library as crs matrix multiplication backend
+-- Add googletest as unit-testing library
+-- Add CUDA backend for GPGPU computations
+-- Add unit tests directory to the project
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated

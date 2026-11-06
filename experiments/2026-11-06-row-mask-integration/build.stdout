@@ -1,0 +1,60 @@
+Consolidate compiler generated dependencies of target cubool
+[  0%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_Reduce2.cpp.o
+[  1%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_EWiseAdd.cpp.o
+[  3%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_EWiseMult.cpp.o
+[  4%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Matrix_EWiseMultInverted.cpp.o
+[  6%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_New.cpp.o
+[  6%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Build.cpp.o
+[  8%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_SetElement.cpp.o
+[  9%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_SetMarker.cpp.o
+[ 11%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Marker.cpp.o
+[ 13%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_ExtractValues.cpp.o
+[ 13%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_ExtractSubVector.cpp.o
+[ 14%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Duplicate.cpp.o
+[ 16%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Nvals.cpp.o
+[ 18%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Nrows.cpp.o
+[ 19%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Free.cpp.o
+[ 19%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_Reduce.cpp.o
+[ 21%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_EWiseAdd.cpp.o
+[ 22%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Vector_EWiseMult.cpp.o
+[ 24%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_MxM.cpp.o
+[ 26%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_MxV.cpp.o
+[ 26%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_VxM.cpp.o
+[ 27%] Building CXX object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuBool_Kronecker.cpp.o
+[ 29%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_backend.cu.o
+[ 31%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_instance.cu.o
+[ 32%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_matrix.cu.o
+[ 32%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_matrix_ewiseadd.cu.o
+[ 34%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_matrix_ewisemult.cu.o
+[ 36%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_matrix_ewisemult_inverted.cu.o
+[ 37%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_matrix_kronecker.cu.o
+[ 37%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_matrix_multiply.cu.o
+[ 39%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_matrix_transpose.cu.o
+[ 40%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_matrix_reduce.cu.o
+[ 42%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_matrix_extract_sub_matrix.cu.o
+[ 44%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_vector.cu.o
+[ 44%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_vector_mxv.cu.o
+[ 45%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_vector_vxm.cu.o
+[ 47%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_vector_ewiseadd.cu.o
+[ 49%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_vector_ewisemult.cu.o
+[ 50%] Building CUDA object cuBool/cubool/CMakeFiles/cubool.dir/sources/cuda/cuda_vector_reduce.cu.o
+[ 50%] Linking CXX shared library libcubool.so
+[ 88%] Built target cubool
+[ 88%] Building CXX object CMakeFiles/cfra.dir/src/main.cpp.o
+[ 90%] Building CXX object CMakeFiles/cfra.dir/src/grammar/grammar.cpp.o
+[ 91%] Building CXX object CMakeFiles/cfra.dir/src/graph/graph.cpp.o
+[ 93%] Building CXX object CMakeFiles/cfra.dir/src/base_algo/base_algo.cpp.o
+[ 93%] Building CXX object CMakeFiles/cfra.dir/src/matrix_store/matrix_store.cpp.o
+[ 95%] Building CXX object CMakeFiles/cfra.dir/src/incremental_algo/incremental_algo.cpp.o
+[ 96%] Building CXX object CMakeFiles/cfra.dir/src/lazy_algo/lazy_algo.cpp.o
+[ 98%] Building CXX object CMakeFiles/cfra.dir/src/lazy_algo/chunked_store.cpp.o
+[100%] Linking CXX executable cfra
+[100%] Built target cfra
+[  0%] Building CXX object cuBool/deps/gtest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+Consolidate compiler generated dependencies of target cubool
+[ 94%] Built target cubool
+[ 96%] Linking CXX static library ../../../../lib/libgtest.a
+[ 96%] Built target gtest
+[ 98%] Building CXX object cuBool/cubool/tests/CMakeFiles/test_matrix_mxm.dir/test_matrix_mxm.cpp.o
+[100%] Linking CXX executable test_matrix_mxm
+[100%] Built target test_matrix_mxm

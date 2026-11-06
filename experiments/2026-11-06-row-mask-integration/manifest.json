@@ -1,0 +1,275 @@
+{
+  "source_head": "6100ad1b1d965111bf6486434eecb73347c3411d",
+  "commands": [
+    {
+      "name": "configure",
+      "command": [
+        "cmake",
+        "-S",
+        "/mnt/d/semen_task_avtomat/src/cfra",
+        "-B",
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_C_COMPILER=gcc-13",
+        "-DCMAKE_CXX_COMPILER=g++-13",
+        "-DCMAKE_CUDA_COMPILER=/usr/local/cuda-12.4/bin/nvcc",
+        "-DCMAKE_CUDA_HOST_COMPILER=/usr/bin/g++-11",
+        "-DCMAKE_CUDA_ARCHITECTURES=86",
+        "-DCUBOOL_WITH_CUDA=ON",
+        "-DCUBOOL_WITH_SEQUENTIAL=OFF",
+        "-DCUBOOL_BUILD_TESTS=ON",
+        "-DCUBOOL_COPY_TO_PY_PACKAGE=OFF"
+      ],
+      "timeout_seconds": 300,
+      "exit_code": 0
+    },
+    {
+      "name": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated",
+        "--target",
+        "cfra",
+        "test_matrix_mxm",
+        "-j2"
+      ],
+      "timeout_seconds": 1200,
+      "exit_code": 0
+    },
+    {
+      "name": "cpp-regression",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cuBool/cubool/tests/test_matrix_mxm",
+        "--gtest_filter=cuBool_Matrix.MultiplyDivergentSmallRows:cuBool_Matrix.MultiplySmall"
+      ],
+      "timeout_seconds": 180,
+      "exit_code": 0
+    },
+    {
+      "name": "primitives",
+      "command": [
+        "/usr/bin/python3",
+        "/mnt/d/semen_task_avtomat/scripts/probe-matrix-primitives.py",
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cuBool/cubool/libcubool.so",
+        "--gpu"
+      ],
+      "timeout_seconds": 120,
+      "exit_code": 0
+    },
+    {
+      "name": "boundaries",
+      "command": [
+        "/usr/bin/python3",
+        "/mnt/d/semen_task_avtomat/scripts/check-gpu-mxm-boundaries.py",
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cuBool/cubool/libcubool.so",
+        "/mnt/d/semen_task_avtomat/experiments/2026-11-06-row-mask-integration/boundaries.json"
+      ],
+      "timeout_seconds": 180,
+      "exit_code": 0
+    },
+    {
+      "name": "matrix-alias-diagnostics",
+      "command": [
+        "/usr/bin/python3",
+        "/mnt/d/semen_task_avtomat/scripts/check-cubool-mxm-pairs.py",
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cuBool/cubool/libcubool.so",
+        "--gpu",
+        "--collect-failures"
+      ],
+      "timeout_seconds": 180,
+      "exit_code": 1
+    },
+    {
+      "name": "atom-base",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+        "--algo",
+        "base"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "atom-incremental",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+        "--algo",
+        "incremental"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "atom-lazy",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+        "--algo",
+        "lazy"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "bzip-base",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/c_alias.cnf",
+        "--algo",
+        "base"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "bzip-incremental",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/c_alias.cnf",
+        "--algo",
+        "incremental"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "bzip-lazy",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/c_alias.cnf",
+        "--algo",
+        "lazy"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "pizza-base",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+        "--algo",
+        "base"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "pizza-incremental",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+        "--algo",
+        "incremental"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "pizza-lazy",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+        "--algo",
+        "lazy"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "gzip-base",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/c_alias.cnf",
+        "--algo",
+        "base"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "gzip-incremental",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/c_alias.cnf",
+        "--algo",
+        "incremental"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "gzip-lazy",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/c_alias.cnf",
+        "--algo",
+        "lazy"
+      ],
+      "timeout_seconds": 60,
+      "exit_code": 0
+    },
+    {
+      "name": "luindex-incremental",
+      "command": [
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+        "--graph",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/cfra-graph.txt",
+        "--grammar",
+        "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/java_points_to.cnf",
+        "--algo",
+        "incremental"
+      ],
+      "timeout_seconds": 180,
+      "exit_code": 0
+    }
+  ],
+  "gpu_only": true,
+  "source_sha256": {
+    "src/cfra/cuBool/deps/nsparse-um/include/nsparse/detail/count_nz.cuh": "325ed1a3ec3b1543b99496ec7f196b2caa98d40f0e2c5c6c73715cc0e641c88b",
+    "src/cfra/cuBool/cubool/tests/test_matrix_mxm.cpp": "b3cb9744f1c5c93c7997abbdf939f9023bf92f98f20eb743ad25bf45dd9f00ad"
+  },
+  "binary_sha256": {
+    "build/gpu-row-mask-integrated/cuBool/cubool/libcubool.so": "7e9ad798af460cdb0a3ea7a3c9082ac07fe519d5591a866ee11f0fe3e9948c23",
+    "build/gpu-row-mask-integrated/cfra": "de06920c26ce8fd4d85c6e071d7e140ad14835bb96e0acaa6db60083a7297222"
+  }
+}

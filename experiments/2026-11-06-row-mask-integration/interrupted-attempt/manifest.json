@@ -1,0 +1,32 @@
+{
+  "source_head": "6100ad1b1d965111bf6486434eecb73347c3411d",
+  "commands": [
+    {
+      "name": "configure",
+      "command": [
+        "cmake",
+        "-S",
+        "/mnt/d/semen_task_avtomat/src/cfra",
+        "-B",
+        "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_C_COMPILER=gcc-13",
+        "-DCMAKE_CXX_COMPILER=g++-13",
+        "-DCMAKE_CUDA_COMPILER=/usr/local/cuda-12.4/bin/nvcc",
+        "-DCMAKE_CUDA_HOST_COMPILER=/usr/bin/g++-11",
+        "-DCMAKE_CUDA_ARCHITECTURES=86",
+        "-DCUBOOL_WITH_CUDA=ON",
+        "-DCUBOOL_WITH_SEQUENTIAL=OFF",
+        "-DCUBOOL_BUILD_TESTS=ON",
+        "-DCUBOOL_COPY_TO_PY_PACKAGE=OFF"
+      ],
+      "timeout_seconds": 300,
+      "exit_code": 0
+    }
+  ],
+  "gpu_only": true,
+  "source_sha256": {
+    "src/cfra/cuBool/deps/nsparse-um/include/nsparse/detail/count_nz.cuh": "325ed1a3ec3b1543b99496ec7f196b2caa98d40f0e2c5c6c73715cc0e641c88b",
+    "src/cfra/cuBool/cubool/tests/test_matrix_mxm.cpp": "b3cb9744f1c5c93c7997abbdf939f9023bf92f98f20eb743ad25bf45dd9f00ad"
+  }
+}

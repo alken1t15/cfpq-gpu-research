@@ -1,0 +1,5 @@
+Observed during integrated luindex run (ps etime 01:28):
+PID 1401, CPU 97.6%, RSS 1.7% (ps pmem), process cfra --algo incremental.
+nvidia-smi: RTX 3060 Laptop, driver 621.01, GPU utilization 31%, memory.used 461 MiB.
+This single snapshot is not a profile and does not establish forward progress, a hang, or a bottleneck.
+Commands: ps -eo pid,etime,pcpu,pmem,args; nvidia-smi --query-gpu=name,driver_version,utilization.gpu,memory.used --format=csv

@@ -1,0 +1,13 @@
+Note: Google Test filter = cuBool_Matrix.MultiplyDivergentSmallRows:cuBool_Matrix.MultiplySmall
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from cuBool_Matrix
+[ RUN      ] cuBool_Matrix.MultiplyDivergentSmallRows
+[       OK ] cuBool_Matrix.MultiplyDivergentSmallRows (1795 ms)
+[ RUN      ] cuBool_Matrix.MultiplySmall
+[       OK ] cuBool_Matrix.MultiplySmall (38 ms)
+[----------] 2 tests from cuBool_Matrix (1833 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (1833 ms total)
+[  PASSED  ] 2 tests.

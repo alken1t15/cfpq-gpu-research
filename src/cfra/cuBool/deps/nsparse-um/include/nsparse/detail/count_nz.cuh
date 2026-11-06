@@ -176,9 +176,13 @@ __global__ void count_nz_pwarp_row(
     }
   }
 
-  auto mask = __activemask();
+  static_assert(pwarp > 0 && pwarp <= 32 && (pwarp & (pwarp - 1)) == 0);
+  // A row owns a complete, aligned group of pwarp lanes. All of its lanes
+  // either return together above or participate in this reduction.
+  const unsigned mask = (0xffffffffu >> (32 - pwarp))
+                        << ((threadIdx.x % 32) / pwarp * pwarp);
   for (auto j = pwarp / 2; j >= 1; j /= 2) {
-    nz += __shfl_xor_sync(mask, nz, j);
+    nz += __shfl_xor_sync(mask, nz, j, pwarp);
   }
 
   if (i == 0) {

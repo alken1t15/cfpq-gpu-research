@@ -1,0 +1,2079 @@
+{
+  "library": "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cuBool/cubool/libcubool.so",
+  "sha256": "7e9ad798af460cdb0a3ea7a3c9082ac07fe519d5591a866ee11f0fe3e9948c23",
+  "seed": 20261106,
+  "passed": 138,
+  "total": 138,
+  "results": [
+    {
+      "case": "rows-1",
+      "shape": [
+        1,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 20,
+      "actual_count": 20,
+      "actual_nvals": 20,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-1",
+      "shape": [
+        1,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 21,
+      "actual_count": 21,
+      "actual_nvals": 21,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-2",
+      "shape": [
+        2,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 53,
+      "actual_count": 53,
+      "actual_nvals": 53,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-2",
+      "shape": [
+        2,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 53,
+      "actual_count": 53,
+      "actual_nvals": 53,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-3",
+      "shape": [
+        3,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 65,
+      "actual_count": 65,
+      "actual_nvals": 65,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-3",
+      "shape": [
+        3,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 66,
+      "actual_count": 66,
+      "actual_nvals": 66,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-7",
+      "shape": [
+        7,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 164,
+      "actual_count": 164,
+      "actual_nvals": 164,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-7",
+      "shape": [
+        7,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 166,
+      "actual_count": 166,
+      "actual_nvals": 166,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-8",
+      "shape": [
+        8,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 198,
+      "actual_count": 198,
+      "actual_nvals": 198,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-8",
+      "shape": [
+        8,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 199,
+      "actual_count": 199,
+      "actual_nvals": 199,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-9",
+      "shape": [
+        9,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 124,
+      "actual_count": 124,
+      "actual_nvals": 124,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-9",
+      "shape": [
+        9,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 125,
+      "actual_count": 125,
+      "actual_nvals": 125,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-31",
+      "shape": [
+        31,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 635,
+      "actual_count": 635,
+      "actual_nvals": 635,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-31",
+      "shape": [
+        31,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 635,
+      "actual_count": 635,
+      "actual_nvals": 635,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-32",
+      "shape": [
+        32,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 660,
+      "actual_count": 660,
+      "actual_nvals": 660,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-32",
+      "shape": [
+        32,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 661,
+      "actual_count": 661,
+      "actual_nvals": 661,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-33",
+      "shape": [
+        33,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 702,
+      "actual_count": 702,
+      "actual_nvals": 702,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-33",
+      "shape": [
+        33,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 702,
+      "actual_count": 702,
+      "actual_nvals": 702,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-63",
+      "shape": [
+        63,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 1537,
+      "actual_count": 1537,
+      "actual_nvals": 1537,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-63",
+      "shape": [
+        63,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 1538,
+      "actual_count": 1538,
+      "actual_nvals": 1538,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-64",
+      "shape": [
+        64,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 1388,
+      "actual_count": 1388,
+      "actual_nvals": 1388,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-64",
+      "shape": [
+        64,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 1389,
+      "actual_count": 1389,
+      "actual_nvals": 1389,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-65",
+      "shape": [
+        65,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 1652,
+      "actual_count": 1652,
+      "actual_nvals": 1652,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-65",
+      "shape": [
+        65,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 1652,
+      "actual_count": 1652,
+      "actual_nvals": 1652,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-127",
+      "shape": [
+        127,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 2939,
+      "actual_count": 2939,
+      "actual_nvals": 2939,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-127",
+      "shape": [
+        127,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 2940,
+      "actual_count": 2940,
+      "actual_nvals": 2940,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-128",
+      "shape": [
+        128,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 3067,
+      "actual_count": 3067,
+      "actual_nvals": 3067,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-128",
+      "shape": [
+        128,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 3068,
+      "actual_count": 3068,
+      "actual_nvals": 3068,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-129",
+      "shape": [
+        129,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 2891,
+      "actual_count": 2891,
+      "actual_nvals": 2891,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "rows-129",
+      "shape": [
+        129,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 2892,
+      "actual_count": 2892,
+      "actual_nvals": 2892,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-1",
+      "shape": [
+        3,
+        2,
+        1
+      ],
+      "accumulate": false,
+      "expected_count": 3,
+      "actual_count": 3,
+      "actual_nvals": 3,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-1",
+      "shape": [
+        3,
+        2,
+        1
+      ],
+      "accumulate": true,
+      "expected_count": 3,
+      "actual_count": 3,
+      "actual_nvals": 3,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-2",
+      "shape": [
+        3,
+        2,
+        2
+      ],
+      "accumulate": false,
+      "expected_count": 6,
+      "actual_count": 6,
+      "actual_nvals": 6,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-2",
+      "shape": [
+        3,
+        2,
+        2
+      ],
+      "accumulate": true,
+      "expected_count": 6,
+      "actual_count": 6,
+      "actual_nvals": 6,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-3",
+      "shape": [
+        3,
+        2,
+        3
+      ],
+      "accumulate": false,
+      "expected_count": 9,
+      "actual_count": 9,
+      "actual_nvals": 9,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-3",
+      "shape": [
+        3,
+        2,
+        3
+      ],
+      "accumulate": true,
+      "expected_count": 9,
+      "actual_count": 9,
+      "actual_nvals": 9,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-7",
+      "shape": [
+        3,
+        2,
+        7
+      ],
+      "accumulate": false,
+      "expected_count": 21,
+      "actual_count": 21,
+      "actual_nvals": 21,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-7",
+      "shape": [
+        3,
+        2,
+        7
+      ],
+      "accumulate": true,
+      "expected_count": 21,
+      "actual_count": 21,
+      "actual_nvals": 21,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-8",
+      "shape": [
+        3,
+        2,
+        8
+      ],
+      "accumulate": false,
+      "expected_count": 24,
+      "actual_count": 24,
+      "actual_nvals": 24,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-8",
+      "shape": [
+        3,
+        2,
+        8
+      ],
+      "accumulate": true,
+      "expected_count": 24,
+      "actual_count": 24,
+      "actual_nvals": 24,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-9",
+      "shape": [
+        3,
+        2,
+        9
+      ],
+      "accumulate": false,
+      "expected_count": 27,
+      "actual_count": 27,
+      "actual_nvals": 27,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-9",
+      "shape": [
+        3,
+        2,
+        9
+      ],
+      "accumulate": true,
+      "expected_count": 27,
+      "actual_count": 27,
+      "actual_nvals": 27,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-31",
+      "shape": [
+        3,
+        2,
+        31
+      ],
+      "accumulate": false,
+      "expected_count": 93,
+      "actual_count": 93,
+      "actual_nvals": 93,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-31",
+      "shape": [
+        3,
+        2,
+        31
+      ],
+      "accumulate": true,
+      "expected_count": 93,
+      "actual_count": 93,
+      "actual_nvals": 93,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-32",
+      "shape": [
+        3,
+        2,
+        32
+      ],
+      "accumulate": false,
+      "expected_count": 96,
+      "actual_count": 96,
+      "actual_nvals": 96,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-32",
+      "shape": [
+        3,
+        2,
+        32
+      ],
+      "accumulate": true,
+      "expected_count": 96,
+      "actual_count": 96,
+      "actual_nvals": 96,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-33",
+      "shape": [
+        3,
+        2,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 99,
+      "actual_count": 99,
+      "actual_nvals": 99,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-33",
+      "shape": [
+        3,
+        2,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 99,
+      "actual_count": 99,
+      "actual_nvals": 99,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-63",
+      "shape": [
+        3,
+        2,
+        63
+      ],
+      "accumulate": false,
+      "expected_count": 189,
+      "actual_count": 189,
+      "actual_nvals": 189,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-63",
+      "shape": [
+        3,
+        2,
+        63
+      ],
+      "accumulate": true,
+      "expected_count": 189,
+      "actual_count": 189,
+      "actual_nvals": 189,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-64",
+      "shape": [
+        3,
+        2,
+        64
+      ],
+      "accumulate": false,
+      "expected_count": 192,
+      "actual_count": 192,
+      "actual_nvals": 192,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-64",
+      "shape": [
+        3,
+        2,
+        64
+      ],
+      "accumulate": true,
+      "expected_count": 192,
+      "actual_count": 192,
+      "actual_nvals": 192,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-65",
+      "shape": [
+        3,
+        2,
+        65
+      ],
+      "accumulate": false,
+      "expected_count": 195,
+      "actual_count": 195,
+      "actual_nvals": 195,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-65",
+      "shape": [
+        3,
+        2,
+        65
+      ],
+      "accumulate": true,
+      "expected_count": 195,
+      "actual_count": 195,
+      "actual_nvals": 195,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-127",
+      "shape": [
+        3,
+        2,
+        127
+      ],
+      "accumulate": false,
+      "expected_count": 381,
+      "actual_count": 381,
+      "actual_nvals": 381,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-127",
+      "shape": [
+        3,
+        2,
+        127
+      ],
+      "accumulate": true,
+      "expected_count": 381,
+      "actual_count": 381,
+      "actual_nvals": 381,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-128",
+      "shape": [
+        3,
+        2,
+        128
+      ],
+      "accumulate": false,
+      "expected_count": 384,
+      "actual_count": 384,
+      "actual_nvals": 384,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-128",
+      "shape": [
+        3,
+        2,
+        128
+      ],
+      "accumulate": true,
+      "expected_count": 384,
+      "actual_count": 384,
+      "actual_nvals": 384,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-129",
+      "shape": [
+        3,
+        2,
+        129
+      ],
+      "accumulate": false,
+      "expected_count": 387,
+      "actual_count": 387,
+      "actual_nvals": 387,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-129",
+      "shape": [
+        3,
+        2,
+        129
+      ],
+      "accumulate": true,
+      "expected_count": 387,
+      "actual_count": 387,
+      "actual_nvals": 387,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-255",
+      "shape": [
+        3,
+        2,
+        255
+      ],
+      "accumulate": false,
+      "expected_count": 765,
+      "actual_count": 765,
+      "actual_nvals": 765,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-255",
+      "shape": [
+        3,
+        2,
+        255
+      ],
+      "accumulate": true,
+      "expected_count": 765,
+      "actual_count": 765,
+      "actual_nvals": 765,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-256",
+      "shape": [
+        3,
+        2,
+        256
+      ],
+      "accumulate": false,
+      "expected_count": 768,
+      "actual_count": 768,
+      "actual_nvals": 768,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-256",
+      "shape": [
+        3,
+        2,
+        256
+      ],
+      "accumulate": true,
+      "expected_count": 768,
+      "actual_count": 768,
+      "actual_nvals": 768,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-257",
+      "shape": [
+        3,
+        2,
+        257
+      ],
+      "accumulate": false,
+      "expected_count": 771,
+      "actual_count": 771,
+      "actual_nvals": 771,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-257",
+      "shape": [
+        3,
+        2,
+        257
+      ],
+      "accumulate": true,
+      "expected_count": 771,
+      "actual_count": 771,
+      "actual_nvals": 771,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-511",
+      "shape": [
+        3,
+        2,
+        511
+      ],
+      "accumulate": false,
+      "expected_count": 1533,
+      "actual_count": 1533,
+      "actual_nvals": 1533,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-511",
+      "shape": [
+        3,
+        2,
+        511
+      ],
+      "accumulate": true,
+      "expected_count": 1533,
+      "actual_count": 1533,
+      "actual_nvals": 1533,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-512",
+      "shape": [
+        3,
+        2,
+        512
+      ],
+      "accumulate": false,
+      "expected_count": 1536,
+      "actual_count": 1536,
+      "actual_nvals": 1536,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-512",
+      "shape": [
+        3,
+        2,
+        512
+      ],
+      "accumulate": true,
+      "expected_count": 1536,
+      "actual_count": 1536,
+      "actual_nvals": 1536,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-513",
+      "shape": [
+        3,
+        2,
+        513
+      ],
+      "accumulate": false,
+      "expected_count": 1539,
+      "actual_count": 1539,
+      "actual_nvals": 1539,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-513",
+      "shape": [
+        3,
+        2,
+        513
+      ],
+      "accumulate": true,
+      "expected_count": 1539,
+      "actual_count": 1539,
+      "actual_nvals": 1539,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-1023",
+      "shape": [
+        3,
+        2,
+        1023
+      ],
+      "accumulate": false,
+      "expected_count": 3069,
+      "actual_count": 3069,
+      "actual_nvals": 3069,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-1023",
+      "shape": [
+        3,
+        2,
+        1023
+      ],
+      "accumulate": true,
+      "expected_count": 3069,
+      "actual_count": 3069,
+      "actual_nvals": 3069,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-1024",
+      "shape": [
+        3,
+        2,
+        1024
+      ],
+      "accumulate": false,
+      "expected_count": 3072,
+      "actual_count": 3072,
+      "actual_nvals": 3072,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-1024",
+      "shape": [
+        3,
+        2,
+        1024
+      ],
+      "accumulate": true,
+      "expected_count": 3072,
+      "actual_count": 3072,
+      "actual_nvals": 3072,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-1025",
+      "shape": [
+        3,
+        2,
+        1025
+      ],
+      "accumulate": false,
+      "expected_count": 3075,
+      "actual_count": 3075,
+      "actual_nvals": 3075,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-1025",
+      "shape": [
+        3,
+        2,
+        1025
+      ],
+      "accumulate": true,
+      "expected_count": 3075,
+      "actual_count": 3075,
+      "actual_nvals": 3075,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-2047",
+      "shape": [
+        3,
+        2,
+        2047
+      ],
+      "accumulate": false,
+      "expected_count": 6141,
+      "actual_count": 6141,
+      "actual_nvals": 6141,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-2047",
+      "shape": [
+        3,
+        2,
+        2047
+      ],
+      "accumulate": true,
+      "expected_count": 6141,
+      "actual_count": 6141,
+      "actual_nvals": 6141,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-2048",
+      "shape": [
+        3,
+        2,
+        2048
+      ],
+      "accumulate": false,
+      "expected_count": 6144,
+      "actual_count": 6144,
+      "actual_nvals": 6144,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-2048",
+      "shape": [
+        3,
+        2,
+        2048
+      ],
+      "accumulate": true,
+      "expected_count": 6144,
+      "actual_count": 6144,
+      "actual_nvals": 6144,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-2049",
+      "shape": [
+        3,
+        2,
+        2049
+      ],
+      "accumulate": false,
+      "expected_count": 6147,
+      "actual_count": 6147,
+      "actual_nvals": 6147,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-2049",
+      "shape": [
+        3,
+        2,
+        2049
+      ],
+      "accumulate": true,
+      "expected_count": 6147,
+      "actual_count": 6147,
+      "actual_nvals": 6147,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-4095",
+      "shape": [
+        3,
+        2,
+        4095
+      ],
+      "accumulate": false,
+      "expected_count": 12285,
+      "actual_count": 12285,
+      "actual_nvals": 12285,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-4095",
+      "shape": [
+        3,
+        2,
+        4095
+      ],
+      "accumulate": true,
+      "expected_count": 12285,
+      "actual_count": 12285,
+      "actual_nvals": 12285,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-4096",
+      "shape": [
+        3,
+        2,
+        4096
+      ],
+      "accumulate": false,
+      "expected_count": 12288,
+      "actual_count": 12288,
+      "actual_nvals": 12288,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-4096",
+      "shape": [
+        3,
+        2,
+        4096
+      ],
+      "accumulate": true,
+      "expected_count": 12288,
+      "actual_count": 12288,
+      "actual_nvals": 12288,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-4097",
+      "shape": [
+        3,
+        2,
+        4097
+      ],
+      "accumulate": false,
+      "expected_count": 12291,
+      "actual_count": 12291,
+      "actual_nvals": 12291,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "cols-4097",
+      "shape": [
+        3,
+        2,
+        4097
+      ],
+      "accumulate": true,
+      "expected_count": 12291,
+      "actual_count": 12291,
+      "actual_nvals": 12291,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-0",
+      "shape": [
+        33,
+        1,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 12,
+      "actual_count": 12,
+      "actual_nvals": 12,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-0",
+      "shape": [
+        33,
+        1,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 14,
+      "actual_count": 14,
+      "actual_nvals": 14,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-1",
+      "shape": [
+        33,
+        1,
+        65
+      ],
+      "accumulate": false,
+      "expected_count": 25,
+      "actual_count": 25,
+      "actual_nvals": 25,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-1",
+      "shape": [
+        33,
+        1,
+        65
+      ],
+      "accumulate": true,
+      "expected_count": 27,
+      "actual_count": 27,
+      "actual_nvals": 27,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-2",
+      "shape": [
+        1,
+        33,
+        1
+      ],
+      "accumulate": false,
+      "expected_count": 0,
+      "actual_count": 0,
+      "actual_nvals": 0,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-2",
+      "shape": [
+        1,
+        33,
+        1
+      ],
+      "accumulate": true,
+      "expected_count": 1,
+      "actual_count": 1,
+      "actual_nvals": 1,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-3",
+      "shape": [
+        65,
+        33,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 745,
+      "actual_count": 745,
+      "actual_nvals": 745,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-3",
+      "shape": [
+        65,
+        33,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 747,
+      "actual_count": 747,
+      "actual_nvals": 747,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-4",
+      "shape": [
+        1,
+        65,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 19,
+      "actual_count": 19,
+      "actual_nvals": 19,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-4",
+      "shape": [
+        1,
+        65,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 21,
+      "actual_count": 21,
+      "actual_nvals": 21,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-5",
+      "shape": [
+        33,
+        3,
+        1
+      ],
+      "accumulate": false,
+      "expected_count": 0,
+      "actual_count": 0,
+      "actual_nvals": 0,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-5",
+      "shape": [
+        33,
+        3,
+        1
+      ],
+      "accumulate": true,
+      "expected_count": 2,
+      "actual_count": 2,
+      "actual_nvals": 2,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-6",
+      "shape": [
+        17,
+        17,
+        1
+      ],
+      "accumulate": false,
+      "expected_count": 10,
+      "actual_count": 10,
+      "actual_nvals": 10,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-6",
+      "shape": [
+        17,
+        17,
+        1
+      ],
+      "accumulate": true,
+      "expected_count": 11,
+      "actual_count": 11,
+      "actual_nvals": 11,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-7",
+      "shape": [
+        33,
+        1,
+        7
+      ],
+      "accumulate": false,
+      "expected_count": 3,
+      "actual_count": 3,
+      "actual_nvals": 3,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-7",
+      "shape": [
+        33,
+        1,
+        7
+      ],
+      "accumulate": true,
+      "expected_count": 4,
+      "actual_count": 4,
+      "actual_nvals": 4,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-8",
+      "shape": [
+        1,
+        33,
+        7
+      ],
+      "accumulate": false,
+      "expected_count": 3,
+      "actual_count": 3,
+      "actual_nvals": 3,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-8",
+      "shape": [
+        1,
+        33,
+        7
+      ],
+      "accumulate": true,
+      "expected_count": 4,
+      "actual_count": 4,
+      "actual_nvals": 4,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-9",
+      "shape": [
+        17,
+        33,
+        7
+      ],
+      "accumulate": false,
+      "expected_count": 54,
+      "actual_count": 54,
+      "actual_nvals": 54,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-9",
+      "shape": [
+        17,
+        33,
+        7
+      ],
+      "accumulate": true,
+      "expected_count": 56,
+      "actual_count": 56,
+      "actual_nvals": 56,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-10",
+      "shape": [
+        65,
+        65,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 1280,
+      "actual_count": 1280,
+      "actual_nvals": 1280,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-10",
+      "shape": [
+        65,
+        65,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 1282,
+      "actual_count": 1282,
+      "actual_nvals": 1282,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-11",
+      "shape": [
+        33,
+        33,
+        17
+      ],
+      "accumulate": false,
+      "expected_count": 183,
+      "actual_count": 183,
+      "actual_nvals": 183,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-11",
+      "shape": [
+        33,
+        33,
+        17
+      ],
+      "accumulate": true,
+      "expected_count": 185,
+      "actual_count": 185,
+      "actual_nvals": 185,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-12",
+      "shape": [
+        65,
+        7,
+        33
+      ],
+      "accumulate": false,
+      "expected_count": 184,
+      "actual_count": 184,
+      "actual_nvals": 184,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-12",
+      "shape": [
+        65,
+        7,
+        33
+      ],
+      "accumulate": true,
+      "expected_count": 186,
+      "actual_count": 186,
+      "actual_nvals": 186,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-13",
+      "shape": [
+        17,
+        3,
+        17
+      ],
+      "accumulate": false,
+      "expected_count": 22,
+      "actual_count": 22,
+      "actual_nvals": 22,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-13",
+      "shape": [
+        17,
+        3,
+        17
+      ],
+      "accumulate": true,
+      "expected_count": 24,
+      "actual_count": 24,
+      "actual_nvals": 24,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-14",
+      "shape": [
+        17,
+        3,
+        1
+      ],
+      "accumulate": false,
+      "expected_count": 3,
+      "actual_count": 3,
+      "actual_nvals": 3,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-14",
+      "shape": [
+        17,
+        3,
+        1
+      ],
+      "accumulate": true,
+      "expected_count": 5,
+      "actual_count": 5,
+      "actual_nvals": 5,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-15",
+      "shape": [
+        65,
+        7,
+        1
+      ],
+      "accumulate": false,
+      "expected_count": 6,
+      "actual_count": 6,
+      "actual_nvals": 6,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-15",
+      "shape": [
+        65,
+        7,
+        1
+      ],
+      "accumulate": true,
+      "expected_count": 7,
+      "actual_count": 7,
+      "actual_nvals": 7,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-16",
+      "shape": [
+        33,
+        17,
+        3
+      ],
+      "accumulate": false,
+      "expected_count": 27,
+      "actual_count": 27,
+      "actual_nvals": 27,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-16",
+      "shape": [
+        33,
+        17,
+        3
+      ],
+      "accumulate": true,
+      "expected_count": 29,
+      "actual_count": 29,
+      "actual_nvals": 29,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-17",
+      "shape": [
+        65,
+        3,
+        3
+      ],
+      "accumulate": false,
+      "expected_count": 6,
+      "actual_count": 6,
+      "actual_nvals": 6,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-17",
+      "shape": [
+        65,
+        3,
+        3
+      ],
+      "accumulate": true,
+      "expected_count": 8,
+      "actual_count": 8,
+      "actual_nvals": 8,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-18",
+      "shape": [
+        1,
+        17,
+        17
+      ],
+      "accumulate": false,
+      "expected_count": 9,
+      "actual_count": 9,
+      "actual_nvals": 9,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-18",
+      "shape": [
+        1,
+        17,
+        17
+      ],
+      "accumulate": true,
+      "expected_count": 9,
+      "actual_count": 9,
+      "actual_nvals": 9,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-19",
+      "shape": [
+        3,
+        3,
+        65
+      ],
+      "accumulate": false,
+      "expected_count": 0,
+      "actual_count": 0,
+      "actual_nvals": 0,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-19",
+      "shape": [
+        3,
+        3,
+        65
+      ],
+      "accumulate": true,
+      "expected_count": 2,
+      "actual_count": 2,
+      "actual_nvals": 2,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-20",
+      "shape": [
+        1,
+        7,
+        1
+      ],
+      "accumulate": false,
+      "expected_count": 0,
+      "actual_count": 0,
+      "actual_nvals": 0,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-20",
+      "shape": [
+        1,
+        7,
+        1
+      ],
+      "accumulate": true,
+      "expected_count": 1,
+      "actual_count": 1,
+      "actual_nvals": 1,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-21",
+      "shape": [
+        33,
+        17,
+        17
+      ],
+      "accumulate": false,
+      "expected_count": 127,
+      "actual_count": 127,
+      "actual_nvals": 127,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-21",
+      "shape": [
+        33,
+        17,
+        17
+      ],
+      "accumulate": true,
+      "expected_count": 128,
+      "actual_count": 128,
+      "actual_nvals": 128,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-22",
+      "shape": [
+        1,
+        33,
+        17
+      ],
+      "accumulate": false,
+      "expected_count": 7,
+      "actual_count": 7,
+      "actual_nvals": 7,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-22",
+      "shape": [
+        1,
+        33,
+        17
+      ],
+      "accumulate": true,
+      "expected_count": 9,
+      "actual_count": 9,
+      "actual_nvals": 9,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-23",
+      "shape": [
+        1,
+        65,
+        3
+      ],
+      "accumulate": false,
+      "expected_count": 1,
+      "actual_count": 1,
+      "actual_nvals": 1,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "case": "random-23",
+      "shape": [
+        1,
+        65,
+        3
+      ],
+      "accumulate": true,
+      "expected_count": 3,
+      "actual_count": 3,
+      "actual_nvals": 3,
+      "passed": true,
+      "missing": [],
+      "extra": []
+    }
+  ]
+}

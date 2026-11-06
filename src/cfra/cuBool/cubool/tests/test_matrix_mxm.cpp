@@ -107,6 +107,34 @@ void testRun(cuBool_Index m, cuBool_Index t, cuBool_Index n, cuBool_Hints setup)
     ASSERT_EQ(cuBool_Finalize(), CUBOOL_STATUS_SUCCESS);
 }
 
+TEST(cuBool_Matrix, MultiplyDivergentSmallRows) {
+    ASSERT_EQ(cuBool_Initialize(CUBOOL_HINT_NO), CUBOOL_STATUS_SUCCESS);
+    cuBool_Matrix a, b, result;
+    ASSERT_EQ(cuBool_Matrix_New(&a, 3, 3), CUBOOL_STATUS_SUCCESS);
+    ASSERT_EQ(cuBool_Matrix_New(&b, 3, 3), CUBOOL_STATUS_SUCCESS);
+    ASSERT_EQ(cuBool_Matrix_New(&result, 3, 3), CUBOOL_STATUS_SUCCESS);
+    cuBool_Index ar[] = {1, 1, 2, 2}, ac[] = {0, 1, 0, 2};
+    cuBool_Index br[] = {0, 1, 2, 2}, bc[] = {0, 1, 1, 2};
+    ASSERT_EQ(cuBool_Matrix_Build(a, ar, ac, 4, CUBOOL_HINT_NO), CUBOOL_STATUS_SUCCESS);
+    ASSERT_EQ(cuBool_Matrix_Build(b, br, bc, 4, CUBOOL_HINT_NO), CUBOOL_STATUS_SUCCESS);
+    ASSERT_EQ(cuBool_MxM(result, a, b, CUBOOL_HINT_NO), CUBOOL_STATUS_SUCCESS);
+    cuBool_Index count = 0;
+    ASSERT_EQ(cuBool_Matrix_Nvals(result, &count), CUBOOL_STATUS_SUCCESS);
+    ASSERT_EQ(count, 5u);
+    cuBool_Index rows[5], cols[5];
+    ASSERT_EQ(cuBool_Matrix_ExtractPairs(result, rows, cols, &count), CUBOOL_STATUS_SUCCESS);
+    const cuBool_Index expectedRows[] = {1, 1, 2, 2, 2};
+    const cuBool_Index expectedCols[] = {0, 1, 0, 1, 2};
+    for (cuBool_Index i = 0; i < count; ++i) {
+        EXPECT_EQ(rows[i], expectedRows[i]);
+        EXPECT_EQ(cols[i], expectedCols[i]);
+    }
+    ASSERT_EQ(cuBool_Matrix_Free(a), CUBOOL_STATUS_SUCCESS);
+    ASSERT_EQ(cuBool_Matrix_Free(b), CUBOOL_STATUS_SUCCESS);
+    ASSERT_EQ(cuBool_Matrix_Free(result), CUBOOL_STATUS_SUCCESS);
+    ASSERT_EQ(cuBool_Finalize(), CUBOOL_STATUS_SUCCESS);
+}
+
 TEST(cuBool_Matrix, MultiplySmall) {
     cuBool_Index m = 60, t = 100, n = 80;
     testRun(m, t, n, CUBOOL_HINT_NO);

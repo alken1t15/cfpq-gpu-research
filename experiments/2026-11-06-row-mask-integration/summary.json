@@ -1,0 +1,9 @@
+{
+  "cpp_passed": true,
+  "primitives_passed": true,
+  "boundaries_passed": true,
+  "alias_diagnostic_passed": 622,
+  "no_distinct_or_accumulate_failures": true,
+  "catalog_passed": 13,
+  "catalog_total": 13
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "graph": "atom",
+    "algo": "base",
+    "expected": 6,
+    "actual": 6,
+    "exit_code": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.179303\n#SEdges: 6\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "atom",
+    "algo": "incremental",
+    "expected": 6,
+    "actual": 6,
+    "exit_code": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.172557\n#SEdges: 6\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "atom",
+    "algo": "lazy",
+    "expected": 6,
+    "actual": 6,
+    "exit_code": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.165467\n#SEdges: 6\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "bzip",
+    "algo": "base",
+    "expected": 315,
+    "actual": 315,
+    "exit_code": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.582934\n#SEdges: 315\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "bzip",
+    "algo": "incremental",
+    "expected": 315,
+    "actual": 315,
+    "exit_code": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.699852\n#SEdges: 315\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "bzip",
+    "algo": "lazy",
+    "expected": 315,
+    "actual": 315,
+    "exit_code": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 1.02042\n#SEdges: 315\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "pizza",
+    "algo": "base",
+    "expected": 1356,
+    "actual": 1356,
+    "exit_code": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.182776\n#SEdges: 1356\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "pizza",
+    "algo": "incremental",
+    "expected": 1356,
+    "actual": 1356,
+    "exit_code": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.187428\n#SEdges: 1356\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "pizza",
+    "algo": "lazy",
+    "expected": 1356,
+    "actual": 1356,
+    "exit_code": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.228516\n#SEdges: 1356\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "gzip",
+    "algo": "base",
+    "expected": 1458,
+    "actual": 1458,
+    "exit_code": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.475233\n#SEdges: 1458\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "gzip",
+    "algo": "incremental",
+    "expected": 1458,
+    "actual": 1458,
+    "exit_code": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.634667\n#SEdges: 1458\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "gzip",
+    "algo": "lazy",
+    "expected": 1458,
+    "actual": 1458,
+    "exit_code": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.68632\n#SEdges: 1458\n",
+    "stderr": "",
+    "passed": true
+  },
+  {
+    "graph": "luindex",
+    "algo": "incremental",
+    "expected": 9677,
+    "actual": 9677,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 170.584\n#SEdges: 9677\n",
+    "stderr": "",
+    "passed": true
+  }
+]
