@@ -103,3 +103,13 @@
 - [ ] Изолированный trial пакетного чтения bin metadata в count/fill; сначала корректность, затем число передач и непрофилированные времена. В count exec_block_row уже есть host_vector-конверсия, не дублировать её.
 
 Протокол: experiments/2026-11-06-cuda-trace. Причина прежнего timeout и ускорение не доказаны. Streams/alias/tile не смешивать с metadata trial.
+
+## Bin metadata trial — 2026-11-06
+
+- [x] Изолированный генератор без изменения production: host-копии bin_size/bin_offset на фазу count/fill, общие const refs.
+- [x] Baseline/trial: C++2/2,24примитива,138границ;alias622/864 известные. Trial12/12малыхвнешних.
+- [x] Полный pizza CUDA trace:4байта DtoH230→81,memcpy369→240,sync701→572,kernels436→436,ответ1356.
+- [x] 1+5чередующихся wallповторов:pizza median0.693→0.642с,диапазоныперекрываются,устойчивоеускорениене заявлено.
+- [ ] Большой luindex на metadata trial, затем повторяемость в стабильных условиях перед интеграцией.
+
+Протокол: experiments/2026-11-06-bin-metadata. Baseline не изменён, alias/tile/streams не смешаны.

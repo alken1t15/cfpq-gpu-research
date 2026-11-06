@@ -1,0 +1,133 @@
+--- a/deps/nsparse-um/include/nsparse/detail/count_nz.h
++++ b/deps/nsparse-um/include/nsparse/detail/count_nz.h
+@@ -10,6 +10,7 @@
+ #include <algorithm>
+ #include <thrust/device_ptr.h>
+ #include <thrust/device_vector.h>
++#include <thrust/host_vector.h>
+ #include <utility>
+ #include <vector>
+ 
+@@ -50,8 +51,8 @@
+       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
+       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
+       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
+-      const container_t<index_type>& permutation_buffer, const container_t<index_type>& bin_offset,
+-      const container_t<index_type>& bin_size, container_t<index_type>& row_idx,
++      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
++      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& row_idx,
+       std::tuple<Borders...>) {
+     constexpr size_t pwarp = 4;
+ 
+@@ -73,8 +74,8 @@
+       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
+       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
+       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
+-      const container_t<index_type>& permutation_buffer, thrust::host_vector<index_type> bin_offset,
+-      thrust::host_vector<index_type> bin_size, container_t<index_type>& row_idx,
++      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
++      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& row_idx,
+       std::tuple<Borders...>) {
+     static_assert(meta::all_of<(Borders::config_t::block_size % 32 == 0)...>);
+ 
+@@ -93,7 +94,7 @@
+       const container_t<index_type>& c_row_idx, const container_t<index_type>& a_col_idx,
+       const container_t<index_type>& a_row_idx, const container_t<index_type>& b_col_idx,
+       const container_t<index_type>& b_row_idx, const container_t<index_type>& permutation_buffer,
+-      const container_t<index_type>& bin_offset, const container_t<index_type>& bin_size,
++      const thrust::host_vector<index_type>& bin_offset, const thrust::host_vector<index_type>& bin_size,
+       container_t<index_type>& row_idx, std::tuple<Border>) {
+     index_type size = bin_size[Border::bin_index];
+ 
+@@ -207,17 +208,21 @@
+                        rows_in_bins[bin_offset[bin] + curr_bin_size] = tid;
+                      });
+ 
++    // Binning is complete before these synchronous host copies.
++    const thrust::host_vector<index_type> host_bin_offset = bin_offset;
++    const thrust::host_vector<index_type> host_bin_size = bin_size;
++
+     exec_pwarp_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
+-                   permutation_buffer, bin_offset, bin_size, products_per_row,
++                   permutation_buffer, host_bin_offset, host_bin_size, products_per_row,
+                    meta::filter<meta::pwarp_row, Borders...>);
+ 
+     exec_block_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
+-                   permutation_buffer, bin_offset, bin_size, products_per_row,
++                   permutation_buffer, host_bin_offset, host_bin_size, products_per_row,
+                    meta::filter<meta::block_row, Borders...>);
+ 
+     auto global_hash_table_state =
+         exec_global_row(n_cols, c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
+-                        permutation_buffer, bin_offset, bin_size, products_per_row,
++                        permutation_buffer, host_bin_offset, host_bin_size, products_per_row,
+                         meta::filter<meta::global_row, Borders...>);
+     cudaDeviceSynchronize();
+     thrust::exclusive_scan(products_per_row.begin(), products_per_row.end(),
+--- a/deps/nsparse-um/include/nsparse/detail/fill_nz.h
++++ b/deps/nsparse-um/include/nsparse/detail/fill_nz.h
+@@ -7,6 +7,7 @@
+ #include <iostream>
+ #include <thrust/device_ptr.h>
+ #include <thrust/device_vector.h>
++#include <thrust/host_vector.h>
+ #include <utility>
+ 
+ namespace nsparse {
+@@ -21,8 +22,8 @@
+       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
+       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
+       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
+-      const container_t<index_type>& permutation_buffer, const container_t<index_type>& bin_offset,
+-      const container_t<index_type>& bin_size, container_t<index_type>& col_idx,
++      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
++      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& col_idx,
+       const container_t<index_type>& row_idx, std::tuple<Borders...>) {
+     constexpr index_type pwarp = 4;
+     EXPAND_SIDE_EFFECTS(
+@@ -41,8 +42,8 @@
+       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
+       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
+       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
+-      const container_t<index_type>& permutation_buffer, const container_t<index_type>& bin_offset,
+-      const container_t<index_type>& bin_size, container_t<index_type>& col_idx,
++      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
++      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& col_idx,
+       const container_t<index_type>& row_idx, std::tuple<Borders...>) {
+     static_assert(meta::all_of<(Borders::config_t::block_size % 32 == 0)...>);
+ 
+@@ -61,8 +62,8 @@
+       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
+       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
+       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
+-      const container_t<index_type>& permutation_buffer, const container_t<index_type>& bin_offset,
+-      const container_t<index_type>& bin_size, container_t<index_type>& col_idx,
++      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
++      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& col_idx,
+       const container_t<index_type>& row_idx, std::tuple<Borders...>) {
+     static_assert(sizeof...(Borders) <= 1);
+ 
+@@ -129,16 +130,20 @@
+ 
+     container_t<index_type> col_idx(values_count, std::numeric_limits<index_type>::max());
+ 
++    // Binning is complete before these synchronous host copies.
++    const thrust::host_vector<index_type> host_bin_offset = bin_offset;
++    const thrust::host_vector<index_type> host_bin_size = bin_size;
++
+     exec_pwarp_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
+-                   permutation_buffer, bin_offset, bin_size, col_idx, row_idx,
++                   permutation_buffer, host_bin_offset, host_bin_size, col_idx, row_idx,
+                    meta::filter<meta::pwarp_row, Borders...>);
+ 
+     exec_block_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
+-                   permutation_buffer, bin_offset, bin_size, col_idx, row_idx,
++                   permutation_buffer, host_bin_offset, host_bin_size, col_idx, row_idx,
+                    meta::filter<meta::block_row, Borders...>);
+ 
+     exec_global_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
+-                    permutation_buffer, bin_offset, bin_size, col_idx, row_idx,
++                    permutation_buffer, host_bin_offset, host_bin_size, col_idx, row_idx,
+                     meta::filter<meta::global_row, Borders...>);
+ 
+     return std::move(col_idx);

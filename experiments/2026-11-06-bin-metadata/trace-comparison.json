@@ -1,0 +1,110 @@
+{
+  "baseline": {
+    "command": [
+      "nsys",
+      "profile",
+      "--trace=cuda",
+      "--sample=none",
+      "--cpuctxsw=none",
+      "--output=/mnt/d/semen_task_avtomat/build/gpu-bin-metadata-trace/baseline",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "stats_command": [
+      "nsys",
+      "stats",
+      "--report=cuda_api_sum,cuda_gpu_mem_time_sum",
+      "--format=csv",
+      "/mnt/d/semen_task_avtomat/build/gpu-bin-metadata-trace/baseline.nsys-rep"
+    ],
+    "exit_code": 0,
+    "dtoh_sizes": [
+      {
+        "bytes": 4,
+        "count": 230
+      },
+      {
+        "bytes": 8,
+        "count": 4
+      },
+      {
+        "bytes": 36,
+        "count": 20
+      }
+    ],
+    "api": {
+      "cuModuleGetLoadingMode": 1,
+      "cudaDeviceSynchronize_v3020": 10,
+      "cudaFree_v3020": 287,
+      "cudaGetDeviceProperties_v12000": 1,
+      "cudaLaunchKernel_v7000": 436,
+      "cudaMalloc_v3020": 287,
+      "cudaMemcpyAsync_v3020": 369,
+      "cudaMemsetAsync_v3020": 35,
+      "cudaStreamCreate_v3020": 90,
+      "cudaStreamDestroy_v5050": 90,
+      "cudaStreamSynchronize_v3020": 701
+    }
+  },
+  "trial": {
+    "command": [
+      "nsys",
+      "profile",
+      "--trace=cuda",
+      "--sample=none",
+      "--cpuctxsw=none",
+      "--output=/mnt/d/semen_task_avtomat/build/gpu-bin-metadata-trace/trial",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "stats_command": [
+      "nsys",
+      "stats",
+      "--report=cuda_api_sum,cuda_gpu_mem_time_sum",
+      "--format=csv",
+      "/mnt/d/semen_task_avtomat/build/gpu-bin-metadata-trace/trial.nsys-rep"
+    ],
+    "exit_code": 0,
+    "dtoh_sizes": [
+      {
+        "bytes": 4,
+        "count": 81
+      },
+      {
+        "bytes": 8,
+        "count": 4
+      },
+      {
+        "bytes": 32,
+        "count": 20
+      },
+      {
+        "bytes": 36,
+        "count": 20
+      }
+    ],
+    "api": {
+      "cuModuleGetLoadingMode": 1,
+      "cudaDeviceSynchronize_v3020": 10,
+      "cudaFree_v3020": 287,
+      "cudaGetDeviceProperties_v12000": 1,
+      "cudaLaunchKernel_v7000": 436,
+      "cudaMalloc_v3020": 287,
+      "cudaMemcpyAsync_v3020": 240,
+      "cudaMemsetAsync_v3020": 35,
+      "cudaStreamCreate_v3020": 90,
+      "cudaStreamDestroy_v5050": 90,
+      "cudaStreamSynchronize_v3020": 572
+    }
+  }
+}

@@ -1,0 +1,22 @@
+Generating SQLite file /mnt/d/semen_task_avtomat/build/gpu-bin-metadata-trace/trial.sqlite from /mnt/d/semen_task_avtomat/build/gpu-bin-metadata-trace/trial.nsys-rep
+Processing [/mnt/d/semen_task_avtomat/build/gpu-bin-metadata-trace/trial.sqlite] with [/opt/nvidia/nsight-systems/2026.1.3/target-linux-x64/reports/cuda_api_sum.py]... 
+Time (%),Total Time (ns),Num Calls,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Name
+70.6,145221925,287,505999.7,4570.0,2277,143648913,8479003.7,cudaMalloc
+18.2,37503031,436,86016.1,12040.0,3707,19458005,1031311.8,cudaLaunchKernel
+5.8,11915949,572,20832.1,19749.0,622,429667,24549.4,cudaStreamSynchronize
+3.8,7761482,240,32339.5,31092.5,7010,240160,27126.5,cudaMemcpyAsync
+0.8,1593646,287,5552.8,2258.0,1493,347575,22898.8,cudaFree
+0.4,910176,35,26005.0,9653.0,4021,486453,80499.9,cudaMemsetAsync
+0.2,471311,10,47131.1,47287.5,3041,97383,29929.9,cudaDeviceSynchronize
+0.1,250085,90,2778.7,1035.0,700,49836,6270.3,cudaStreamCreate
+0.1,152946,90,1699.4,1287.5,585,7811,1359.9,cudaStreamDestroy
+0.0,4226,1,4226.0,4226.0,4226,4226,0.0,cuModuleGetLoadingMode
+0.0,3837,1,3837.0,3837.0,3837,3837,0.0,cudaGetDeviceProperties
+
+Processing [/mnt/d/semen_task_avtomat/build/gpu-bin-metadata-trace/trial.sqlite] with [/opt/nvidia/nsight-systems/2026.1.3/target-linux-x64/reports/cuda_gpu_mem_time_sum.py]... 
+Time (%),Total Time (ns),Count,Avg (ns),Med (ns),Min (ns),Max (ns),StdDev (ns),Operation
+55.5,156607,125,1252.9,1120.0,1088,2880,353.6,[CUDA memcpy Device-to-Host]
+30.2,85085,101,842.4,1024.0,480,1632,349.8,[CUDA memcpy Host-to-Device]
+7.4,20864,14,1490.3,1440.0,1408,1696,97.8,[CUDA memcpy Device-to-Device]
+6.9,19488,35,556.8,512.0,480,960,157.4,[CUDA memset]
+
