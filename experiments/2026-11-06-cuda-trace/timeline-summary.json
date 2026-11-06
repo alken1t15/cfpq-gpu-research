@@ -1,0 +1,308 @@
+{
+  "small": {
+    "runtime": {
+      "count": 152,
+      "sum_ns": 254838548,
+      "union_ns": 254838548,
+      "span_ns": 291062663
+    },
+    "kernel": {
+      "count": 25,
+      "sum_ns": 51040,
+      "union_ns": 51040,
+      "span_ns": 33855484
+    },
+    "memcpy": {
+      "count": 26,
+      "sum_ns": 29920,
+      "union_ns": 29920,
+      "span_ns": 32874874
+    },
+    "memset": {
+      "count": 3,
+      "sum_ns": 1504,
+      "union_ns": 1504,
+      "span_ns": 22106439
+    },
+    "api": [
+      {
+        "name": "cudaMalloc_v3020",
+        "count": 16,
+        "total_ns": 228276304
+      },
+      {
+        "name": "cudaLaunchKernel_v7000",
+        "count": 25,
+        "total_ns": 21944566
+      },
+      {
+        "name": "cudaStreamSynchronize_v3020",
+        "count": 45,
+        "total_ns": 1867176
+      },
+      {
+        "name": "cudaMemsetAsync_v3020",
+        "count": 3,
+        "total_ns": 1337502
+      },
+      {
+        "name": "cudaMemcpyAsync_v3020",
+        "count": 26,
+        "total_ns": 877121
+      },
+      {
+        "name": "cudaFree_v3020",
+        "count": 16,
+        "total_ns": 340758
+      },
+      {
+        "name": "cudaStreamCreate_v3020",
+        "count": 9,
+        "total_ns": 167565
+      },
+      {
+        "name": "cudaStreamDestroy_v5050",
+        "count": 9,
+        "total_ns": 13931
+      },
+      {
+        "name": "cuModuleGetLoadingMode",
+        "count": 1,
+        "total_ns": 4955
+      },
+      {
+        "name": "cudaGetDeviceProperties_v12000",
+        "count": 1,
+        "total_ns": 4844
+      },
+      {
+        "name": "cudaDeviceSynchronize_v3020",
+        "count": 1,
+        "total_ns": 3826
+      }
+    ],
+    "gpu_activity_union_ns": 82464,
+    "gpu_activity_span_ns": 34194333,
+    "copy_sizes": [
+      {
+        "copy_kind": 2,
+        "bytes": 4,
+        "count": 17,
+        "total_ns": 21504
+      },
+      {
+        "copy_kind": 1,
+        "bytes": 16,
+        "count": 4,
+        "total_ns": 1920
+      },
+      {
+        "copy_kind": 2,
+        "bytes": 36,
+        "count": 2,
+        "total_ns": 3744
+      },
+      {
+        "copy_kind": 1,
+        "bytes": 8,
+        "count": 1,
+        "total_ns": 480
+      },
+      {
+        "copy_kind": 2,
+        "bytes": 16,
+        "count": 1,
+        "total_ns": 1152
+      },
+      {
+        "copy_kind": 2,
+        "bytes": 20,
+        "count": 1,
+        "total_ns": 1120
+      }
+    ]
+  },
+  "luindex": {
+    "runtime": {
+      "count": 2050528,
+      "sum_ns": 26253113413,
+      "union_ns": 26253113413,
+      "span_ns": 28860083038
+    },
+    "kernel": {
+      "count": 383750,
+      "sum_ns": 3542532583,
+      "union_ns": 3542187508,
+      "span_ns": 28688784344
+    },
+    "memcpy": {
+      "count": 289877,
+      "sum_ns": 568069618,
+      "union_ns": 568069618,
+      "span_ns": 28688610214
+    },
+    "memset": {
+      "count": 50198,
+      "sum_ns": 51212812,
+      "union_ns": 51212812,
+      "span_ns": 28043377501
+    },
+    "api": [
+      {
+        "name": "cudaMemcpyAsync_v3020",
+        "count": 289877,
+        "total_ns": 9166967497
+      },
+      {
+        "name": "cudaStreamSynchronize_v3020",
+        "count": 580355,
+        "total_ns": 9021246582
+      },
+      {
+        "name": "cudaLaunchKernel_v7000",
+        "count": 383750,
+        "total_ns": 3731427577
+      },
+      {
+        "name": "cudaMalloc_v3020",
+        "count": 227430,
+        "total_ns": 2121369116
+      },
+      {
+        "name": "cudaFree_v3020",
+        "count": 219675,
+        "total_ns": 1357137610
+      },
+      {
+        "name": "cudaMemsetAsync_v3020",
+        "count": 50198,
+        "total_ns": 427436862
+      },
+      {
+        "name": "cudaStreamCreate_v3020",
+        "count": 141750,
+        "total_ns": 252231846
+      },
+      {
+        "name": "cudaStreamDestroy_v5050",
+        "count": 141741,
+        "total_ns": 144849535
+      },
+      {
+        "name": "cudaDeviceSynchronize_v3020",
+        "count": 15750,
+        "total_ns": 30440766
+      },
+      {
+        "name": "cuModuleGetLoadingMode",
+        "count": 1,
+        "total_ns": 3699
+      },
+      {
+        "name": "cudaGetDeviceProperties_v12000",
+        "count": 1,
+        "total_ns": 2323
+      }
+    ],
+    "gpu_activity_union_ns": 4161469938,
+    "gpu_activity_span_ns": 28688990948,
+    "copy_sizes": [
+      {
+        "copy_kind": 2,
+        "bytes": 4,
+        "count": 232440,
+        "total_ns": 430148488
+      },
+      {
+        "copy_kind": 2,
+        "bytes": 36,
+        "count": 31500,
+        "total_ns": 70711204
+      },
+      {
+        "copy_kind": 1,
+        "bytes": 8,
+        "count": 14274,
+        "total_ns": 11636400
+      },
+      {
+        "copy_kind": 2,
+        "bytes": 8,
+        "count": 2949,
+        "total_ns": 7038853
+      },
+      {
+        "copy_kind": 8,
+        "bytes": 74132,
+        "count": 2746,
+        "total_ns": 11396695
+      },
+      {
+        "copy_kind": 1,
+        "bytes": 74132,
+        "count": 1744,
+        "total_ns": 29082858
+      },
+      {
+        "copy_kind": 8,
+        "bytes": 4,
+        "count": 967,
+        "total_ns": 1572853
+      },
+      {
+        "copy_kind": 1,
+        "bytes": 4,
+        "count": 722,
+        "total_ns": 356604
+      },
+      {
+        "copy_kind": 8,
+        "bytes": 8,
+        "count": 362,
+        "total_ns": 598118
+      },
+      {
+        "copy_kind": 8,
+        "bytes": 12,
+        "count": 311,
+        "total_ns": 1179941
+      },
+      {
+        "copy_kind": 1,
+        "bytes": 12,
+        "count": 152,
+        "total_ns": 75080
+      },
+      {
+        "copy_kind": 8,
+        "bytes": 20,
+        "count": 144,
+        "total_ns": 485625
+      },
+      {
+        "copy_kind": 8,
+        "bytes": 16,
+        "count": 143,
+        "total_ns": 410525
+      },
+      {
+        "copy_kind": 8,
+        "bytes": 24,
+        "count": 126,
+        "total_ns": 460637
+      },
+      {
+        "copy_kind": 1,
+        "bytes": 16,
+        "count": 84,
+        "total_ns": 41378
+      },
+      {
+        "copy_kind": 1,
+        "bytes": 20,
+        "count": 84,
+        "total_ns": 41124
+      }
+    ]
+  }
+}

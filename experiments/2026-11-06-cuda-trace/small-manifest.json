@@ -1,0 +1,26 @@
+{
+  "mode": "small",
+  "command": [
+    "nsys",
+    "profile",
+    "--trace=cuda",
+    "--sample=none",
+    "--cpuctxsw=none",
+    "--output=/mnt/d/semen_task_avtomat/build/gpu-cuda-trace/small",
+    "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cuBool/cubool/tests/test_matrix_mxm",
+    "--gtest_filter=cuBool_Matrix.MultiplyDivergentSmallRows"
+  ],
+  "source_head": "6ec4ccb6f7399000a6f5a877cac1991f77d731f1",
+  "library_sha256": "7e9ad798af460cdb0a3ea7a3c9082ac07fe519d5591a866ee11f0fe3e9948c23",
+  "app_sha256": "88feb5fded458feeb4a49ce08a379ece2b42555aba95b5ecb73180d7ccb3322f",
+  "exit_code": 0,
+  "stats_command": [
+    "nsys",
+    "stats",
+    "--report=cuda_api_sum,cuda_gpu_kern_sum,cuda_gpu_mem_time_sum",
+    "--format=csv",
+    "/mnt/d/semen_task_avtomat/build/gpu-cuda-trace/small.nsys-rep"
+  ],
+  "stats_exit_code": 0,
+  "report_sha256": "1752414f41ee2bcb432efb1120667ad59817fd16c85a1d85096be442a0f10e9b"
+}

@@ -1,0 +1,27 @@
+Note: Google Test filter = cuBool_Matrix.MultiplyDivergentSmallRows
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from cuBool_Matrix
+[ RUN      ] cuBool_Matrix.MultiplyDivergentSmallRows
+[       OK ] cuBool_Matrix.MultiplyDivergentSmallRows (1364 ms)
+[----------] 1 test from cuBool_Matrix (1364 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1365 ms total)
+[  PASSED  ] 1 test.
+Collecting data...
+Generating '/tmp/nsys-report-6e66.qdstrm'
+
+[1/1] [0%                          ] small.nsys-rep
+[1/1] [0%                          ] small.nsys-rep
+[1/1] [7%                          ] small.nsys-rep
+[1/1] [14%                         ] small.nsys-rep
+[1/1] [=15%                        ] small.nsys-rep
+[1/1] [=16%                        ] small.nsys-rep
+[1/1] [============56%             ] small.nsys-rep
+[1/1] [============57%             ] small.nsys-rep
+[1/1] [=============58%            ] small.nsys-rep
+[1/1] [========================100%] small.nsys-rep
+[1/1] [========================100%] small.nsys-rep
+Generated:
+	/mnt/d/semen_task_avtomat/build/gpu-cuda-trace/small.nsys-rep

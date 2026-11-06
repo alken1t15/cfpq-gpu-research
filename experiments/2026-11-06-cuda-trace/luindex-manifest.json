@@ -1,0 +1,33 @@
+{
+  "mode": "luindex",
+  "command": [
+    "nsys",
+    "profile",
+    "--trace=cuda",
+    "--sample=none",
+    "--cpuctxsw=none",
+    "--output=/mnt/d/semen_task_avtomat/build/gpu-cuda-trace/luindex",
+    "--duration=30",
+    "--kill=sigterm",
+    "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+    "--graph",
+    "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/cfra-graph.txt",
+    "--grammar",
+    "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/java_points_to.cnf",
+    "--algo",
+    "incremental"
+  ],
+  "source_head": "6ec4ccb6f7399000a6f5a877cac1991f77d731f1",
+  "library_sha256": "7e9ad798af460cdb0a3ea7a3c9082ac07fe519d5591a866ee11f0fe3e9948c23",
+  "app_sha256": "de06920c26ce8fd4d85c6e071d7e140ad14835bb96e0acaa6db60083a7297222",
+  "exit_code": 143,
+  "stats_command": [
+    "nsys",
+    "stats",
+    "--report=cuda_api_sum,cuda_gpu_kern_sum,cuda_gpu_mem_time_sum",
+    "--format=csv",
+    "/mnt/d/semen_task_avtomat/build/gpu-cuda-trace/luindex.nsys-rep"
+  ],
+  "stats_exit_code": 0,
+  "report_sha256": "cad43f12991cbe995c39ae3b81862b95384ac2d55af9b7fc389730403629b856"
+}

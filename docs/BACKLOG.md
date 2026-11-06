@@ -95,3 +95,11 @@
 
 Протокол: experiments/2026-11-06-gpu-repeatability. Текущий код алгоритма не изменён.
 - [x] Снять отдельный 60-секундный host CPU-профиль: 5070 samples, libcuda 90.73% sampled user CPU time; CUDA trace ещё нужен, долю wall time это не устанавливает.
+
+## CUDA trace — 2026-11-06
+
+- [x] Установить Nsight Systems 2026.1.3 и фактически проверить CUDA trace: C++ MultiplyDivergentSmallRows прошёл, API/25ядер присутствуют.
+- [x] Снять первые30с luindex: ожидаемый SIGTERM143, stats0. 383750ядер,580355stream sync,232440DtoH-копий по4байта. Объединённая GPU-активность4.161с изspan28.689с, это неoccupancy и неbenchmark.
+- [ ] Изолированный trial пакетного чтения bin metadata в count/fill; сначала корректность, затем число передач и непрофилированные времена. В count exec_block_row уже есть host_vector-конверсия, не дублировать её.
+
+Протокол: experiments/2026-11-06-cuda-trace. Причина прежнего timeout и ускорение не доказаны. Streams/alias/tile не смешивать с metadata trial.
