@@ -1,0 +1,1 @@
+{"library": "/mnt/d/semen_task_avtomat/build/gpu-alias-trial/libcubool.so", "backend": "gpu", "device": "NVIDIA GeForce RTX 3060 Laptop GPU", "passed": 864, "total": 864, "failures": [], "fixtures": 54, "seed": 20261103, "verification": "full pair sets; aliases; accumulate on/off; deferred SetElement and Build"}

@@ -1,0 +1,27 @@
+[
+  {
+    "file": "boundaries-baseline.json",
+    "passed": 88,
+    "total": 138
+  },
+  {
+    "file": "boundaries-trial.json",
+    "passed": 138,
+    "total": 138
+  },
+  {
+    "file": "matrix-fixed-mask.json",
+    "passed": 622,
+    "total": 864
+  },
+  {
+    "file": "matrix-alias-trial.json",
+    "passed": 864,
+    "total": 864
+  },
+  {
+    "file": "primitives-alias-trial.json",
+    "passed": 24,
+    "total": 24
+  }
+]

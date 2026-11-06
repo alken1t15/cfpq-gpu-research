@@ -1,0 +1,16 @@
+--- a/cubool/sources/cuda/cuda_matrix_multiply.cu
++++ b/cubool/sources/cuda/cuda_matrix_multiply.cu
+@@ -40,6 +40,13 @@
+         assert(this->getNrows() == M);
+         assert(this->getNcols() == N);
+ 
++        if (!accumulate && (this == a || this == b)) {
++            CudaMatrix temporary(M, N, mInstance);
++            temporary.multiply(aBase, bBase, false, checkTime);
++            mMatrixImpl = std::move(temporary.mMatrixImpl);
++            return;
++        }
++
+         if (!accumulate) {
+             // Clear all values
+             this->clearAndResizeStorageToDim();

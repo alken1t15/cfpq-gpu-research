@@ -1,0 +1,11 @@
+{
+  "graph": "luindex",
+  "algo": "incremental",
+  "library": "build/gpu-fixed-mask/libcubool.so",
+  "expected": 9677,
+  "status": "inconclusive_wrapper_error",
+  "outer_exit_code": 1,
+  "configured_timeout_seconds": 180,
+  "child_exit_code": null,
+  "note": "Shell variable transfer produced code=0; echo empty; exit empty. Outer shell reported numeric argument required. No trustworthy child exit code was recorded; do not classify this as confirmed timeout or kernel hang. Future long runs must use Python subprocess timeout and structured JSON."
+}

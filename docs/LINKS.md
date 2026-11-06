@@ -31,3 +31,12 @@
 Официальное руководство CUDA/WSL (изучено при подготовке среды): https://docs.nvidia.com/cuda/wsl-user-guide/index.html
 Официальный SDK apt repo: https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/
 
+
+## CUDA-аудит по первичным источникам NVIDIA
+
+- https://developer.nvidia.com/blog/using-cuda-warp-level-primitives/
+- https://docs.nvidia.com/cuda/cuda-programming-guide/05-appendices/cpp-language-extensions.html
+- https://docs.nvidia.com/cuda/cuda-programming-guide/04-special-topics/cooperative-groups.html
+- https://docs.nvidia.com/compute-sanitizer/ComputeSanitizer/index.html
+
+Сопоставление с исходниками, экспериментами и ограничениями инструментария:CUDA_AUDIT.md.

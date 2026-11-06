@@ -1,0 +1,47 @@
+[
+  {
+    "variant": "baseline",
+    "command": [
+      "/usr/local/cuda-12.4/bin/nvcc",
+      "-ccbin",
+      "/usr/bin/g++-11",
+      "-std=c++14",
+      "-O3",
+      "-arch=sm_86",
+      "--expt-extended-lambda",
+      "--expt-relaxed-constexpr",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/cuBool/deps/nsparse-um/include",
+      "/mnt/d/semen_task_avtomat/experiments/2026-11-06-fixed-mask/fill-guard.cu",
+      "-o",
+      "/mnt/d/semen_task_avtomat/build/gpu-fixed-mask/fill-guard-baseline"
+    ],
+    "compile_exit": 0,
+    "compile_stderr": "",
+    "exit_code": 0,
+    "stdout": "logical_size=3 changed_guard=2 output=0,1,0,1,2,777,777,777,\nlogical_size=3 changed_guard=2 output=0,1,0,1,2,777,777,777,\nlogical_size=3 changed_guard=2 output=0,1,0,1,2,777,777,777,\nlogical_size=3 changed_guard=2 output=0,1,0,1,2,777,777,777,\nlogical_size=3 changed_guard=2 output=0,1,0,1,2,777,777,777,\n",
+    "stderr": ""
+  },
+  {
+    "variant": "fixed",
+    "command": [
+      "/usr/local/cuda-12.4/bin/nvcc",
+      "-ccbin",
+      "/usr/bin/g++-11",
+      "-std=c++14",
+      "-O3",
+      "-arch=sm_86",
+      "--expt-extended-lambda",
+      "--expt-relaxed-constexpr",
+      "-I/mnt/d/semen_task_avtomat/build/gpu-fixed-mask",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/cuBool/deps/nsparse-um/include",
+      "/mnt/d/semen_task_avtomat/experiments/2026-11-06-fixed-mask/fill-guard.cu",
+      "-o",
+      "/mnt/d/semen_task_avtomat/build/gpu-fixed-mask/fill-guard-fixed"
+    ],
+    "compile_exit": 0,
+    "compile_stderr": "",
+    "exit_code": 0,
+    "stdout": "logical_size=5 changed_guard=0 output=0,1,0,1,2,777,777,777,\nlogical_size=5 changed_guard=0 output=0,1,0,1,2,777,777,777,\nlogical_size=5 changed_guard=0 output=0,1,0,1,2,777,777,777,\nlogical_size=5 changed_guard=0 output=0,1,0,1,2,777,777,777,\nlogical_size=5 changed_guard=0 output=0,1,0,1,2,777,777,777,\n",
+    "stderr": ""
+  }
+]
