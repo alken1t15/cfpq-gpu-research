@@ -20,7 +20,10 @@ def digest(p):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--alias', action='store_true')
+    parser.add_argument('--tile', action='store_true')
     args = parser.parse_args()
+    if args.alias and args.tile:
+        parser.error('Evaluate alias and tile changes separately')
     OUT.mkdir(parents=True, exist_ok=True)
     relative = 'nsparse/detail/count_nz.cuh'
     path = ROOT / 'src/cfra/cuBool/deps/nsparse-um/include' / relative
@@ -44,8 +47,23 @@ def main():
         if line.startswith(('CUDA_DEFINES =', 'CUDA_INCLUDES =', 'CUDA_FLAGS =')):
             flags += shlex.split(line.split('=', 1)[1])
     source = ROOT / 'src/cfra/cuBool/cubool/sources/cuda/cuda_matrix_multiply.cu'
-    target = ROOT / 'build/gpu-alias-trial' if args.alias else BUILD
+    target = ROOT / 'build/gpu-alias-trial' if args.alias else ROOT / 'build/gpu-group-trial' if args.tile else BUILD
     target.mkdir(parents=True, exist_ok=True)
+    if args.tile:
+        tile_path = ROOT / 'src/cfra/cuBool/deps/nsparse-um/include/nsparse/detail/fill_nz.cuh'
+        tile_original = tile_path.read_text()
+        tile_changed = tile_original.replace('  if (rid >= n_rows)\n    return;',
+            '  auto row_group = cooperative_groups::tiled_partition<pwarp>(cooperative_groups::this_thread_block());\n\n'
+            '  if (rid >= n_rows)\n    return;')
+        tile_changed = tile_changed.replace('tiled_partition<pwarp>(this_thread_block()),', 'row_group,')
+        assert tile_changed != tile_original and tile_changed.count('auto row_group =') == 1
+        generated = target / 'nsparse/detail/fill_nz.cuh'
+        generated.parent.mkdir(parents=True, exist_ok=True)
+        generated.write_text(tile_changed)
+        (OUT / 'tile-before-return.patch').write_text(''.join(difflib.unified_diff(
+            tile_original.splitlines(True), tile_changed.splitlines(True),
+            fromfile='a/deps/nsparse-um/include/nsparse/detail/fill_nz.cuh',
+            tofile='b/deps/nsparse-um/include/nsparse/detail/fill_nz.cuh')))
     if args.alias:
         text = source.read_text()
         marker = '        if (!accumulate) {'
@@ -67,7 +85,7 @@ def main():
             tofile='b/cubool/sources/cuda/cuda_matrix_multiply.cu')))
     obj = target / 'multiply.cu.o'
     command = ['/usr/local/cuda-12.4/bin/nvcc', '-ccbin=/usr/bin/g++-11',
-               '-I'+str(BUILD), *flags, '-lineinfo', '-c', str(source), '-o', str(obj)]
+               '-I'+str(target), '-I'+str(BUILD), *flags, '-lineinfo', '-c', str(source), '-o', str(obj)]
     link = shlex.split((LIB / 'CMakeFiles/cubool.dir/link.txt').read_text())
     link[link.index('-o')+1] = str(target / 'libcubool.so')
     for i, token in enumerate(link):
@@ -75,7 +93,7 @@ def main():
             link[i] = str(obj)
         elif token.endswith('.o') and not token.startswith('/'):
             link[i] = str(LIB / token)
-    prefix = 'alias-' if args.alias else ''
+    prefix = 'alias-' if args.alias else 'tile-' if args.tile else ''
     (OUT / (prefix+'build-commands.json')).write_text(json.dumps([command, link], indent=2))
     for cmd in (command, link):
         subprocess.run(cmd, check=True)

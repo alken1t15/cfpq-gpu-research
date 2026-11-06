@@ -23,5 +23,10 @@
     "file": "primitives-alias-trial.json",
     "passed": 24,
     "total": 24
+  },
+  {
+    "file": "boundaries-tile-trial.json",
+    "passed": 138,
+    "total": 138
   }
 ]

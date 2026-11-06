@@ -62,3 +62,14 @@ Baseline:логический размер3, fill пишет5значений и
 ```bash
 python3 /mnt/d/semen_task_avtomat/scripts/probe-gpu-fill-guard.py
 ```
+
+## Отдельный отрицательный результат: создание tile до return
+
+Команда build-gpu-fixed-mask.py --tile создаёт ещё одну библиотеку build/gpu-group-trial. Основа explicit mask, но без alias-патча. Единственное добавленное содержательное изменение: создать tile всей thread_block до if(rid>=n_rows)return, затем использовать сохранённую row_group в сортировке. Патч tile-before-return.patch, команды tile-build-commands.json, хеши tile-manifest.json.
+
+Сборка exit0. check-gpu-mxm-boundaries.py с этой библиотекой:138/138, exit0, то же что у explicit mask без изменения tile. Это подтверждает работоспособность кандидата на проверенных входах, но не воспроизводит отдельного сбоя старого tile-кода и не устанавливает его как причину прошлых неверных ответов. Изменение не интегрировано в production.
+
+```bash
+python3 /mnt/d/semen_task_avtomat/scripts/build-gpu-fixed-mask.py --tile
+python3 /mnt/d/semen_task_avtomat/scripts/check-gpu-mxm-boundaries.py /mnt/d/semen_task_avtomat/build/gpu-group-trial/libcubool.so /mnt/d/semen_task_avtomat/experiments/2026-11-06-fixed-mask/boundaries-tile-trial.json
+```
