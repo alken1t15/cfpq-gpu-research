@@ -1,0 +1,21 @@
+PROGRESS time=0.191282 iter=0 calls=0 event=initialized op=none delta=0
+PROGRESS time=0.192633 iter=1 calls=0 event=iteration_begin op=none delta=0
+DELTAS iter=1 side=0 mxm=2 delta_sum=624 delta_max=365 tested=0 empty_products=0 nonempty_c=0 empty_product_nonempty_c=0
+DELTAS iter=1 side=1 mxm=2 delta_sum=624 delta_max=365 tested=0 empty_products=0 nonempty_c=0 empty_product_nonempty_c=0
+OPS iter=1 add=0 diff=1
+PROGRESS time=0.224623 iter=1 calls=5 event=iteration_end op=none delta=1354
+PROGRESS time=0.225616 iter=2 calls=5 event=iteration_begin op=none delta=0
+DELTAS iter=2 side=0 mxm=0 delta_sum=0 delta_max=0 tested=0 empty_products=0 nonempty_c=0 empty_product_nonempty_c=0
+DELTAS iter=2 side=1 mxm=2 delta_sum=2708 delta_max=1354 tested=0 empty_products=0 nonempty_c=0 empty_product_nonempty_c=0
+OPS iter=2 add=1 diff=2
+PROGRESS time=0.233652 iter=2 calls=10 event=iteration_end op=none delta=585
+PROGRESS time=0.23483 iter=3 calls=10 event=iteration_begin op=none delta=0
+DELTAS iter=3 side=0 mxm=2 delta_sum=585 delta_max=385 tested=0 empty_products=0 nonempty_c=0 empty_product_nonempty_c=0
+DELTAS iter=3 side=1 mxm=0 delta_sum=0 delta_max=0 tested=0 empty_products=0 nonempty_c=0 empty_product_nonempty_c=0
+OPS iter=3 add=2 diff=1
+PROGRESS time=0.242192 iter=3 calls=15 event=iteration_end op=none delta=2
+PROGRESS time=0.242983 iter=4 calls=15 event=iteration_begin op=none delta=0
+DELTAS iter=4 side=0 mxm=0 delta_sum=0 delta_max=0 tested=0 empty_products=0 nonempty_c=0 empty_product_nonempty_c=0
+DELTAS iter=4 side=1 mxm=2 delta_sum=4 delta_max=2 tested=0 empty_products=0 nonempty_c=0 empty_product_nonempty_c=0
+OPS iter=4 add=1 diff=0
+PROGRESS time=0.25451 iter=4 calls=18 event=iteration_end op=none delta=0

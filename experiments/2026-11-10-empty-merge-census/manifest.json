@@ -1,0 +1,46 @@
+{
+  "source_head": "bac0cec7fff86367e3cb6719120660444cdd570a",
+  "source_sha256": "6bab8e53db451879f09f0615ac1473191f4d31e9346854daa45122df908f75bb",
+  "baseline_binary_sha256": "de06920c26ce8fd4d85c6e071d7e140ad14835bb96e0acaa6db60083a7297222",
+  "library_sha256": "7e9ad798af460cdb0a3ea7a3c9082ac07fe519d5591a866ee11f0fe3e9948c23",
+  "build_commands": [
+    [
+      "/usr/bin/g++-13",
+      "-DCUBOOL_PLATFORM_LINUX",
+      "-DCUBOOL_RELEASE",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/cuBool/cubool/include/cubool",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/src/grammar",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/src/graph",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/src/matrix_store",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/src",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/cuBool/cubool/include",
+      "-O3",
+      "-DNDEBUG",
+      "-std=gnu++20",
+      "-I/mnt/d/semen_task_avtomat/src/cfra/src/incremental_algo",
+      "-c",
+      "/mnt/d/semen_task_avtomat/build/gpu-empty-merge-census/incremental_algo.cpp",
+      "-o",
+      "/mnt/d/semen_task_avtomat/build/gpu-empty-merge-census/incremental.o"
+    ],
+    [
+      "/usr/bin/g++-13",
+      "-O3",
+      "-DNDEBUG",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/CMakeFiles/cfra.dir/src/main.cpp.o",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/CMakeFiles/cfra.dir/src/grammar/grammar.cpp.o",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/CMakeFiles/cfra.dir/src/graph/graph.cpp.o",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/CMakeFiles/cfra.dir/src/base_algo/base_algo.cpp.o",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/CMakeFiles/cfra.dir/src/matrix_store/matrix_store.cpp.o",
+      "/mnt/d/semen_task_avtomat/build/gpu-empty-merge-census/incremental.o",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/CMakeFiles/cfra.dir/src/lazy_algo/lazy_algo.cpp.o",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/CMakeFiles/cfra.dir/src/lazy_algo/chunked_store.cpp.o",
+      "-o",
+      "/mnt/d/semen_task_avtomat/build/gpu-empty-merge-census/cfra",
+      "-L/mnt/d/semen_task_avtomat/src/cfra/build/cuBool/cubool",
+      "-Wl,-rpath,/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cuBool/cubool:/mnt/d/semen_task_avtomat/src/cfra/build/cuBool/cubool",
+      "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cuBool/cubool/libcubool.so"
+    ]
+  ],
+  "diagnostic_binary_sha256": "9883bd8679f1d4d318cc81b3cf9194e80846c1997bf028167a34a0aa201186a2"
+}

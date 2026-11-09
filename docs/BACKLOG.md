@@ -145,3 +145,11 @@
 - [ ] Уточнить сколько пустых произведений имеют непустой accumulatedC;затемизолированныйempty-product mergefastpath. Уже существующий c.empty fastpath учитывать.
 
 Протокол: experiments/2026-11-09-late-deltas. Диагностическое время не baseline,98.73% не доля гарантированно устранимых операций.
+
+## Empty-product/C census — 2026-11-10
+
+- [x] Позднее окно luindex:productempty/Cempty17323,productempty/Cnonempty217,productnonempty/Cempty215,bothnonempty11. Всего17766,ответ9677.
+- [x] Отклонить98.73%как оценкуустранимыхmerge:дополнительныйempty-mergefastpathзатрагивалбылишь217вызовов(1.22%окна),стоимостьнеизмерена.
+- [ ] Следующий изолированныйtrial:раннийвыходпередfill-биннингомпринулевомитогеподсчёта;сначалаCSR/корректность,потомAPI/kernelcountsивремена.
+
+Протокол: experiments/2026-11-10-empty-merge-census. Production не изменён.

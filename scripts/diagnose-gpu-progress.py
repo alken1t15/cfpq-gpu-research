@@ -17,6 +17,10 @@ BASE = ROOT/'build/gpu-row-mask-integrated'
 if '--deltas' in sys.argv:
     OUT = ROOT/'experiments/2026-11-09-late-deltas'
     BUILD = ROOT/'build/gpu-late-deltas'
+if '--merge-census' in sys.argv:
+    assert '--deltas' in sys.argv
+    OUT = ROOT/'experiments/2026-11-10-empty-merge-census'
+    BUILD = ROOT/'build/gpu-empty-merge-census'
 
 
 def digest(p):
@@ -93,6 +97,21 @@ def main():
         changed = changed.replace('            CB_CHECK(cuBool_Matrix_EWiseMulInverted(', '            ++diff_calls;\n            CB_CHECK(cuBool_Matrix_EWiseMulInverted(')
         changed = changed.replace('        progress("iteration_end",', '        report_deltas();\n        progress("iteration_end",')
         changed = '#include <algorithm>\n' + changed
+        if '--merge-census' in sys.argv:
+            changed = changed.replace('empty_products=0, tested=0;',
+                'empty_products=0, tested=0, nonempty_c=0, empty_product_nonempty_c=0;')
+            changed = changed.replace('            cuBool_Matrix scratch;',
+                '            cuBool_Index c_size=0;\n'
+                '            CB_CHECK(cuBool_Matrix_Nvals(out, &c_size));\n'
+                '            s.nonempty_c += c_size != 0;\n'
+                '            cuBool_Matrix scratch;')
+            changed = changed.replace('            ++s.tested; s.empty_products += product_size == 0;',
+                '            ++s.tested; s.empty_products += product_size == 0;\n'
+                '            s.empty_product_nonempty_c += product_size == 0 && c_size != 0;')
+            changed = changed.replace('<< " tested=" << s.tested << " empty_products=" << s.empty_products << std::endl;',
+                '<< " tested=" << s.tested << " empty_products=" << s.empty_products\n'
+                '                      << " nonempty_c=" << s.nonempty_c\n'
+                '                      << " empty_product_nonempty_c=" << s.empty_product_nonempty_c << std::endl;')
     generated = BUILD/'incremental_algo.cpp'
     generated.write_text(changed)
     (OUT/'instrumentation.patch').write_text(''.join(difflib.unified_diff(original.splitlines(True), changed.splitlines(True),
