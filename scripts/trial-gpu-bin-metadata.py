@@ -5,11 +5,15 @@ import json
 from pathlib import Path
 import shlex
 import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'experiments/2026-11-06-bin-metadata'
 BUILD = ROOT / 'build/gpu-bin-metadata'
 LIB = ROOT / 'build/gpu-row-mask-integrated/cuBool/cubool'
+if '--empty-fill' in sys.argv:
+    OUT = ROOT / 'experiments/2026-11-10-empty-fill'
+    BUILD = ROOT / 'build/gpu-empty-fill'
 
 
 def digest(path):
@@ -21,9 +25,26 @@ def main():
     BUILD.mkdir(parents=True, exist_ok=True)
     before = digest(LIB / 'libcubool.so')
     patches = []
-    for name in ('count_nz.h', 'fill_nz.h'):
+    for name in (('fill_nz.h',) if '--empty-fill' in sys.argv else ('count_nz.h', 'fill_nz.h')):
         source = ROOT / 'src/cfra/cuBool/deps/nsparse-um/include/nsparse/detail' / name
         original = source.read_text()
+        if '--empty-fill' in sys.argv:
+            marker = '    constexpr size_t bin_count = sizeof...(Borders);'
+            old_count = '    index_type values_count = row_idx.back();'
+            assert original.count(marker) == original.count(old_count) == 1
+            changed = original.replace(old_count, '')
+            changed = changed.replace(marker,
+                '    // A zero final prefix sum means there are no product entries to fill.\n'
+                '    const index_type values_count = row_idx.back();\n'
+                '    if (values_count == 0)\n'
+                '      return {};\n\n' + marker)
+            target = BUILD / 'nsparse/detail' / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(changed)
+            patches.extend(difflib.unified_diff(original.splitlines(True), changed.splitlines(True),
+                fromfile='a/deps/nsparse-um/include/nsparse/detail/' + name,
+                tofile='b/deps/nsparse-um/include/nsparse/detail/' + name))
+            continue
         changed = original.replace('#include <thrust/device_vector.h>', '#include <thrust/device_vector.h>\n#include <thrust/host_vector.h>')
         # Only launch-helper parameters become host references. Device binning
         # still uses the original device vectors and captures their pointers.
@@ -46,7 +67,7 @@ def main():
         patches.extend(difflib.unified_diff(original.splitlines(True), changed.splitlines(True),
             fromfile='a/deps/nsparse-um/include/nsparse/detail/' + name,
             tofile='b/deps/nsparse-um/include/nsparse/detail/' + name))
-    (OUT / 'metadata.patch').write_text(''.join(patches))
+    (OUT / ('empty-fill.patch' if '--empty-fill' in sys.argv else 'metadata.patch')).write_text(''.join(patches))
     flags = []
     for line in (LIB / 'CMakeFiles/cubool.dir/flags.make').read_text().splitlines():
         if line.startswith(('CUDA_DEFINES =', 'CUDA_INCLUDES =', 'CUDA_FLAGS =')):

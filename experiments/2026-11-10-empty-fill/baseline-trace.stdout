@@ -1,0 +1,14 @@
+Graph: 671 vertices, 46 labels, 3960 edges
+Expanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals
+AnalysisTime: 0.339659
+#SEdges: 1356
+Collecting data...
+Generating '/tmp/nsys-report-61c2.qdstrm'
+
+[1/1] [0%                          ] baseline.nsys-rep
+[1/1] [0%                          ] baseline.nsys-rep
+[1/1] [===========50%              ] baseline.nsys-rep
+[1/1] [========================100%] baseline.nsys-rep
+[1/1] [========================100%] baseline.nsys-rep
+Generated:
+	/mnt/d/semen_task_avtomat/build/gpu-empty-fill-trace/baseline.nsys-rep

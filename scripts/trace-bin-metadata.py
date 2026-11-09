@@ -4,18 +4,24 @@ import os
 from pathlib import Path
 import sqlite3
 import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT/'experiments/2026-11-06-bin-metadata'
 LOCAL = ROOT/'build/gpu-bin-metadata-trace'
 BASE = ROOT/'build/gpu-row-mask-integrated'
+TRIAL = ROOT/'build/gpu-bin-metadata'
+if '--empty-fill' in sys.argv:
+    OUT = ROOT/'experiments/2026-11-10-empty-fill'
+    LOCAL = ROOT/'build/gpu-empty-fill-trace'
+    TRIAL = ROOT/'build/gpu-empty-fill'
 
 
 def main():
     LOCAL.mkdir(parents=True, exist_ok=True)
     results = {}
     data = ROOT/'data/trial-catalog/pizza'
-    for label, lib in [('baseline', BASE/'cuBool/cubool'), ('trial', ROOT/'build/gpu-bin-metadata')]:
+    for label, lib in [('baseline', BASE/'cuBool/cubool'), ('trial', TRIAL)]:
         prefix = LOCAL/label
         cmd = ['nsys', 'profile', '--trace=cuda', '--sample=none', '--cpuctxsw=none', '--output='+str(prefix),
                str(BASE/'cfra'), '--graph', str(data/'cfra-graph.txt'), '--grammar',

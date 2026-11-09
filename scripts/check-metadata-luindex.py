@@ -5,12 +5,16 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT/'experiments/2026-11-06-bin-metadata'
 BASE = ROOT/'build/gpu-row-mask-integrated'
 TRIAL = ROOT/'build/gpu-bin-metadata'
+if '--empty-fill' in sys.argv:
+    OUT = ROOT/'experiments/2026-11-10-empty-fill'
+    TRIAL = ROOT/'build/gpu-empty-fill'
 
 
 def digest(path):

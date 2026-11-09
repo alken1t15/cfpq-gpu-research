@@ -153,3 +153,13 @@
 - [ ] Следующий изолированныйtrial:раннийвыходпередfill-биннингомпринулевомитогеподсчёта;сначалаCSR/корректность,потомAPI/kernelcountsивремена.
 
 Протокол: experiments/2026-11-10-empty-merge-census. Production не изменён.
+
+## Zero-fill trial — 2026-11-10
+
+- [x] Единственный раннийвыходвfill_nzпринулевомитогесчётчика;production/baselineнеизменены.
+- [x] Baseline/trial:C++2/2,24примитива,138границ,alias622/864известные;trial12/12малыхвнешних+luindex9677.
+- [x] ПолныйpizzaCUDAtrace:kernels436→420,sync701→671,malloc/free287→279,memcpy369→353,ответ1356.
+- [x] Luindexоднапара:trial111.742с,baseline175.910с,оба9677. Наблюдение1.574×,неустойчивыйspeedup.
+- [ ] Обратныйпорядок/прогрев/контрольныеповторы,затемотдельнаяполнаясборкаприкандидатенаперенос.
+
+Протокол: experiments/2026-11-10-empty-fill. Metadata/alias/tile/streamreuseне смешаны.

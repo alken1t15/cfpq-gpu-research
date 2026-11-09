@@ -1,0 +1,23 @@
+--- a/deps/nsparse-um/include/nsparse/detail/fill_nz.h
++++ b/deps/nsparse-um/include/nsparse/detail/fill_nz.h
+@@ -88,6 +88,11 @@
+                                      const container_t<index_type>& b_row_idx,
+                                      const container_t<index_type>& row_idx,
+                                      std::tuple<Borders...>) {
++    // A zero final prefix sum means there are no product entries to fill.
++    const index_type values_count = row_idx.back();
++    if (values_count == 0)
++      return {};
++
+     constexpr size_t bin_count = sizeof...(Borders);
+     constexpr size_t unused_bin = meta::max_bin<Borders...> + 1;
+ 
+@@ -125,7 +130,7 @@
+           rows_in_bins[bin_offset[bin] + curr_bin_size] = tid;
+         });
+ 
+-    index_type values_count = row_idx.back();
++
+ 
+     container_t<index_type> col_idx(values_count, std::numeric_limits<index_type>::max());
+ 
