@@ -1,0 +1,1113 @@
+PROGRESS time=0.74642 iter=0 calls=0 event=initialized op=none delta=0
+PROGRESS time=0.748175 iter=1 calls=0 event=iteration_begin op=none delta=0
+PROGRESS time=1.15586 iter=1 calls=250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=1.15921 iter=1 calls=250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=1.50162 iter=1 calls=500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=1.50439 iter=1 calls=500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=1.89933 iter=1 calls=750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=1.90207 iter=1 calls=750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=2.29927 iter=1 calls=1000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=2.30239 iter=1 calls=1000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=2.78192 iter=1 calls=1250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=2.78585 iter=1 calls=1250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=3.29564 iter=1 calls=1500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=3.29869 iter=1 calls=1500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=3.83802 iter=1 calls=1750 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=3.83979 iter=1 calls=1750 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=3.97777 iter=1 calls=2000 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=3.9797 iter=1 calls=2000 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=1 side=0 mxm=871 delta_sum=8625513 delta_max=9903 tested=0 empty_products=0
+DELTAS iter=1 side=1 mxm=873 delta_sum=40454 delta_max=9903 tested=0 empty_products=0
+OPS iter=1 add=4 diff=488
+PROGRESS time=4.09718 iter=1 calls=2236 event=iteration_end op=none delta=29013
+PROGRESS time=4.1069 iter=2 calls=2236 event=iteration_begin op=none delta=0
+PROGRESS time=4.12694 iter=2 calls=2250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=4.12986 iter=2 calls=2250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=4.45768 iter=2 calls=2500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=4.4604 iter=2 calls=2500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=4.79336 iter=2 calls=2750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=4.79604 iter=2 calls=2750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=5.14069 iter=2 calls=3000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=5.14353 iter=2 calls=3000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=5.32532 iter=2 calls=3250 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=5.32662 iter=2 calls=3250 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=5.35139 iter=2 calls=3500 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=5.3527 iter=2 calls=3500 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=5.51871 iter=2 calls=3750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=5.52201 iter=2 calls=3750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=5.75083 iter=2 calls=4000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=5.7528 iter=2 calls=4000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=6.02238 iter=2 calls=4250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=6.02461 iter=2 calls=4250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=6.24783 iter=2 calls=4500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=6.25022 iter=2 calls=4500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=6.49234 iter=2 calls=4750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=6.49498 iter=2 calls=4750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=6.73627 iter=2 calls=5000 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=6.73899 iter=2 calls=5000 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=6.87237 iter=2 calls=5250 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=6.87435 iter=2 calls=5250 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=2 side=0 mxm=872 delta_sum=6705873 delta_max=7698 tested=0 empty_products=0
+DELTAS iter=2 side=1 mxm=1353 delta_sum=13865820 delta_max=10257 tested=0 empty_products=0
+OPS iter=2 add=488 diff=384
+PROGRESS time=6.93531 iter=2 calls=5333 event=iteration_end op=none delta=17350
+PROGRESS time=6.9635 iter=3 calls=5333 event=iteration_begin op=none delta=0
+PROGRESS time=7.13273 iter=3 calls=5500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=7.13564 iter=3 calls=5500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=7.37338 iter=3 calls=5750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=7.37589 iter=3 calls=5750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=7.6968 iter=3 calls=6000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=7.69986 iter=3 calls=6000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=8.04071 iter=3 calls=6250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=8.04289 iter=3 calls=6250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=8.34792 iter=3 calls=6500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=8.35034 iter=3 calls=6500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=8.59281 iter=3 calls=6750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=8.59544 iter=3 calls=6750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=8.79095 iter=3 calls=7000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=8.79381 iter=3 calls=7000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=9.10341 iter=3 calls=7250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=9.10592 iter=3 calls=7250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=9.4217 iter=3 calls=7500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=9.4247 iter=3 calls=7500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=9.77757 iter=3 calls=7750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=9.78074 iter=3 calls=7750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=10.0863 iter=3 calls=8000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=10.0902 iter=3 calls=8000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=10.4326 iter=3 calls=8250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=10.4349 iter=3 calls=8250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=10.6249 iter=3 calls=8500 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=10.6283 iter=3 calls=8500 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=3 side=0 mxm=1251 delta_sum=4701982 delta_max=5396 tested=0 empty_products=0
+DELTAS iter=3 side=1 mxm=1353 delta_sum=4846938 delta_max=5396 tested=0 empty_products=0
+OPS iter=3 add=384 diff=293
+PROGRESS time=10.7249 iter=3 calls=8614 event=iteration_end op=none delta=16882
+PROGRESS time=10.7473 iter=4 calls=8614 event=iteration_begin op=none delta=0
+PROGRESS time=11.0247 iter=4 calls=8750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=11.0291 iter=4 calls=8750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=11.4314 iter=4 calls=9000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=11.4342 iter=4 calls=9000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=11.765 iter=4 calls=9250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=11.7693 iter=4 calls=9250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=12.2262 iter=4 calls=9500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=12.2293 iter=4 calls=9500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=12.7194 iter=4 calls=9750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=12.7236 iter=4 calls=9750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=12.9309 iter=4 calls=10000 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=12.9331 iter=4 calls=10000 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=13.2422 iter=4 calls=10250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=13.245 iter=4 calls=10250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=13.5233 iter=4 calls=10500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=13.5264 iter=4 calls=10500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=13.8894 iter=4 calls=10750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=13.8918 iter=4 calls=10750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=14.2343 iter=4 calls=11000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=14.237 iter=4 calls=11000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=14.6399 iter=4 calls=11250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=14.6426 iter=4 calls=11250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=14.8912 iter=4 calls=11500 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=14.8932 iter=4 calls=11500 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=15.0922 iter=4 calls=11750 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=15.0946 iter=4 calls=11750 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=15.2966 iter=4 calls=12000 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=15.2989 iter=4 calls=12000 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=4 side=0 mxm=1156 delta_sum=3662302 delta_max=4203 tested=0 empty_products=0
+DELTAS iter=4 side=1 mxm=1353 delta_sum=8740280 delta_max=6466 tested=0 empty_products=0
+OPS iter=4 add=292 diff=639
+PROGRESS time=15.3358 iter=4 calls=12054 event=iteration_end op=none delta=18335
+PROGRESS time=15.3583 iter=5 calls=12054 event=iteration_begin op=none delta=0
+PROGRESS time=15.7983 iter=5 calls=12250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=15.8009 iter=5 calls=12250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=16.0971 iter=5 calls=12500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=16.0997 iter=5 calls=12500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=16.4408 iter=5 calls=12750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=16.4434 iter=5 calls=12750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=16.7014 iter=5 calls=13000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=16.704 iter=5 calls=13000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=17.0745 iter=5 calls=13250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=17.0776 iter=5 calls=13250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=17.5366 iter=5 calls=13500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=17.5403 iter=5 calls=13500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=17.6359 iter=5 calls=13750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=17.6373 iter=5 calls=13750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=17.6813 iter=5 calls=14000 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=17.6837 iter=5 calls=14000 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=17.9054 iter=5 calls=14250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=17.9079 iter=5 calls=14250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=18.2463 iter=5 calls=14500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=18.2503 iter=5 calls=14500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=18.5402 iter=5 calls=14750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=18.5424 iter=5 calls=14750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=18.8618 iter=5 calls=15000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=18.8646 iter=5 calls=15000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=19.1821 iter=5 calls=15250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=19.1858 iter=5 calls=15250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=19.4967 iter=5 calls=15500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=19.4998 iter=5 calls=15500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=19.6919 iter=5 calls=15750 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=19.694 iter=5 calls=15750 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=19.8377 iter=5 calls=16000 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=19.8401 iter=5 calls=16000 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=5 side=0 mxm=1477 delta_sum=2691782 delta_max=3095 tested=0 empty_products=0
+DELTAS iter=5 side=1 mxm=1353 delta_sum=6584313 delta_max=4871 tested=0 empty_products=0
+OPS iter=5 add=637 diff=553
+PROGRESS time=19.8906 iter=5 calls=16074 event=iteration_end op=none delta=19587
+PROGRESS time=19.9193 iter=6 calls=16074 event=iteration_begin op=none delta=0
+PROGRESS time=20.2762 iter=6 calls=16250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=20.2794 iter=6 calls=16250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=20.6624 iter=6 calls=16500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=20.6652 iter=6 calls=16500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=21.002 iter=6 calls=16750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=21.0048 iter=6 calls=16750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=21.2844 iter=6 calls=17000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=21.2873 iter=6 calls=17000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=21.7035 iter=6 calls=17250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=21.7068 iter=6 calls=17250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=22.2337 iter=6 calls=17500 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=22.2371 iter=6 calls=17500 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=22.4302 iter=6 calls=17750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=22.4322 iter=6 calls=17750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=22.6356 iter=6 calls=18000 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=22.6381 iter=6 calls=18000 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=22.9965 iter=6 calls=18250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=23.0003 iter=6 calls=18250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=23.3055 iter=6 calls=18500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=23.3097 iter=6 calls=18500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=23.694 iter=6 calls=18750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=23.6969 iter=6 calls=18750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=24.1108 iter=6 calls=19000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=24.1139 iter=6 calls=19000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=24.4252 iter=6 calls=19250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=24.4279 iter=6 calls=19250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=24.6612 iter=6 calls=19500 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=24.6638 iter=6 calls=19500 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=24.8196 iter=6 calls=19750 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=24.8218 iter=6 calls=19750 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=6 side=0 mxm=1399 delta_sum=2264023 delta_max=2599 tested=0 empty_products=0
+DELTAS iter=6 side=1 mxm=1353 delta_sum=7361849 delta_max=5447 tested=0 empty_products=0
+OPS iter=6 add=549 diff=592
+PROGRESS time=24.9994 iter=6 calls=19967 event=iteration_end op=none delta=20290
+PROGRESS time=25.0203 iter=7 calls=19967 event=iteration_begin op=none delta=0
+PROGRESS time=25.0867 iter=7 calls=20000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=25.0911 iter=7 calls=20000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=25.5292 iter=7 calls=20250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=25.5318 iter=7 calls=20250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=25.8638 iter=7 calls=20500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=25.8669 iter=7 calls=20500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=26.2149 iter=7 calls=20750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=26.2175 iter=7 calls=20750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=26.5276 iter=7 calls=21000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=26.5305 iter=7 calls=21000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=27.171 iter=7 calls=21250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=27.1746 iter=7 calls=21250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=27.6683 iter=7 calls=21500 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=27.6712 iter=7 calls=21500 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=27.8682 iter=7 calls=21750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=27.87 iter=7 calls=21750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=28.0684 iter=7 calls=22000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=28.0717 iter=7 calls=22000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=28.411 iter=7 calls=22250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=28.4142 iter=7 calls=22250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=28.7198 iter=7 calls=22500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=28.7228 iter=7 calls=22500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=29.0656 iter=7 calls=22750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=29.0688 iter=7 calls=22750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=29.4175 iter=7 calls=23000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=29.4209 iter=7 calls=23000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=29.8219 iter=7 calls=23250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=29.8246 iter=7 calls=23250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=30.0999 iter=7 calls=23500 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=30.1019 iter=7 calls=23500 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=30.236 iter=7 calls=23750 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=30.2383 iter=7 calls=23750 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=7 side=0 mxm=1439 delta_sum=1730086 delta_max=2013 tested=0 empty_products=0
+DELTAS iter=7 side=1 mxm=1354 delta_sum=6869138 delta_max=5079 tested=0 empty_products=0
+OPS iter=7 add=589 diff=422
+PROGRESS time=30.2548 iter=7 calls=23771 event=iteration_end op=none delta=23083
+PROGRESS time=30.2763 iter=8 calls=23771 event=iteration_begin op=none delta=0
+PROGRESS time=30.665 iter=8 calls=24000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=30.668 iter=8 calls=24000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=31.0085 iter=8 calls=24250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=31.011 iter=8 calls=24250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=31.2858 iter=8 calls=24500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=31.2884 iter=8 calls=24500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=31.6871 iter=8 calls=24750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=31.6899 iter=8 calls=24750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=32.2225 iter=8 calls=25000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=32.2256 iter=8 calls=25000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=32.5231 iter=8 calls=25250 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=32.5257 iter=8 calls=25250 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=32.7349 iter=8 calls=25500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=32.7378 iter=8 calls=25500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=33.2896 iter=8 calls=25750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=33.2921 iter=8 calls=25750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=33.6524 iter=8 calls=26000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=33.6551 iter=8 calls=26000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=33.9773 iter=8 calls=26250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=33.9809 iter=8 calls=26250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=34.2734 iter=8 calls=26500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=34.276 iter=8 calls=26500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=34.5728 iter=8 calls=26750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=34.5762 iter=8 calls=26750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=34.7665 iter=8 calls=27000 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=34.7692 iter=8 calls=27000 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=8 side=0 mxm=1282 delta_sum=1599043 delta_max=2129 tested=0 empty_products=0
+DELTAS iter=8 side=1 mxm=1354 delta_sum=6535255 delta_max=4832 tested=0 empty_products=0
+OPS iter=8 add=420 diff=382
+PROGRESS time=34.8904 iter=8 calls=27209 event=iteration_end op=none delta=19838
+PROGRESS time=34.9213 iter=9 calls=27209 event=iteration_begin op=none delta=0
+PROGRESS time=35.0173 iter=9 calls=27250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=35.0215 iter=9 calls=27250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=35.3534 iter=9 calls=27500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=35.3563 iter=9 calls=27500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=35.638 iter=9 calls=27750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=35.6412 iter=9 calls=27750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=36.035 iter=9 calls=28000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=36.0382 iter=9 calls=28000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=36.3827 iter=9 calls=28250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=36.3864 iter=9 calls=28250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=36.9592 iter=9 calls=28500 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=36.9734 iter=9 calls=28500 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=37.1906 iter=9 calls=28750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=37.1929 iter=9 calls=28750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=37.5035 iter=9 calls=29000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=37.5065 iter=9 calls=29000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=37.9031 iter=9 calls=29250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=37.9061 iter=9 calls=29250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=38.2602 iter=9 calls=29500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=38.263 iter=9 calls=29500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=38.6381 iter=9 calls=29750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=38.6414 iter=9 calls=29750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=39.2578 iter=9 calls=30000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=39.2621 iter=9 calls=30000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=39.7671 iter=9 calls=30250 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=39.7702 iter=9 calls=30250 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=9 side=0 mxm=1243 delta_sum=1570623 delta_max=2149 tested=0 empty_products=0
+DELTAS iter=9 side=1 mxm=1355 delta_sum=8081224 delta_max=5971 tested=0 empty_products=0
+OPS iter=9 add=380 diff=306
+PROGRESS time=40.1722 iter=9 calls=30493 event=iteration_end op=none delta=27170
+PROGRESS time=40.215 iter=10 calls=30493 event=iteration_begin op=none delta=0
+PROGRESS time=40.2781 iter=10 calls=30500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=40.2847 iter=10 calls=30500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=40.9669 iter=10 calls=30750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=40.9734 iter=10 calls=30750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=41.3077 iter=10 calls=31000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=41.3106 iter=10 calls=31000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=41.6128 iter=10 calls=31250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=41.6156 iter=10 calls=31250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=42.0053 iter=10 calls=31500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=42.0099 iter=10 calls=31500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=42.6058 iter=10 calls=31750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=42.6099 iter=10 calls=31750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=42.9175 iter=10 calls=32000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=42.9219 iter=10 calls=32000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=43.364 iter=10 calls=32250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=43.3668 iter=10 calls=32250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=43.8358 iter=10 calls=32500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=43.8406 iter=10 calls=32500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=44.2436 iter=10 calls=32750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=44.247 iter=10 calls=32750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=44.5853 iter=10 calls=33000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=44.5882 iter=10 calls=33000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=44.9982 iter=10 calls=33250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=45.0011 iter=10 calls=33250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=45.2536 iter=10 calls=33500 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=45.2564 iter=10 calls=33500 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=10 side=0 mxm=1169 delta_sum=1171540 delta_max=2308 tested=0 empty_products=0
+DELTAS iter=10 side=1 mxm=1356 delta_sum=11269718 delta_max=8322 tested=0 empty_products=0
+OPS iter=10 add=306 diff=321
+PROGRESS time=45.3693 iter=10 calls=33645 event=iteration_end op=none delta=30109
+PROGRESS time=45.3906 iter=11 calls=33645 event=iteration_begin op=none delta=0
+PROGRESS time=45.7452 iter=11 calls=33750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=45.7493 iter=11 calls=33750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=46.2551 iter=11 calls=34000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=46.2589 iter=11 calls=34000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=46.696 iter=11 calls=34250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=46.6996 iter=11 calls=34250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=47.2132 iter=11 calls=34500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=47.217 iter=11 calls=34500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=47.8998 iter=11 calls=34750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=47.9056 iter=11 calls=34750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=48.4404 iter=11 calls=35000 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=48.4438 iter=11 calls=35000 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=48.8853 iter=11 calls=35250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=48.8906 iter=11 calls=35250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=49.4667 iter=11 calls=35500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=49.471 iter=11 calls=35500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=50.0446 iter=11 calls=35750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=50.0487 iter=11 calls=35750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=50.6158 iter=11 calls=36000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=50.6196 iter=11 calls=36000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=51.1785 iter=11 calls=36250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=51.1828 iter=11 calls=36250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=51.7441 iter=11 calls=36500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=51.7478 iter=11 calls=36500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=52.0355 iter=11 calls=36750 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=52.0379 iter=11 calls=36750 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=11 side=0 mxm=1183 delta_sum=1188408 delta_max=2102 tested=0 empty_products=0
+DELTAS iter=11 side=1 mxm=1357 delta_sum=13227530 delta_max=9761 tested=0 empty_products=0
+OPS iter=11 add=320 diff=346
+PROGRESS time=52.1549 iter=11 calls=36851 event=iteration_end op=none delta=28653
+PROGRESS time=52.1754 iter=12 calls=36851 event=iteration_begin op=none delta=0
+PROGRESS time=52.6395 iter=12 calls=37000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=52.6449 iter=12 calls=37000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=53.1617 iter=12 calls=37250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=53.165 iter=12 calls=37250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=53.632 iter=12 calls=37500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=53.6369 iter=12 calls=37500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=54.2964 iter=12 calls=37750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=54.3003 iter=12 calls=37750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=55.0824 iter=12 calls=38000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=55.0857 iter=12 calls=38000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=55.3763 iter=12 calls=38250 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=55.3798 iter=12 calls=38250 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=55.8177 iter=12 calls=38500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=55.8205 iter=12 calls=38500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=56.1111 iter=12 calls=38750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=56.114 iter=12 calls=38750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=56.5571 iter=12 calls=39000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=56.5629 iter=12 calls=39000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=57.1963 iter=12 calls=39250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=57.2095 iter=12 calls=39250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=57.7968 iter=12 calls=39500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=57.8006 iter=12 calls=39500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=58.1816 iter=12 calls=39750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=58.1841 iter=12 calls=39750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=58.4346 iter=12 calls=40000 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=58.4372 iter=12 calls=40000 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=12 side=0 mxm=1208 delta_sum=1094055 delta_max=1566 tested=0 empty_products=0
+DELTAS iter=12 side=1 mxm=1357 delta_sum=12327623 delta_max=9097 tested=0 empty_products=0
+OPS iter=12 add=346 diff=272
+PROGRESS time=58.4685 iter=12 calls=40034 event=iteration_end op=none delta=28905
+PROGRESS time=58.4924 iter=13 calls=40034 event=iteration_begin op=none delta=0
+PROGRESS time=59.2624 iter=13 calls=40250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=59.2657 iter=13 calls=40250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=59.7468 iter=13 calls=40500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=59.7511 iter=13 calls=40500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=60.1523 iter=13 calls=40750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=60.1552 iter=13 calls=40750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=60.4301 iter=13 calls=41000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=60.4337 iter=13 calls=41000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=60.7952 iter=13 calls=41250 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=60.7972 iter=13 calls=41250 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=61.0146 iter=13 calls=41500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=61.017 iter=13 calls=41500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=61.3042 iter=13 calls=41750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=61.3067 iter=13 calls=41750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=61.6301 iter=13 calls=42000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=61.6325 iter=13 calls=42000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=61.9805 iter=13 calls=42250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=61.9844 iter=13 calls=42250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=62.4365 iter=13 calls=42500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=62.442 iter=13 calls=42500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=62.8856 iter=13 calls=42750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=62.8879 iter=13 calls=42750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=63.1275 iter=13 calls=43000 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=63.1308 iter=13 calls=43000 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=13 side=0 mxm=1134 delta_sum=970757 delta_max=1160 tested=0 empty_products=0
+DELTAS iter=13 side=1 mxm=1357 delta_sum=21040397 delta_max=15527 tested=0 empty_products=0
+OPS iter=13 add=272 diff=332
+PROGRESS time=63.2364 iter=13 calls=43129 event=iteration_end op=none delta=47896
+PROGRESS time=63.2618 iter=14 calls=43129 event=iteration_begin op=none delta=0
+PROGRESS time=63.5569 iter=14 calls=43250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=63.5603 iter=14 calls=43250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=64.265 iter=14 calls=43500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=64.2679 iter=14 calls=43500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=64.7659 iter=14 calls=43750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=64.7683 iter=14 calls=43750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=64.9907 iter=14 calls=44000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=64.9936 iter=14 calls=44000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=65.3649 iter=14 calls=44250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=65.3684 iter=14 calls=44250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=65.5992 iter=14 calls=44500 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=65.6017 iter=14 calls=44500 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=65.8277 iter=14 calls=44750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=65.8301 iter=14 calls=44750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=66.0857 iter=14 calls=45000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=66.0885 iter=14 calls=45000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=66.3509 iter=14 calls=45250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=66.354 iter=14 calls=45250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=66.7259 iter=14 calls=45500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=66.7286 iter=14 calls=45500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=67.0953 iter=14 calls=45750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=67.0982 iter=14 calls=45750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=67.4466 iter=14 calls=46000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=67.45 iter=14 calls=46000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=67.6257 iter=14 calls=46250 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=67.6281 iter=14 calls=46250 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=14 side=0 mxm=1194 delta_sum=535191 delta_max=3030 tested=0 empty_products=0
+DELTAS iter=14 side=1 mxm=1359 delta_sum=19084243 delta_max=14063 tested=0 empty_products=0
+OPS iter=14 add=332 diff=281
+PROGRESS time=67.6607 iter=14 calls=46295 event=iteration_end op=none delta=33099
+PROGRESS time=67.6842 iter=15 calls=46295 event=iteration_begin op=none delta=0
+PROGRESS time=68.0171 iter=15 calls=46500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=68.0205 iter=15 calls=46500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=68.3105 iter=15 calls=46750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=68.3131 iter=15 calls=46750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=68.6396 iter=15 calls=47000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=68.6425 iter=15 calls=47000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=68.9269 iter=15 calls=47250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=68.9304 iter=15 calls=47250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=69.3889 iter=15 calls=47500 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=69.3916 iter=15 calls=47500 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=69.6392 iter=15 calls=47750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=69.6425 iter=15 calls=47750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=69.9524 iter=15 calls=48000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=69.956 iter=15 calls=48000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=70.3761 iter=15 calls=48250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=70.3793 iter=15 calls=48250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=70.7639 iter=15 calls=48500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=70.7663 iter=15 calls=48500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=71.2273 iter=15 calls=48750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=71.2323 iter=15 calls=48750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=71.7459 iter=15 calls=49000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=71.7486 iter=15 calls=49000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=72.0698 iter=15 calls=49250 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=72.0724 iter=15 calls=49250 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=15 side=0 mxm=1142 delta_sum=725920 delta_max=1786 tested=0 empty_products=0
+DELTAS iter=15 side=1 mxm=1359 delta_sum=11410539 delta_max=8408 tested=0 empty_products=0
+OPS iter=15 add=281 diff=292
+PROGRESS time=72.1612 iter=15 calls=49369 event=iteration_end op=none delta=32038
+PROGRESS time=72.1869 iter=16 calls=49369 event=iteration_begin op=none delta=0
+PROGRESS time=72.4747 iter=16 calls=49500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=72.4772 iter=16 calls=49500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=72.951 iter=16 calls=49750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=72.9538 iter=16 calls=49750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=73.4556 iter=16 calls=50000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=73.5058 iter=16 calls=50000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=73.8936 iter=16 calls=50250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=73.9966 iter=16 calls=50250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=74.8647 iter=16 calls=50500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=74.868 iter=16 calls=50500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=75.1387 iter=16 calls=50750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=75.1411 iter=16 calls=50750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=75.4532 iter=16 calls=51000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=75.456 iter=16 calls=51000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=75.7767 iter=16 calls=51250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=75.78 iter=16 calls=51250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=76.2578 iter=16 calls=51500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=76.2604 iter=16 calls=51500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=76.594 iter=16 calls=51750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=76.5972 iter=16 calls=51750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=76.9489 iter=16 calls=52000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=76.9535 iter=16 calls=52000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=77.2457 iter=16 calls=52250 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=77.2482 iter=16 calls=52250 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=16 side=0 mxm=1155 delta_sum=446419 delta_max=2734 tested=0 empty_products=0
+DELTAS iter=16 side=1 mxm=1359 delta_sum=4950872 delta_max=3648 tested=0 empty_products=0
+OPS iter=16 add=291 diff=217
+PROGRESS time=77.3304 iter=16 calls=52391 event=iteration_end op=none delta=23533
+PROGRESS time=77.3504 iter=17 calls=52391 event=iteration_begin op=none delta=0
+PROGRESS time=77.5388 iter=17 calls=52500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=77.5421 iter=17 calls=52500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=77.8771 iter=17 calls=52750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=77.8801 iter=17 calls=52750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=78.315 iter=17 calls=53000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=78.3189 iter=17 calls=53000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=78.7511 iter=17 calls=53250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=78.7545 iter=17 calls=53250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=79.1957 iter=17 calls=53500 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=79.1982 iter=17 calls=53500 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=79.5325 iter=17 calls=53750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=79.5361 iter=17 calls=53750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=79.8832 iter=17 calls=54000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=79.8866 iter=17 calls=54000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=80.2674 iter=17 calls=54250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=80.2708 iter=17 calls=54250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=80.6302 iter=17 calls=54500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=80.6341 iter=17 calls=54500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=81.0249 iter=17 calls=54750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=81.0281 iter=17 calls=54750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=81.5101 iter=17 calls=55000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=81.5142 iter=17 calls=55000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=81.8366 iter=17 calls=55250 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=81.8391 iter=17 calls=55250 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=17 side=0 mxm=1081 delta_sum=779223 delta_max=2400 tested=0 empty_products=0
+DELTAS iter=17 side=1 mxm=1359 delta_sum=17226882 delta_max=12694 tested=0 empty_products=0
+OPS iter=17 add=217 diff=286
+PROGRESS time=81.9356 iter=17 calls=55334 event=iteration_end op=none delta=30729
+PROGRESS time=81.9599 iter=18 calls=55334 event=iteration_begin op=none delta=0
+PROGRESS time=82.4322 iter=18 calls=55500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=82.436 iter=18 calls=55500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=82.9386 iter=18 calls=55750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=83.0101 iter=18 calls=55750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=83.445 iter=18 calls=56000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=83.4483 iter=18 calls=56000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=83.7955 iter=18 calls=56250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=83.7994 iter=18 calls=56250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=84.3413 iter=18 calls=56500 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=84.3439 iter=18 calls=56500 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=84.7369 iter=18 calls=56750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=84.7396 iter=18 calls=56750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=85.1796 iter=18 calls=57000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=85.1841 iter=18 calls=57000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=85.5525 iter=18 calls=57250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=85.5558 iter=18 calls=57250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=85.8847 iter=18 calls=57500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=85.8879 iter=18 calls=57500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=86.2569 iter=18 calls=57750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=86.2596 iter=18 calls=57750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=86.6754 iter=18 calls=58000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=86.6781 iter=18 calls=58000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=86.9223 iter=18 calls=58250 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=86.9246 iter=18 calls=58250 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=18 side=0 mxm=1149 delta_sum=450695 delta_max=2700 tested=0 empty_products=0
+DELTAS iter=18 side=1 mxm=1359 delta_sum=6444900 delta_max=4749 tested=0 empty_products=0
+OPS iter=18 add=285 diff=154
+PROGRESS time=86.962 iter=18 calls=58281 event=iteration_end op=none delta=20410
+PROGRESS time=86.988 iter=19 calls=58281 event=iteration_begin op=none delta=0
+PROGRESS time=87.3117 iter=19 calls=58500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=87.3148 iter=19 calls=58500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=87.595 iter=19 calls=58750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=87.5981 iter=19 calls=58750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=88.0446 iter=19 calls=59000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=88.0484 iter=19 calls=59000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=88.4386 iter=19 calls=59250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=88.4425 iter=19 calls=59250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=88.7612 iter=19 calls=59500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=88.7644 iter=19 calls=59500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=89.1767 iter=19 calls=59750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=89.1811 iter=19 calls=59750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=89.6555 iter=19 calls=60000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=89.6594 iter=19 calls=60000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=90.1817 iter=19 calls=60250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=90.1856 iter=19 calls=60250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=90.6739 iter=19 calls=60500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=90.678 iter=19 calls=60500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=91.2225 iter=19 calls=60750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=91.2267 iter=19 calls=60750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=91.5514 iter=19 calls=61000 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=91.554 iter=19 calls=61000 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=19 side=0 mxm=1018 delta_sum=712658 delta_max=835 tested=0 empty_products=0
+DELTAS iter=19 side=1 mxm=1359 delta_sum=13603460 delta_max=10024 tested=0 empty_products=0
+OPS iter=19 add=154 diff=203
+PROGRESS time=91.5724 iter=19 calls=61015 event=iteration_end op=none delta=19877
+PROGRESS time=91.5913 iter=20 calls=61015 event=iteration_begin op=none delta=0
+PROGRESS time=92.2217 iter=20 calls=61250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=92.2262 iter=20 calls=61250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=92.7369 iter=20 calls=61500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=92.7414 iter=20 calls=61500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=93.2816 iter=20 calls=61750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=93.2848 iter=20 calls=61750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=93.825 iter=20 calls=62000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=93.8299 iter=20 calls=62000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=94.3722 iter=20 calls=62250 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=94.3756 iter=20 calls=62250 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=94.8529 iter=20 calls=62500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=94.8573 iter=20 calls=62500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=95.3856 iter=20 calls=62750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=95.3901 iter=20 calls=62750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=95.8978 iter=20 calls=63000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=95.9014 iter=20 calls=63000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=96.4462 iter=20 calls=63250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=96.4496 iter=20 calls=63250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=97.0282 iter=20 calls=63500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=97.0314 iter=20 calls=63500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=97.4506 iter=20 calls=63750 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=97.4536 iter=20 calls=63750 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=20 side=0 mxm=1066 delta_sum=416010 delta_max=1091 tested=0 empty_products=0
+DELTAS iter=20 side=1 mxm=1359 delta_sum=7788154 delta_max=5739 tested=0 empty_products=0
+OPS iter=20 add=203 diff=164
+PROGRESS time=97.5204 iter=20 calls=63807 event=iteration_end op=none delta=18672
+PROGRESS time=97.5383 iter=21 calls=63807 event=iteration_begin op=none delta=0
+PROGRESS time=98.013 iter=21 calls=64000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=98.0161 iter=21 calls=64000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=98.4962 iter=21 calls=64250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=98.4999 iter=21 calls=64250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=98.9964 iter=21 calls=64500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=98.9996 iter=21 calls=64500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=99.5418 iter=21 calls=64750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=99.5473 iter=21 calls=64750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=100.175 iter=21 calls=65000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=100.183 iter=21 calls=65000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=100.732 iter=21 calls=65250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=100.736 iter=21 calls=65250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=101.347 iter=21 calls=65500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=101.352 iter=21 calls=65500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=102.049 iter=21 calls=65750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=102.054 iter=21 calls=65750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=102.735 iter=21 calls=66000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=102.74 iter=21 calls=66000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=103.427 iter=21 calls=66250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=103.43 iter=21 calls=66250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=103.803 iter=21 calls=66500 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=103.805 iter=21 calls=66500 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=21 side=0 mxm=1027 delta_sum=530318 delta_max=2516 tested=0 empty_products=0
+DELTAS iter=21 side=1 mxm=1359 delta_sum=7485788 delta_max=5516 tested=0 empty_products=0
+OPS iter=21 add=164 diff=218
+PROGRESS time=103.89 iter=21 calls=66575 event=iteration_end op=none delta=12083
+PROGRESS time=103.911 iter=22 calls=66575 event=iteration_begin op=none delta=0
+PROGRESS time=104.384 iter=22 calls=66750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=104.387 iter=22 calls=66750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=104.898 iter=22 calls=67000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=104.901 iter=22 calls=67000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=105.423 iter=22 calls=67250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=105.426 iter=22 calls=67250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=105.89 iter=22 calls=67500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=105.893 iter=22 calls=67500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=106.552 iter=22 calls=67750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=106.554 iter=22 calls=67750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=106.996 iter=22 calls=68000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=107 iter=22 calls=68000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=107.484 iter=22 calls=68250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=107.487 iter=22 calls=68250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=108.016 iter=22 calls=68500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=108.02 iter=22 calls=68500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=108.517 iter=22 calls=68750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=108.52 iter=22 calls=68750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=109.09 iter=22 calls=69000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=109.093 iter=22 calls=69000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=109.593 iter=22 calls=69250 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=109.595 iter=22 calls=69250 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=22 side=0 mxm=1080 delta_sum=429048 delta_max=1053 tested=0 empty_products=0
+DELTAS iter=22 side=1 mxm=1359 delta_sum=2960182 delta_max=2181 tested=0 empty_products=0
+OPS iter=22 add=217 diff=116
+PROGRESS time=109.719 iter=22 calls=69347 event=iteration_end op=none delta=15672
+PROGRESS time=109.737 iter=23 calls=69347 event=iteration_begin op=none delta=0
+PROGRESS time=110.139 iter=23 calls=69500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=110.142 iter=23 calls=69500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=110.62 iter=23 calls=69750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=110.623 iter=23 calls=69750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=111.14 iter=23 calls=70000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=111.144 iter=23 calls=70000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=111.635 iter=23 calls=70250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=111.639 iter=23 calls=70250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=112.193 iter=23 calls=70500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=112.196 iter=23 calls=70500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=112.706 iter=23 calls=70750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=112.71 iter=23 calls=70750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=113.252 iter=23 calls=71000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=113.255 iter=23 calls=71000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=113.786 iter=23 calls=71250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=113.789 iter=23 calls=71250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=114.356 iter=23 calls=71500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=114.36 iter=23 calls=71500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=114.889 iter=23 calls=71750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=114.893 iter=23 calls=71750 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=23 side=0 mxm=981 delta_sum=415404 delta_max=6775 tested=0 empty_products=0
+DELTAS iter=23 side=1 mxm=1359 delta_sum=3974016 delta_max=2928 tested=0 empty_products=0
+OPS iter=23 add=115 diff=190
+PROGRESS time=115.228 iter=23 calls=71992 event=iteration_end op=none delta=8167
+PROGRESS time=115.245 iter=24 calls=71992 event=iteration_begin op=none delta=0
+PROGRESS time=115.269 iter=24 calls=72000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=115.274 iter=24 calls=72000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=115.872 iter=24 calls=72250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=115.875 iter=24 calls=72250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=116.386 iter=24 calls=72500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=116.389 iter=24 calls=72500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=116.871 iter=24 calls=72750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=116.874 iter=24 calls=72750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=117.491 iter=24 calls=73000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=117.496 iter=24 calls=73000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=117.995 iter=24 calls=73250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=118 iter=24 calls=73250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=118.54 iter=24 calls=73500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=118.543 iter=24 calls=73500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=119.088 iter=24 calls=73750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=119.093 iter=24 calls=73750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=119.613 iter=24 calls=74000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=119.617 iter=24 calls=74000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=120.169 iter=24 calls=74250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=120.174 iter=24 calls=74250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=120.696 iter=24 calls=74500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=120.7 iter=24 calls=74500 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=24 side=0 mxm=1056 delta_sum=171854 delta_max=366 tested=0 empty_products=0
+DELTAS iter=24 side=1 mxm=1363 delta_sum=4999255 delta_max=3673 tested=0 empty_products=0
+OPS iter=24 add=190 diff=48
+PROGRESS time=120.993 iter=24 calls=74649 event=iteration_end op=none delta=7810
+PROGRESS time=121.012 iter=25 calls=74649 event=iteration_begin op=none delta=0
+PROGRESS time=121.232 iter=25 calls=74750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=121.235 iter=25 calls=74750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=121.714 iter=25 calls=75000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=121.717 iter=25 calls=75000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=122.241 iter=25 calls=75250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=122.245 iter=25 calls=75250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=122.82 iter=25 calls=75500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=122.823 iter=25 calls=75500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=123.438 iter=25 calls=75750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=123.442 iter=25 calls=75750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=124.169 iter=25 calls=76000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=124.175 iter=25 calls=76000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=124.777 iter=25 calls=76250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=124.781 iter=25 calls=76250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=125.388 iter=25 calls=76500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=125.392 iter=25 calls=76500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=125.989 iter=25 calls=76750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=125.993 iter=25 calls=76750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=126.491 iter=25 calls=77000 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=126.493 iter=25 calls=77000 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=25 side=0 mxm=914 delta_sum=125058 delta_max=2535 tested=0 empty_products=0
+DELTAS iter=25 side=1 mxm=1363 delta_sum=5446880 delta_max=4002 tested=0 empty_products=0
+OPS iter=25 add=48 diff=134
+PROGRESS time=126.622 iter=25 calls=77108 event=iteration_end op=none delta=4123
+PROGRESS time=126.643 iter=26 calls=77108 event=iteration_begin op=none delta=0
+PROGRESS time=127.024 iter=26 calls=77250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=127.028 iter=26 calls=77250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=127.534 iter=26 calls=77500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=127.537 iter=26 calls=77500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=128.106 iter=26 calls=77750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=128.109 iter=26 calls=77750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=128.634 iter=26 calls=78000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=128.641 iter=26 calls=78000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=129.193 iter=26 calls=78250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=129.197 iter=26 calls=78250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=129.706 iter=26 calls=78500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=129.71 iter=26 calls=78500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=130.244 iter=26 calls=78750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=130.247 iter=26 calls=78750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=130.763 iter=26 calls=79000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=130.766 iter=26 calls=79000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=131.309 iter=26 calls=79250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=131.312 iter=26 calls=79250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=131.85 iter=26 calls=79500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=131.855 iter=26 calls=79500 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=26 side=0 mxm=1000 delta_sum=87966 delta_max=920 tested=0 empty_products=0
+DELTAS iter=26 side=1 mxm=1363 delta_sum=1009944 delta_max=742 tested=0 empty_products=0
+OPS iter=26 add=134 diff=118
+PROGRESS time=132.29 iter=26 calls=79723 event=iteration_end op=none delta=2669
+PROGRESS time=132.312 iter=27 calls=79723 event=iteration_begin op=none delta=0
+PROGRESS time=132.402 iter=27 calls=79750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=132.408 iter=27 calls=79750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=132.985 iter=27 calls=80000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=132.989 iter=27 calls=80000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=133.499 iter=27 calls=80250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=133.503 iter=27 calls=80250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=134.011 iter=27 calls=80500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=134.015 iter=27 calls=80500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=134.547 iter=27 calls=80750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=134.55 iter=27 calls=80750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=135.03 iter=27 calls=81000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=135.034 iter=27 calls=81000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=135.511 iter=27 calls=81250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=135.514 iter=27 calls=81250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=136.051 iter=27 calls=81500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=136.055 iter=27 calls=81500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=136.562 iter=27 calls=81750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=136.565 iter=27 calls=81750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=137.119 iter=27 calls=82000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=137.122 iter=27 calls=82000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=137.566 iter=27 calls=82250 event=call_begin op=cuBool_Matrix_EWiseMulInverted delta=0
+PROGRESS time=137.568 iter=27 calls=82250 event=call_end op=cuBool_Matrix_EWiseMulInverted delta=0
+DELTAS iter=27 side=0 mxm=984 delta_sum=92522 delta_max=117 tested=0 empty_products=0
+DELTAS iter=27 side=1 mxm=1363 delta_sum=1769400 delta_max=1300 tested=0 empty_products=0
+OPS iter=27 add=118 diff=113
+PROGRESS time=137.624 iter=27 calls=82301 event=iteration_end op=none delta=2827
+PROGRESS time=137.642 iter=28 calls=82301 event=iteration_begin op=none delta=0
+PROGRESS time=138.088 iter=28 calls=82500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=138.091 iter=28 calls=82500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=138.587 iter=28 calls=82750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=138.591 iter=28 calls=82750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=139.107 iter=28 calls=83000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=139.111 iter=28 calls=83000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=139.652 iter=28 calls=83250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=139.658 iter=28 calls=83250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=140.15 iter=28 calls=83500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=140.154 iter=28 calls=83500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=140.637 iter=28 calls=83750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=140.641 iter=28 calls=83750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=141.157 iter=28 calls=84000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=141.16 iter=28 calls=84000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=141.637 iter=28 calls=84250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=141.64 iter=28 calls=84250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=142.189 iter=28 calls=84500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=142.194 iter=28 calls=84500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=142.693 iter=28 calls=84750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=142.696 iter=28 calls=84750 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=28 side=0 mxm=979 delta_sum=63770 delta_max=104 tested=0 empty_products=0
+DELTAS iter=28 side=1 mxm=1363 delta_sum=1856480 delta_max=1364 tested=0 empty_products=0
+OPS iter=28 add=113 diff=29
+PROGRESS time=142.746 iter=28 calls=84785 event=iteration_end op=none delta=2922
+PROGRESS time=142.764 iter=29 calls=84785 event=iteration_begin op=none delta=0
+PROGRESS time=143.217 iter=29 calls=85000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=143.22 iter=29 calls=85000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=143.695 iter=29 calls=85250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=143.699 iter=29 calls=85250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=144.25 iter=29 calls=85500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=144.254 iter=29 calls=85500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=144.757 iter=29 calls=85750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=144.76 iter=29 calls=85750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=145.253 iter=29 calls=86000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=145.257 iter=29 calls=86000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=145.736 iter=29 calls=86250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=145.741 iter=29 calls=86250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=146.282 iter=29 calls=86500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=146.286 iter=29 calls=86500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=146.776 iter=29 calls=86750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=146.78 iter=29 calls=86750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=147.339 iter=29 calls=87000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=147.343 iter=29 calls=87000 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=29 side=0 mxm=895 delta_sum=59278 delta_max=845 tested=0 empty_products=0
+DELTAS iter=29 side=1 mxm=1363 delta_sum=1944942 delta_max=1429 tested=0 empty_products=0
+OPS iter=29 add=29 diff=101
+PROGRESS time=147.61 iter=29 calls=87173 event=iteration_end op=none delta=3296
+PROGRESS time=147.629 iter=30 calls=87173 event=iteration_begin op=none delta=0
+PROGRESS time=147.808 iter=30 calls=87250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=147.811 iter=30 calls=87250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=148.309 iter=30 calls=87500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=148.312 iter=30 calls=87500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=148.783 iter=30 calls=87750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=148.786 iter=30 calls=87750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=149.28 iter=30 calls=88000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=149.283 iter=30 calls=88000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=149.786 iter=30 calls=88250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=149.79 iter=30 calls=88250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=150.307 iter=30 calls=88500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=150.311 iter=30 calls=88500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=150.788 iter=30 calls=88750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=150.791 iter=30 calls=88750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=151.314 iter=30 calls=89000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=151.318 iter=30 calls=89000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=151.817 iter=30 calls=89250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=151.821 iter=30 calls=89250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=152.355 iter=30 calls=89500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=152.358 iter=30 calls=89500 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=30 side=0 mxm=967 delta_sum=17694 delta_max=435 tested=0 empty_products=0
+DELTAS iter=30 side=1 mxm=1363 delta_sum=1096998 delta_max=806 tested=0 empty_products=0
+OPS iter=30 add=101 diff=87
+PROGRESS time=152.65 iter=30 calls=89691 event=iteration_end op=none delta=2131
+PROGRESS time=152.666 iter=31 calls=89691 event=iteration_begin op=none delta=0
+PROGRESS time=152.811 iter=31 calls=89750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=152.815 iter=31 calls=89750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=153.335 iter=31 calls=90000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=153.339 iter=31 calls=90000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=153.854 iter=31 calls=90250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=153.857 iter=31 calls=90250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=154.453 iter=31 calls=90500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=154.456 iter=31 calls=90500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=154.904 iter=31 calls=90750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=154.908 iter=31 calls=90750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=155.351 iter=31 calls=91000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=155.354 iter=31 calls=91000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=155.759 iter=31 calls=91250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=155.762 iter=31 calls=91250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=156.237 iter=31 calls=91500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=156.24 iter=31 calls=91500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=156.699 iter=31 calls=91750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=156.703 iter=31 calls=91750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=157.214 iter=31 calls=92000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=157.217 iter=31 calls=92000 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=31 side=0 mxm=952 delta_sum=13710 delta_max=174 tested=0 empty_products=0
+DELTAS iter=31 side=1 mxm=1363 delta_sum=1437239 delta_max=1056 tested=0 empty_products=0
+OPS iter=31 add=86 diff=98
+PROGRESS time=157.527 iter=31 calls=92190 event=iteration_end op=none delta=2512
+PROGRESS time=157.553 iter=32 calls=92190 event=iteration_begin op=none delta=0
+PROGRESS time=157.739 iter=32 calls=92250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=157.742 iter=32 calls=92250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=158.305 iter=32 calls=92500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=158.308 iter=32 calls=92500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=158.735 iter=32 calls=92750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=158.738 iter=32 calls=92750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=159.131 iter=32 calls=93000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=159.134 iter=32 calls=93000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=159.453 iter=32 calls=93250 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=159.456 iter=32 calls=93250 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=159.841 iter=32 calls=93500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=159.844 iter=32 calls=93500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=160.223 iter=32 calls=93750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=160.226 iter=32 calls=93750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=160.529 iter=32 calls=94000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=160.531 iter=32 calls=94000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=160.867 iter=32 calls=94250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=160.87 iter=32 calls=94250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=161.227 iter=32 calls=94500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=161.23 iter=32 calls=94500 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=32 side=0 mxm=964 delta_sum=3658 delta_max=619 tested=0 empty_products=0
+DELTAS iter=32 side=1 mxm=1363 delta_sum=785305 delta_max=577 tested=0 empty_products=0
+OPS iter=32 add=98 diff=90
+PROGRESS time=161.443 iter=32 calls=94705 event=iteration_end op=none delta=1032
+PROGRESS time=161.46 iter=33 calls=94705 event=iteration_begin op=none delta=0
+PROGRESS time=161.589 iter=33 calls=94750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=161.594 iter=33 calls=94750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=162.344 iter=33 calls=95000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=162.348 iter=33 calls=95000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=163.069 iter=33 calls=95250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=163.073 iter=33 calls=95250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=163.806 iter=33 calls=95500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=163.815 iter=33 calls=95500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=164.62 iter=33 calls=95750 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=164.623 iter=33 calls=95750 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=165.581 iter=33 calls=96000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=165.585 iter=33 calls=96000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=166.57 iter=33 calls=96250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=166.575 iter=33 calls=96250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=167.601 iter=33 calls=96500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=167.607 iter=33 calls=96500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=168.677 iter=33 calls=96750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=168.685 iter=33 calls=96750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=169.744 iter=33 calls=97000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=169.748 iter=33 calls=97000 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=33 side=0 mxm=956 delta_sum=6759 delta_max=89 tested=956 empty_products=950
+DELTAS iter=33 side=1 mxm=1363 delta_sum=491330 delta_max=361 tested=1363 empty_products=1273
+OPS iter=33 add=90 diff=93
+PROGRESS time=170.363 iter=33 calls=97207 event=iteration_end op=none delta=743
+PROGRESS time=170.38 iter=34 calls=97207 event=iteration_begin op=none delta=0
+PROGRESS time=170.577 iter=34 calls=97250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=170.582 iter=34 calls=97250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=171.639 iter=34 calls=97500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=171.647 iter=34 calls=97500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=172.638 iter=34 calls=97750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=172.643 iter=34 calls=97750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=173.634 iter=34 calls=98000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=173.639 iter=34 calls=98000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=174.593 iter=34 calls=98250 event=call_begin op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=174.596 iter=34 calls=98250 event=call_end op=cuBool_Matrix_EWiseAdd delta=0
+PROGRESS time=175.521 iter=34 calls=98500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=175.525 iter=34 calls=98500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=176.508 iter=34 calls=98750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=176.513 iter=34 calls=98750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=177.494 iter=34 calls=99000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=177.499 iter=34 calls=99000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=178.52 iter=34 calls=99250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=178.526 iter=34 calls=99250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=179.585 iter=34 calls=99500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=179.59 iter=34 calls=99500 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=34 side=0 mxm=959 delta_sum=8457 delta_max=89 tested=959 empty_products=953
+DELTAS iter=34 side=1 mxm=1363 delta_sum=179667 delta_max=132 tested=1363 empty_products=1346
+OPS iter=34 add=93 diff=21
+PROGRESS time=180.164 iter=34 calls=99643 event=iteration_end op=none delta=298
+PROGRESS time=180.18 iter=35 calls=99643 event=iteration_begin op=none delta=0
+PROGRESS time=180.584 iter=35 calls=99750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=180.589 iter=35 calls=99750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=181.63 iter=35 calls=100000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=181.635 iter=35 calls=100000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=182.613 iter=35 calls=100250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=182.618 iter=35 calls=100250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=183.662 iter=35 calls=100500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=183.667 iter=35 calls=100500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=184.648 iter=35 calls=100750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=184.656 iter=35 calls=100750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=185.672 iter=35 calls=101000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=185.677 iter=35 calls=101000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=186.695 iter=35 calls=101250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=186.7 iter=35 calls=101250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=187.792 iter=35 calls=101500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=187.797 iter=35 calls=101500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=188.82 iter=35 calls=101750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=188.825 iter=35 calls=101750 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=35 side=0 mxm=887 delta_sum=5398 delta_max=50 tested=887 empty_products=882
+DELTAS iter=35 side=1 mxm=1363 delta_sum=181023 delta_max=133 tested=1363 empty_products=1337
+OPS iter=35 add=21 diff=29
+PROGRESS time=189.571 iter=35 calls=101943 event=iteration_end op=none delta=283
+PROGRESS time=189.586 iter=36 calls=101943 event=iteration_begin op=none delta=0
+PROGRESS time=189.821 iter=36 calls=102000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=189.825 iter=36 calls=102000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=190.808 iter=36 calls=102250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=190.813 iter=36 calls=102250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=191.811 iter=36 calls=102500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=191.82 iter=36 calls=102500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=192.961 iter=36 calls=102750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=192.989 iter=36 calls=102750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=193.935 iter=36 calls=103000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=193.946 iter=36 calls=103000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=194.914 iter=36 calls=103250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=194.918 iter=36 calls=103250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=195.895 iter=36 calls=103500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=195.901 iter=36 calls=103500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=196.924 iter=36 calls=103750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=196.929 iter=36 calls=103750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=198.024 iter=36 calls=104000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=198.032 iter=36 calls=104000 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=36 side=0 mxm=895 delta_sum=1447 delta_max=35 tested=895 empty_products=890
+DELTAS iter=36 side=1 mxm=1363 delta_sum=181016 delta_max=133 tested=1363 empty_products=1347
+OPS iter=36 add=29 diff=19
+PROGRESS time=199.012 iter=36 calls=104249 event=iteration_end op=none delta=295
+PROGRESS time=199.028 iter=37 calls=104249 event=iteration_begin op=none delta=0
+PROGRESS time=199.029 iter=37 calls=104250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=199.035 iter=37 calls=104250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=200.092 iter=37 calls=104500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=200.097 iter=37 calls=104500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=201.1 iter=37 calls=104750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=201.106 iter=37 calls=104750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=202.166 iter=37 calls=105000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=202.174 iter=37 calls=105000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=203.17 iter=37 calls=105250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=203.176 iter=37 calls=105250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=204.192 iter=37 calls=105500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=204.199 iter=37 calls=105500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=205.22 iter=37 calls=105750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=205.226 iter=37 calls=105750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=206.279 iter=37 calls=106000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=206.284 iter=37 calls=106000 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=37 side=0 mxm=455 delta_sum=4102 delta_max=50 tested=455 empty_products=452
+DELTAS iter=37 side=1 mxm=1362 delta_sum=182383 delta_max=134 tested=1362 empty_products=1337
+OPS iter=37 add=19 diff=28
+PROGRESS time=206.664 iter=37 calls=106113 event=iteration_end op=none delta=214
+PROGRESS time=206.675 iter=38 calls=106113 event=iteration_begin op=none delta=0
+PROGRESS time=207.231 iter=38 calls=106250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=207.236 iter=38 calls=106250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=208.27 iter=38 calls=106500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=208.275 iter=38 calls=106500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=209.274 iter=38 calls=106750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=209.28 iter=38 calls=106750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=210.3 iter=38 calls=107000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=210.305 iter=38 calls=107000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=211.253 iter=38 calls=107250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=211.259 iter=38 calls=107250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=212.284 iter=38 calls=107500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=212.29 iter=38 calls=107500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=213.307 iter=38 calls=107750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=213.312 iter=38 calls=107750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=214.349 iter=38 calls=108000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=214.354 iter=38 calls=108000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=215.396 iter=38 calls=108250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=215.402 iter=38 calls=108250 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=38 side=0 mxm=894 delta_sum=1452 delta_max=35 tested=894 empty_products=890
+DELTAS iter=38 side=1 mxm=1363 delta_sum=91190 delta_max=67 tested=1363 empty_products=1362
+OPS iter=38 add=28 diff=3
+PROGRESS time=216.022 iter=38 calls=108401 event=iteration_end op=none delta=76
+PROGRESS time=216.04 iter=39 calls=108401 event=iteration_begin op=none delta=0
+PROGRESS time=216.42 iter=39 calls=108500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=216.424 iter=39 calls=108500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=217.46 iter=39 calls=108750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=217.465 iter=39 calls=108750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=218.449 iter=39 calls=109000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=218.454 iter=39 calls=109000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=219.474 iter=39 calls=109250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=219.479 iter=39 calls=109250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=220.486 iter=39 calls=109500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=220.491 iter=39 calls=109500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=221.551 iter=39 calls=109750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=221.556 iter=39 calls=109750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=222.836 iter=39 calls=110000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=222.844 iter=39 calls=110000 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=39 side=0 mxm=440 delta_sum=3074 delta_max=7 tested=440 empty_products=438
+DELTAS iter=39 side=1 mxm=1362 delta_sum=92555 delta_max=68 tested=1362 empty_products=1352
+OPS iter=39 add=3 diff=12
+PROGRESS time=223.733 iter=39 calls=110218 event=iteration_end op=none delta=111
+PROGRESS time=223.745 iter=40 calls=110218 event=iteration_begin op=none delta=0
+PROGRESS time=223.836 iter=40 calls=110250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=223.844 iter=40 calls=110250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=224.854 iter=40 calls=110500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=224.859 iter=40 calls=110500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=225.866 iter=40 calls=110750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=225.871 iter=40 calls=110750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=226.882 iter=40 calls=111000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=226.889 iter=40 calls=111000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=227.887 iter=40 calls=111250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=227.892 iter=40 calls=111250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=228.899 iter=40 calls=111500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=228.905 iter=40 calls=111500 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=40 side=0 mxm=9 delta_sum=42 delta_max=12 tested=9 empty_products=9
+DELTAS iter=40 side=1 mxm=1362 delta_sum=92549 delta_max=68 tested=1362 empty_products=1361
+OPS iter=40 add=11 diff=1
+PROGRESS time=229.346 iter=40 calls=111601 event=iteration_end op=none delta=69
+PROGRESS time=229.354 iter=41 calls=111601 event=iteration_begin op=none delta=0
+PROGRESS time=229.931 iter=41 calls=111750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=229.938 iter=41 calls=111750 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=230.92 iter=41 calls=112000 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=230.926 iter=41 calls=112000 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=231.921 iter=41 calls=112250 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=231.926 iter=41 calls=112250 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=232.958 iter=41 calls=112500 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=232.99 iter=41 calls=112500 event=call_end op=cuBool_MxM delta=0
+PROGRESS time=234.141 iter=41 calls=112750 event=call_begin op=cuBool_MxM delta=0
+PROGRESS time=234.146 iter=41 calls=112750 event=call_end op=cuBool_MxM delta=0
+DELTAS iter=41 side=0 mxm=0 delta_sum=0 delta_max=0 tested=0 empty_products=0
+DELTAS iter=41 side=1 mxm=1361 delta_sum=93909 delta_max=69 tested=1361 empty_products=1352
+OPS iter=41 add=1 diff=9
+PROGRESS time=235.047 iter=41 calls=112972 event=iteration_end op=none delta=42
+PROGRESS time=235.055 iter=42 calls=112972 event=iteration_begin op=none delta=0
+DELTAS iter=42 side=0 mxm=9 delta_sum=42 delta_max=12 tested=9 empty_products=9
+DELTAS iter=42 side=1 mxm=0 delta_sum=0 delta_max=0 tested=0 empty_products=0
+OPS iter=42 add=9 diff=0
+PROGRESS time=235.108 iter=42 calls=112990 event=iteration_end op=none delta=0

@@ -7,12 +7,16 @@ from pathlib import Path
 import re
 import shlex
 import subprocess
+import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT/'experiments/2026-11-09-gpu-progress'
 BUILD = ROOT/'build/gpu-progress'
 BASE = ROOT/'build/gpu-row-mask-integrated'
+if '--deltas' in sys.argv:
+    OUT = ROOT/'experiments/2026-11-09-late-deltas'
+    BUILD = ROOT/'build/gpu-late-deltas'
 
 
 def digest(p):
@@ -48,6 +52,47 @@ def main():
                 indent + call + '\n' + indent + 'if (diagnostic_calls % 250 == 0) progress("call_end", "'+op+'", 0);')
     changed, count = re.subn(pattern, wrap, changed)
     assert count == 5, count
+    if '--deltas' in sys.argv:
+        extra = '''    struct DeltaStats {
+        uint64_t calls=0, delta_sum=0, delta_max=0, empty_products=0, tested=0;
+    } stats[2];
+    uint64_t add_calls=0, diff_calls=0;
+    auto diagnostic_mxm = [&](cuBool_Matrix out, cuBool_Matrix left, cuBool_Matrix right, int side) {
+        cuBool_Index count=0;
+        CB_CHECK(cuBool_Matrix_Nvals(side == 0 ? right : left, &count));
+        auto& s = stats[side];
+        ++s.calls; s.delta_sum += count; s.delta_max = std::max(s.delta_max, uint64_t(count));
+        if (iter >= 33) {
+            cuBool_Matrix scratch;
+            CB_CHECK(cuBool_Matrix_New(&scratch, n, n));
+            CB_CHECK(cuBool_MxM(scratch, left, right, CUBOOL_HINT_NO));
+            cuBool_Index product_size=0;
+            CB_CHECK(cuBool_Matrix_Nvals(scratch, &product_size));
+            ++s.tested; s.empty_products += product_size == 0;
+            CB_CHECK(cuBool_Matrix_Free(scratch));
+        }
+        CB_CHECK(cuBool_MxM(out, left, right, CUBOOL_HINT_ACCUMULATE));
+    };
+    auto report_deltas = [&]() {
+        for (int side=0; side<2; ++side) {
+            const auto& s = stats[side];
+            std::cerr << "DELTAS iter=" << iter << " side=" << side << " mxm=" << s.calls
+                      << " delta_sum=" << s.delta_sum << " delta_max=" << s.delta_max
+                      << " tested=" << s.tested << " empty_products=" << s.empty_products << std::endl;
+        }
+        std::cerr << "OPS iter=" << iter << " add=" << add_calls << " diff=" << diff_calls << std::endl;
+    };
+'''
+        changed = changed.replace('    progress("initialized", "none", 0);', extra + '    progress("initialized", "none", 0);')
+        changed = changed.replace('        iter++;', '        iter++;\n        stats[0] = {}; stats[1] = {}; add_calls = diff_calls = 0;')
+        changed = changed.replace('CB_CHECK(cuBool_MxM(tmp.get_ensure(a), mb, dmc, CUBOOL_HINT_ACCUMULATE));',
+                                  'diagnostic_mxm(tmp.get_ensure(a), mb, dmc, 0);')
+        changed = changed.replace('CB_CHECK(cuBool_MxM(tmp.get_ensure(a), dmb, mc, CUBOOL_HINT_ACCUMULATE));',
+                                  'diagnostic_mxm(tmp.get_ensure(a), dmb, mc, 1);')
+        changed = changed.replace('            CB_CHECK(cuBool_Matrix_EWiseAdd(', '            ++add_calls;\n            CB_CHECK(cuBool_Matrix_EWiseAdd(')
+        changed = changed.replace('            CB_CHECK(cuBool_Matrix_EWiseMulInverted(', '            ++diff_calls;\n            CB_CHECK(cuBool_Matrix_EWiseMulInverted(')
+        changed = changed.replace('        progress("iteration_end",', '        report_deltas();\n        progress("iteration_end",')
+        changed = '#include <algorithm>\n' + changed
     generated = BUILD/'incremental_algo.cpp'
     generated.write_text(changed)
     (OUT/'instrumentation.patch').write_text(''.join(difflib.unified_diff(original.splitlines(True), changed.splitlines(True),

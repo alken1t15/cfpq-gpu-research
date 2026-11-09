@@ -1,0 +1,140 @@
+[
+  {
+    "elapsed": 10.130835398999999,
+    "exit_code": 0,
+    "stdout": "34 %, 472 MHz, 21.77 W, 58.90, 856 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 20.232380290000002,
+    "exit_code": 0,
+    "stdout": "30 %, 525 MHz, 21.84 W, 58.90, 942 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 30.340701769,
+    "exit_code": 0,
+    "stdout": "33 %, 510 MHz, 19.18 W, 59.00, 942 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 40.442000595,
+    "exit_code": 0,
+    "stdout": "56 %, 555 MHz, 20.32 W, 59.00, 948 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 50.548215835,
+    "exit_code": 0,
+    "stdout": "39 %, 210 MHz, 17.73 W, 58.30, 898 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 60.653312774999996,
+    "exit_code": 0,
+    "stdout": "23 %, 780 MHz, 24.90 W, 59.20, 866 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 70.758924398,
+    "exit_code": 0,
+    "stdout": "25 %, 420 MHz, 21.34 W, 58.90, 894 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 80.86666985900001,
+    "exit_code": 0,
+    "stdout": "27 %, 450 MHz, 18.59 W, 58.10, 902 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 90.960668879,
+    "exit_code": 0,
+    "stdout": "27 %, 277 MHz, 20.78 W, 57.90, 920 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 101.05912028700001,
+    "exit_code": 0,
+    "stdout": "27 %, 232 MHz, 20.56 W, 58.10, 882 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 111.169236431,
+    "exit_code": 0,
+    "stdout": "31 %, 210 MHz, 20.74 W, 58.50, 880 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 121.261260281,
+    "exit_code": 0,
+    "stdout": "30 %, 210 MHz, 20.41 W, 58.70, 942 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 131.350503513,
+    "exit_code": 0,
+    "stdout": "40 %, 217 MHz, 20.75 W, 58.50, 908 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 141.442298295,
+    "exit_code": 0,
+    "stdout": "41 %, 210 MHz, 20.67 W, 57.90, 888 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 151.524287664,
+    "exit_code": 0,
+    "stdout": "27 %, 247 MHz, 20.70 W, 57.90, 894 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 161.637807959,
+    "exit_code": 0,
+    "stdout": "36 %, 345 MHz, 18.00 W, 58.30, 938 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 171.734329014,
+    "exit_code": 0,
+    "stdout": "29 %, 210 MHz, 18.16 W, 58.50, 894 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 181.828379323,
+    "exit_code": 0,
+    "stdout": "27 %, 210 MHz, 20.74 W, 58.50, 882 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 191.92360124500001,
+    "exit_code": 0,
+    "stdout": "31 %, 210 MHz, 20.72 W, 58.60, 884 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 202.01135053900003,
+    "exit_code": 0,
+    "stdout": "29 %, 210 MHz, 20.70 W, 58.50, 884 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 212.10066591600003,
+    "exit_code": 0,
+    "stdout": "31 %, 210 MHz, 20.22 W, 58.40, 888 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 222.218971518,
+    "exit_code": 0,
+    "stdout": "24 %, 210 MHz, 17.54 W, 58.60, 876 MiB\n",
+    "stderr": ""
+  },
+  {
+    "elapsed": 232.314277897,
+    "exit_code": 0,
+    "stdout": "32 %, 210 MHz, 20.68 W, 58.40, 870 MiB\n",
+    "stderr": ""
+  }
+]

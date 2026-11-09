@@ -1,0 +1,36 @@
+[
+  {
+    "graph": "pizza",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-late-deltas/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "status": "completed",
+    "exit_code": 0,
+    "wall_seconds": 0.680327265999999,
+    "actual": 1356,
+    "expected": 1356
+  },
+  {
+    "graph": "luindex",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-late-deltas/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/java_points_to.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "status": "completed",
+    "exit_code": 0,
+    "wall_seconds": 235.54990003900002,
+    "actual": 9677,
+    "expected": 9677
+  }
+]

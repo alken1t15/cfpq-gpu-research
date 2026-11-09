@@ -1,0 +1,4 @@
+Graph: 18532 vertices, 1740 labels, 34750 edges
+Expanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals
+AnalysisTime: 235.109
+#SEdges: 9677
