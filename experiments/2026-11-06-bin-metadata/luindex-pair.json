@@ -1,0 +1,42 @@
+{
+  "command": [
+    "/mnt/d/semen_task_avtomat/build/gpu-row-mask-integrated/cfra",
+    "--graph",
+    "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/cfra-graph.txt",
+    "--grammar",
+    "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/java_points_to.cnf",
+    "--algo",
+    "incremental"
+  ],
+  "hashes": {
+    "build/gpu-row-mask-integrated/cfra": "de06920c26ce8fd4d85c6e071d7e140ad14835bb96e0acaa6db60083a7297222",
+    "build/gpu-row-mask-integrated/cuBool/cubool/libcubool.so": "7e9ad798af460cdb0a3ea7a3c9082ac07fe519d5591a866ee11f0fe3e9948c23",
+    "build/gpu-bin-metadata/libcubool.so": "e73d91f57e0b73563dfe12689686d590a71bf6d3f304ffb2baa5a708ada16bc0",
+    "data/trial-catalog/luindex/cfra-graph.txt": "12b3a475bf86953838b29a7a9d20e5b602c9e2fce12e727b42a03499345b65c3",
+    "data/trial-catalog/luindex/java_points_to.cnf": "179f94c638f4f5945e33f15224d6bae8ac0c1acb03b633939d55c6983b75809a"
+  },
+  "timeout_seconds": 300,
+  "source_head": "2393a7440aec88b826327cb535ca656d6ef93086",
+  "note": "One trial then baseline, fresh processes, no warmup; no profiler. Full subprocess wall time. Not a performance baseline.",
+  "runs": [
+    {
+      "exit_code": 0,
+      "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 166.619\n#SEdges: 9677\n",
+      "stderr": "",
+      "name": "trial",
+      "wall_seconds": 167.170701971,
+      "actual_pairs": 9677,
+      "passed": true
+    },
+    {
+      "exit_code": 0,
+      "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 198.616\n#SEdges: 9677\n",
+      "stderr": "",
+      "name": "baseline",
+      "wall_seconds": 199.01895727100003,
+      "actual_pairs": 9677,
+      "passed": true
+    }
+  ],
+  "hashes_unchanged": true
+}
