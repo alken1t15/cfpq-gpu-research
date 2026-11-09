@@ -1,0 +1,304 @@
+{
+  "pizza": {
+    "iterations": [
+      {
+        "iter": 1,
+        "seconds": 0.04989299999999999,
+        "calls": 5,
+        "delta": 1354
+      },
+      {
+        "iter": 2,
+        "seconds": 0.004857,
+        "calls": 5,
+        "delta": 585
+      },
+      {
+        "iter": 3,
+        "seconds": 0.004943000000000031,
+        "calls": 5,
+        "delta": 2
+      },
+      {
+        "iter": 4,
+        "seconds": 0.00388299999999997,
+        "calls": 3,
+        "delta": 0
+      }
+    ],
+    "final": {
+      "time": 0.312563,
+      "iter": 4,
+      "calls": 18,
+      "event": "iteration_end",
+      "op": "none",
+      "delta": 0
+    },
+    "max_observed_log_gap_seconds": 0.04989299999999999
+  },
+  "luindex": {
+    "iterations": [
+      {
+        "iter": 1,
+        "seconds": 3.40041,
+        "calls": 2236,
+        "delta": 29013
+      },
+      {
+        "iter": 2,
+        "seconds": 3.6286699999999996,
+        "calls": 3097,
+        "delta": 17350
+      },
+      {
+        "iter": 3,
+        "seconds": 5.43052,
+        "calls": 3281,
+        "delta": 16882
+      },
+      {
+        "iter": 4,
+        "seconds": 5.3933,
+        "calls": 3440,
+        "delta": 18335
+      },
+      {
+        "iter": 5,
+        "seconds": 6.1296,
+        "calls": 4020,
+        "delta": 19587
+      },
+      {
+        "iter": 6,
+        "seconds": 5.583300000000001,
+        "calls": 3893,
+        "delta": 20290
+      },
+      {
+        "iter": 7,
+        "seconds": 7.773599999999998,
+        "calls": 3804,
+        "delta": 23083
+      },
+      {
+        "iter": 8,
+        "seconds": 7.225499999999997,
+        "calls": 3438,
+        "delta": 19838
+      },
+      {
+        "iter": 9,
+        "seconds": 6.7834999999999965,
+        "calls": 3284,
+        "delta": 27170
+      },
+      {
+        "iter": 10,
+        "seconds": 6.637999999999998,
+        "calls": 3152,
+        "delta": 30109
+      },
+      {
+        "iter": 11,
+        "seconds": 6.5726999999999975,
+        "calls": 3206,
+        "delta": 28653
+      },
+      {
+        "iter": 12,
+        "seconds": 6.965199999999996,
+        "calls": 3183,
+        "delta": 28905
+      },
+      {
+        "iter": 13,
+        "seconds": 6.308400000000006,
+        "calls": 3095,
+        "delta": 47896
+      },
+      {
+        "iter": 14,
+        "seconds": 6.52579999999999,
+        "calls": 3166,
+        "delta": 33099
+      },
+      {
+        "iter": 15,
+        "seconds": 6.407300000000006,
+        "calls": 3074,
+        "delta": 32038
+      },
+      {
+        "iter": 16,
+        "seconds": 6.322600000000008,
+        "calls": 3022,
+        "delta": 23533
+      },
+      {
+        "iter": 17,
+        "seconds": 6.276899999999998,
+        "calls": 2943,
+        "delta": 30729
+      },
+      {
+        "iter": 18,
+        "seconds": 5.451999999999998,
+        "calls": 2947,
+        "delta": 20410
+      },
+      {
+        "iter": 19,
+        "seconds": 5.466999999999999,
+        "calls": 2734,
+        "delta": 19877
+      },
+      {
+        "iter": 20,
+        "seconds": 7.689999999999998,
+        "calls": 2792,
+        "delta": 18672
+      },
+      {
+        "iter": 21,
+        "seconds": 5.720000000000013,
+        "calls": 2768,
+        "delta": 12083
+      },
+      {
+        "iter": 22,
+        "seconds": 5.370999999999981,
+        "calls": 2772,
+        "delta": 15672
+      },
+      {
+        "iter": 23,
+        "seconds": 6.4809999999999945,
+        "calls": 2645,
+        "delta": 8167
+      },
+      {
+        "iter": 24,
+        "seconds": 3.86099999999999,
+        "calls": 2657,
+        "delta": 7810
+      },
+      {
+        "iter": 25,
+        "seconds": 3.332000000000022,
+        "calls": 2459,
+        "delta": 4123
+      },
+      {
+        "iter": 26,
+        "seconds": 3.5500000000000114,
+        "calls": 2615,
+        "delta": 2669
+      },
+      {
+        "iter": 27,
+        "seconds": 3.7360000000000184,
+        "calls": 2578,
+        "delta": 2827
+      },
+      {
+        "iter": 28,
+        "seconds": 4.236999999999995,
+        "calls": 2484,
+        "delta": 2922
+      },
+      {
+        "iter": 29,
+        "seconds": 3.280000000000001,
+        "calls": 2388,
+        "delta": 3296
+      },
+      {
+        "iter": 30,
+        "seconds": 3.5929999999999893,
+        "calls": 2518,
+        "delta": 2131
+      },
+      {
+        "iter": 31,
+        "seconds": 3.5500000000000114,
+        "calls": 2499,
+        "delta": 2512
+      },
+      {
+        "iter": 32,
+        "seconds": 3.1610000000000014,
+        "calls": 2515,
+        "delta": 1032
+      },
+      {
+        "iter": 33,
+        "seconds": 4.572000000000003,
+        "calls": 2502,
+        "delta": 743
+      },
+      {
+        "iter": 34,
+        "seconds": 5.038999999999987,
+        "calls": 2436,
+        "delta": 298
+      },
+      {
+        "iter": 35,
+        "seconds": 4.748999999999995,
+        "calls": 2300,
+        "delta": 283
+      },
+      {
+        "iter": 36,
+        "seconds": 4.718000000000018,
+        "calls": 2306,
+        "delta": 295
+      },
+      {
+        "iter": 37,
+        "seconds": 3.7779999999999916,
+        "calls": 1864,
+        "delta": 214
+      },
+      {
+        "iter": 38,
+        "seconds": 4.907000000000011,
+        "calls": 2288,
+        "delta": 76
+      },
+      {
+        "iter": 39,
+        "seconds": 3.579999999999984,
+        "calls": 1817,
+        "delta": 111
+      },
+      {
+        "iter": 40,
+        "seconds": 2.718999999999994,
+        "calls": 1383,
+        "delta": 69
+      },
+      {
+        "iter": 41,
+        "seconds": 2.712999999999994,
+        "calls": 1371,
+        "delta": 42
+      },
+      {
+        "iter": 42,
+        "seconds": 0.03100000000000591,
+        "calls": 18,
+        "delta": 0
+      }
+    ],
+    "final": {
+      "time": 210.54,
+      "iter": 42,
+      "calls": 112990,
+      "event": "iteration_end",
+      "op": "none",
+      "delta": 0
+    },
+    "max_observed_log_gap_seconds": 1.1270000000000095
+  }
+}

@@ -1,0 +1,9 @@
+PROGRESS time=0.241941 iter=0 calls=0 event=initialized op=none delta=0
+PROGRESS time=0.243833 iter=1 calls=0 event=iteration_begin op=none delta=0
+PROGRESS time=0.293726 iter=1 calls=5 event=iteration_end op=none delta=1354
+PROGRESS time=0.295724 iter=2 calls=5 event=iteration_begin op=none delta=0
+PROGRESS time=0.300581 iter=2 calls=10 event=iteration_end op=none delta=585
+PROGRESS time=0.302021 iter=3 calls=10 event=iteration_begin op=none delta=0
+PROGRESS time=0.306964 iter=3 calls=15 event=iteration_end op=none delta=2
+PROGRESS time=0.30868 iter=4 calls=15 event=iteration_begin op=none delta=0
+PROGRESS time=0.312563 iter=4 calls=18 event=iteration_end op=none delta=0

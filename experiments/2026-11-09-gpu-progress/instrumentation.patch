@@ -1,0 +1,93 @@
+--- a/src/incremental_algo/incremental_algo.cpp
++++ b/src/incremental_algo/incremental_algo.cpp
+@@ -5,6 +5,7 @@
+ #include <unordered_map>
+ #include <chrono>
+ #include <stdexcept>
++#include <iostream>
+ 
+ CflrResult run_cflr_incremental(const CnfGrammar& grammar,
+                                 const LabeledGraph& graph)
+@@ -76,9 +77,19 @@
+         M.get_ensure(nt);
+     }
+ 
++    uint64_t diagnostic_calls = 0;
+     int iter = 0;
++    auto progress = [&](const char* event, const char* operation, uint64_t delta) {
++        const auto seconds = std::chrono::duration<double>(
++            std::chrono::high_resolution_clock::now() - t0).count();
++        std::cerr << "PROGRESS time=" << seconds << " iter=" << iter
++                  << " calls=" << diagnostic_calls << " event=" << event
++                  << " op=" << operation << " delta=" << delta << std::endl;
++    };
++    progress("initialized", "none", 0);
+     while (true) {
+         iter++;
++        progress("iteration_begin", "none", 0);
+ 
+         MatrixStore tmp(n);
+ 
+@@ -89,7 +100,10 @@
+             cuBool_Matrix dmc = DM.get(c);
+             if (!mb || !dmc) continue;
+ 
++            ++diagnostic_calls;
++            if (diagnostic_calls % 250 == 0) progress("call_begin", "cuBool_MxM", 0);
+             CB_CHECK(cuBool_MxM(tmp.get_ensure(a), mb, dmc, CUBOOL_HINT_ACCUMULATE));
++            if (diagnostic_calls % 250 == 0) progress("call_end", "cuBool_MxM", 0);
+             tmp.invalidate(a);
+         }
+ 
+@@ -104,7 +118,10 @@
+ 
+             cuBool_Matrix merged;
+             CB_CHECK(cuBool_Matrix_New(&merged, n, n));
++            ++diagnostic_calls;
++            if (diagnostic_calls % 250 == 0) progress("call_begin", "cuBool_Matrix_EWiseAdd", 0);
+             CB_CHECK(cuBool_Matrix_EWiseAdd(merged, ma, dm, CUBOOL_HINT_NO));
++            if (diagnostic_calls % 250 == 0) progress("call_end", "cuBool_Matrix_EWiseAdd", 0);
+             M.replace(nt, merged);
+ 
+             cuBool_Index new_nv = M.nvals_of(nt);
+@@ -117,7 +134,10 @@
+             cuBool_Matrix mc = M.get(c);
+             if (!dmb || !mc) continue;
+ 
++            ++diagnostic_calls;
++            if (diagnostic_calls % 250 == 0) progress("call_begin", "cuBool_MxM", 0);
+             CB_CHECK(cuBool_MxM(tmp.get_ensure(a), dmb, mc, CUBOOL_HINT_ACCUMULATE));
++            if (diagnostic_calls % 250 == 0) progress("call_end", "cuBool_MxM", 0);
+             tmp.invalidate(a);
+         }
+ 
+@@ -130,7 +150,10 @@
+             cuBool_Matrix ta = tmp.get_ensure(a);
+             cuBool_Matrix merged;
+             CB_CHECK(cuBool_Matrix_New(&merged, n, n));
++            ++diagnostic_calls;
++            if (diagnostic_calls % 250 == 0) progress("call_begin", "cuBool_Matrix_EWiseAdd", 0);
+             CB_CHECK(cuBool_Matrix_EWiseAdd(merged, ta, dmb, CUBOOL_HINT_NO));
++            if (diagnostic_calls % 250 == 0) progress("call_end", "cuBool_Matrix_EWiseAdd", 0);
+             tmp.replace(a, merged);
+         }
+ 
+@@ -146,7 +169,10 @@
+ 
+             cuBool_Matrix diff;
+             CB_CHECK(cuBool_Matrix_New(&diff, n, n));
++            ++diagnostic_calls;
++            if (diagnostic_calls % 250 == 0) progress("call_begin", "cuBool_Matrix_EWiseMulInverted", 0);
+             CB_CHECK(cuBool_Matrix_EWiseMulInverted(diff, t, ma, CUBOOL_HINT_NO));
++            if (diagnostic_calls % 250 == 0) progress("call_end", "cuBool_Matrix_EWiseMulInverted", 0);
+ 
+             cuBool_Index dnv = 0;
+             CB_CHECK(cuBool_Matrix_Nvals(diff, &dnv));
+@@ -159,6 +185,7 @@
+             }
+         }
+ 
++        progress("iteration_end", "none", dm_total);
+         if (dm_total == 0) {
+             break;
+         }
