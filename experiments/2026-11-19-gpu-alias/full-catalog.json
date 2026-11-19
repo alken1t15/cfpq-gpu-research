@@ -1,0 +1,380 @@
+[
+  {
+    "graph": "atom",
+    "algo": "incremental",
+    "expected": 6,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.198839\n#SEdges: 6\n",
+    "stderr": "",
+    "actual": 6,
+    "wall_seconds": 1.1956898369999998,
+    "passed": true
+  },
+  {
+    "graph": "atom",
+    "algo": "base",
+    "expected": 6,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "base"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.211178\n#SEdges: 6\n",
+    "stderr": "",
+    "actual": 6,
+    "wall_seconds": 1.2988555769999999,
+    "passed": true
+  },
+  {
+    "graph": "atom",
+    "algo": "lazy",
+    "expected": 6,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.225985\n#SEdges: 6\n",
+    "stderr": "",
+    "actual": 6,
+    "wall_seconds": 1.3405396919999992,
+    "passed": true
+  },
+  {
+    "graph": "bzip",
+    "algo": "incremental",
+    "expected": 315,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/c_alias.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.581816\n#SEdges: 315\n",
+    "stderr": "",
+    "actual": 315,
+    "wall_seconds": 1.0497999499999997,
+    "passed": true
+  },
+  {
+    "graph": "bzip",
+    "algo": "base",
+    "expected": 315,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/c_alias.cnf",
+      "--algo",
+      "base"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.681438\n#SEdges: 315\n",
+    "stderr": "",
+    "actual": 315,
+    "wall_seconds": 1.1121031120000007,
+    "passed": true
+  },
+  {
+    "graph": "bzip",
+    "algo": "lazy",
+    "expected": 315,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/c_alias.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.6878\n#SEdges: 315\n",
+    "stderr": "",
+    "actual": 315,
+    "wall_seconds": 1.109060694,
+    "passed": true
+  },
+  {
+    "graph": "pizza",
+    "algo": "incremental",
+    "expected": 1356,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.176875\n#SEdges: 1356\n",
+    "stderr": "",
+    "actual": 1356,
+    "wall_seconds": 0.5842198510000003,
+    "passed": true
+  },
+  {
+    "graph": "pizza",
+    "algo": "base",
+    "expected": 1356,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "base"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.215161\n#SEdges: 1356\n",
+    "stderr": "",
+    "actual": 1356,
+    "wall_seconds": 0.6410832949999996,
+    "passed": true
+  },
+  {
+    "graph": "pizza",
+    "algo": "lazy",
+    "expected": 1356,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.196198\n#SEdges: 1356\n",
+    "stderr": "",
+    "actual": 1356,
+    "wall_seconds": 0.6065929409999988,
+    "passed": true
+  },
+  {
+    "graph": "gzip",
+    "algo": "incremental",
+    "expected": 1458,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/c_alias.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.681165\n#SEdges: 1458\n",
+    "stderr": "",
+    "actual": 1458,
+    "wall_seconds": 1.1165631769999997,
+    "passed": true
+  },
+  {
+    "graph": "gzip",
+    "algo": "base",
+    "expected": 1458,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/c_alias.cnf",
+      "--algo",
+      "base"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.426756\n#SEdges: 1458\n",
+    "stderr": "",
+    "actual": 1458,
+    "wall_seconds": 0.7855231620000005,
+    "passed": true
+  },
+  {
+    "graph": "gzip",
+    "algo": "lazy",
+    "expected": 1458,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/c_alias.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.527983\n#SEdges: 1458\n",
+    "stderr": "",
+    "actual": 1458,
+    "wall_seconds": 0.9398046439999987,
+    "passed": true
+  },
+  {
+    "graph": "luindex",
+    "algo": "incremental",
+    "expected": 9677,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/java_points_to.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 208.622\n#SEdges: 9677\n",
+    "stderr": "",
+    "actual": 9677,
+    "wall_seconds": 209.109787965,
+    "passed": true
+  },
+  {
+    "graph": "luindex",
+    "algo": "base",
+    "expected": 9677,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/java_points_to.cnf",
+      "--algo",
+      "base"
+    ],
+    "timeout_seconds": 300,
+    "status": "timeout",
+    "stdout": "",
+    "stderr": "",
+    "actual": null,
+    "wall_seconds": 300.14764177200004,
+    "passed": false
+  },
+  {
+    "graph": "luindex",
+    "algo": "lazy",
+    "expected": 9677,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/luindex/java_points_to.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "timeout_seconds": 300,
+    "exit_code": 0,
+    "stdout": "Graph: 18532 vertices, 1740 labels, 34750 edges\nExpanded grammar: 0 epsilon rules, 4 terminal rules, 0 chain rules, 4475 complex rules, 2739 nonterminals\nAnalysisTime: 209.477\n#SEdges: 9677\n",
+    "stderr": "",
+    "actual": 9677,
+    "wall_seconds": 210.69181582199997,
+    "passed": true
+  },
+  {
+    "graph": "gson",
+    "algo": "incremental",
+    "expected": 56325,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gson/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gson/java_points_to.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "timeout_seconds": 300,
+    "status": "timeout",
+    "stdout": "",
+    "stderr": "",
+    "actual": null,
+    "wall_seconds": 300.12523459600004,
+    "passed": false
+  },
+  {
+    "graph": "gson",
+    "algo": "base",
+    "expected": 56325,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gson/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gson/java_points_to.cnf",
+      "--algo",
+      "base"
+    ],
+    "timeout_seconds": 300,
+    "status": "timeout",
+    "stdout": "",
+    "stderr": "",
+    "actual": null,
+    "wall_seconds": 300.13784649800004,
+    "passed": false
+  },
+  {
+    "graph": "gson",
+    "algo": "lazy",
+    "expected": 56325,
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gson/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gson/java_points_to.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "timeout_seconds": 300,
+    "status": "timeout",
+    "stdout": "",
+    "stderr": "",
+    "actual": null,
+    "wall_seconds": 300.12209375299994,
+    "passed": false
+  }
+]

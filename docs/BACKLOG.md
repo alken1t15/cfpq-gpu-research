@@ -165,3 +165,5 @@
 Протокол: experiments/2026-11-10-empty-fill. Metadata/alias/tile/streamreuseне смешаны.
 
 - [x] Исправить nonaccumulate MxM с выходом во входную матрицу. CUDA-only: 864/864, протокол experiments/2026-11-19-gpu-alias.
+
+- [x] Повторить все 18 конфигураций шести графов на CUDA-сборке с alias-правкой. Все количества совпали при лимите 900 секунд.
