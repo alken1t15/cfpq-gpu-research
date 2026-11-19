@@ -1,0 +1,219 @@
+[
+  {
+    "name": "check-cubool-mxm-pairs.py",
+    "command": [
+      "/usr/bin/python3",
+      "/mnt/d/semen_task_avtomat/scripts/check-cubool-mxm-pairs.py",
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cuBool/cubool/libcubool.so",
+      "--gpu",
+      "--collect-failures"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"library\": \"/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cuBool/cubool/libcubool.so\", \"backend\": \"gpu\", \"device\": \"NVIDIA GeForce RTX 3060 Laptop GPU\", \"passed\": 864, \"total\": 864, \"failures\": [], \"fixtures\": 54, \"seed\": 20261103, \"verification\": \"full pair sets; aliases; accumulate on/off; deferred SetElement and Build\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "probe-matrix-primitives.py",
+    "command": [
+      "/usr/bin/python3",
+      "/mnt/d/semen_task_avtomat/scripts/probe-matrix-primitives.py",
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cuBool/cubool/libcubool.so",
+      "--gpu"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"library\": \"/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cuBool/cubool/libcubool.so\",\n  \"gpu\": true,\n  \"total\": 24,\n  \"passed\": 24,\n  \"results\": [\n    {\n      \"operation\": \"cuBool_Matrix_EWiseAdd\",\n      \"a\": [],\n      \"b\": [],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMult\",\n      \"a\": [],\n      \"b\": [],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMulInverted\",\n      \"a\": [],\n      \"b\": [],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_MxM\",\n      \"a\": [],\n      \"b\": [],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseAdd\",\n      \"a\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"b\": [],\n      \"expected\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"actual\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMult\",\n      \"a\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"b\": [],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMulInverted\",\n      \"a\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"b\": [],\n      \"expected\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"actual\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_MxM\",\n      \"a\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"b\": [],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseAdd\",\n      \"a\": [],\n      \"b\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"expected\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"actual\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMult\",\n      \"a\": [],\n      \"b\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMulInverted\",\n      \"a\": [],\n      \"b\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_MxM\",\n      \"a\": [],\n      \"b\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseAdd\",\n      \"a\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"b\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"expected\": [\n        [\n          0,\n          1\n        ],\n        [\n          1,\n          2\n        ]\n      ],\n      \"actual\": [\n        [\n          0,\n          1\n        ],\n        [\n          1,\n          2\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMult\",\n      \"a\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"b\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMulInverted\",\n      \"a\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"b\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"expected\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"actual\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_MxM\",\n      \"a\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"b\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"expected\": [\n        [\n          0,\n          2\n        ]\n      ],\n      \"actual\": [\n        [\n          0,\n          2\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseAdd\",\n      \"a\": [\n        [\n          0,\n          1\n        ],\n        [\n          1,\n          2\n        ]\n      ],\n      \"b\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"expected\": [\n        [\n          0,\n          1\n        ],\n        [\n          1,\n          2\n        ]\n      ],\n      \"actual\": [\n        [\n          0,\n          1\n        ],\n        [\n          1,\n          2\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMult\",\n      \"a\": [\n        [\n          0,\n          1\n        ],\n        [\n          1,\n          2\n        ]\n      ],\n      \"b\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"expected\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"actual\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMulInverted\",\n      \"a\": [\n        [\n          0,\n          1\n        ],\n        [\n          1,\n          2\n        ]\n      ],\n      \"b\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"expected\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"actual\": [\n        [\n          1,\n          2\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_MxM\",\n      \"a\": [\n        [\n          0,\n          1\n        ],\n        [\n          1,\n          2\n        ]\n      ],\n      \"b\": [\n        [\n          0,\n          1\n        ]\n      ],\n      \"expected\": [],\n      \"actual\": [],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseAdd\",\n      \"a\": [\n        [\n          1,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          0\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"b\": [\n        [\n          0,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"expected\": [\n        [\n          0,\n          0\n        ],\n        [\n          1,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          0\n        ],\n        [\n          2,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"actual\": [\n        [\n          0,\n          0\n        ],\n        [\n          1,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          0\n        ],\n        [\n          2,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMult\",\n      \"a\": [\n        [\n          1,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          0\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"b\": [\n        [\n          0,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"expected\": [\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"actual\": [\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_Matrix_EWiseMulInverted\",\n      \"a\": [\n        [\n          1,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          0\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"b\": [\n        [\n          0,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"expected\": [\n        [\n          1,\n          0\n        ],\n        [\n          2,\n          0\n        ]\n      ],\n      \"actual\": [\n        [\n          1,\n          0\n        ],\n        [\n          2,\n          0\n        ]\n      ],\n      \"passed\": true\n    },\n    {\n      \"operation\": \"cuBool_MxM\",\n      \"a\": [\n        [\n          1,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          0\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"b\": [\n        [\n          0,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"expected\": [\n        [\n          1,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          0\n        ],\n        [\n          2,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"actual\": [\n        [\n          1,\n          0\n        ],\n        [\n          1,\n          1\n        ],\n        [\n          2,\n          0\n        ],\n        [\n          2,\n          1\n        ],\n        [\n          2,\n          2\n        ]\n      ],\n      \"passed\": true\n    }\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "name": "check-gpu-mxm-boundaries.py",
+    "command": [
+      "/usr/bin/python3",
+      "/mnt/d/semen_task_avtomat/scripts/check-gpu-mxm-boundaries.py",
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cuBool/cubool/libcubool.so",
+      "/mnt/d/semen_task_avtomat/experiments/2026-11-19-gpu-alias/boundaries.json"
+    ],
+    "exit_code": 0,
+    "stdout": "rows-1 True True\nrows-2 True True\nrows-3 True True\nrows-7 True True\nrows-8 True True\nrows-9 True True\nrows-31 True True\nrows-32 True True\nrows-33 True True\nrows-63 True True\nrows-64 True True\nrows-65 True True\nrows-127 True True\nrows-128 True True\nrows-129 True True\ncols-1 True True\ncols-2 True True\ncols-3 True True\ncols-7 True True\ncols-8 True True\ncols-9 True True\ncols-31 True True\ncols-32 True True\ncols-33 True True\ncols-63 True True\ncols-64 True True\ncols-65 True True\ncols-127 True True\ncols-128 True True\ncols-129 True True\ncols-255 True True\ncols-256 True True\ncols-257 True True\ncols-511 True True\ncols-512 True True\ncols-513 True True\ncols-1023 True True\ncols-1024 True True\ncols-1025 True True\ncols-2047 True True\ncols-2048 True True\ncols-2049 True True\ncols-4095 True True\ncols-4096 True True\ncols-4097 True True\nrandom-0 True True\nrandom-1 True True\nrandom-2 True True\nrandom-3 True True\nrandom-4 True True\nrandom-5 True True\nrandom-6 True True\nrandom-7 True True\nrandom-8 True True\nrandom-9 True True\nrandom-10 True True\nrandom-11 True True\nrandom-12 True True\nrandom-13 True True\nrandom-14 True True\nrandom-15 True True\nrandom-16 True True\nrandom-17 True True\nrandom-18 True True\nrandom-19 True True\nrandom-20 True True\nrandom-21 True True\nrandom-22 True True\nrandom-23 True True\n",
+    "stderr": ""
+  },
+  {
+    "name": "atom-base",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "base"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.16039\n#SEdges: 6\n",
+    "stderr": ""
+  },
+  {
+    "name": "atom-incremental",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.159546\n#SEdges: 6\n",
+    "stderr": ""
+  },
+  {
+    "name": "atom-lazy",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/atom/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 291 vertices, 34 labels, 850 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.172127\n#SEdges: 6\n",
+    "stderr": ""
+  },
+  {
+    "name": "bzip-base",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/c_alias.cnf",
+      "--algo",
+      "base"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.453483\n#SEdges: 315\n",
+    "stderr": ""
+  },
+  {
+    "name": "bzip-incremental",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/c_alias.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.525077\n#SEdges: 315\n",
+    "stderr": ""
+  },
+  {
+    "name": "bzip-lazy",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/bzip/c_alias.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 632 vertices, 4 labels, 1112 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.904624\n#SEdges: 315\n",
+    "stderr": ""
+  },
+  {
+    "name": "pizza-base",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "base"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.173264\n#SEdges: 1356\n",
+    "stderr": ""
+  },
+  {
+    "name": "pizza-incremental",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.218599\n#SEdges: 1356\n",
+    "stderr": ""
+  },
+  {
+    "name": "pizza-lazy",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/pizza/nested_parentheses_subClassOf_type.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 671 vertices, 46 labels, 3960 edges\nExpanded grammar: 0 epsilon rules, 0 terminal rules, 0 chain rules, 6 complex rules, 3 nonterminals\nAnalysisTime: 0.200485\n#SEdges: 1356\n",
+    "stderr": ""
+  },
+  {
+    "name": "gzip-base",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/c_alias.cnf",
+      "--algo",
+      "base"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.442441\n#SEdges: 1458\n",
+    "stderr": ""
+  },
+  {
+    "name": "gzip-incremental",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/c_alias.cnf",
+      "--algo",
+      "incremental"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.520347\n#SEdges: 1458\n",
+    "stderr": ""
+  },
+  {
+    "name": "gzip-lazy",
+    "command": [
+      "/mnt/d/semen_task_avtomat/build/gpu-mxm-alias/cfra",
+      "--graph",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/cfra-graph.txt",
+      "--grammar",
+      "/mnt/d/semen_task_avtomat/data/trial-catalog/gzip/c_alias.cnf",
+      "--algo",
+      "lazy"
+    ],
+    "exit_code": 0,
+    "stdout": "Graph: 2687 vertices, 4 labels, 4586 edges\nExpanded grammar: 3 epsilon rules, 0 terminal rules, 1 chain rules, 8 complex rules, 9 nonterminals\nAnalysisTime: 0.701822\n#SEdges: 1458\n",
+    "stderr": ""
+  }
+]

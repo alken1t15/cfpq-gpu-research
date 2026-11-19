@@ -1,0 +1,7 @@
+{
+  "source_base": "0bf2a5394583ea72f9f0e94e44871fb511e5b699",
+  "sha256": {
+    "build/gpu-mxm-alias/cuBool/cubool/libcubool.so": "bab524a23145e95693faefd73b6cb6d6090594defd1885a618b23c966d1251f8",
+    "build/gpu-mxm-alias/cfra": "fe303b68115297ec081e11a5e9b8cfbb4c436eb0f3ab253b51ed5a2076d8be2a"
+  }
+}
