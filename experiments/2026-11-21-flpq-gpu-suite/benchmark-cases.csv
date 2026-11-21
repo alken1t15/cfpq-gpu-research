@@ -1,0 +1,8 @@
+graph,grammar
+atom,nested_parentheses_subClassOf_type.cnf
+airflow,prov_derivation.cnf
+apache,c_alias.cnf
+luindex,java_points_to.cnf
+unigraph_3,unigraph_3.cnf
+xz,aa.cnf
+xz_field_sensitive_alias,vf.cnf

@@ -170,6 +170,7 @@ def main():
     parser.add_argument("--out", type=Path, required=True, help="New report directory")
     parser.add_argument("--scratch", type=Path, help="Directory for one temporary converted graph")
     parser.add_argument("--graph", action="append", help="Limit to a graph (repeatable)")
+    parser.add_argument("--case-list", type=Path, help="CSV with graph and grammar columns")
     parser.add_argument("--algo", choices=ALGORITHMS, action="append", help="Default: all three")
     parser.add_argument("--timeout", type=int, default=900, help="Seconds per solver invocation")
     args = parser.parse_args()
@@ -191,6 +192,21 @@ def main():
                 raise ValueError(f"Duplicate catalog case: {graph}/{grammar}")
             value = row["num_reachable_pairs"].strip()
             references[grammar] = int(value) if value else None
+    catalog_cases = cases
+    if args.case_list:
+        selected_cases = {}
+        with args.case_list.open(newline="", encoding="utf-8-sig") as file:
+            for row in csv.DictReader(file):
+                graph, grammar = row.get("graph"), row.get("grammar")
+                if graph not in cases or grammar not in cases[graph]:
+                    parser.error(f"Unknown catalog case: {graph}/{grammar}")
+                grammars = selected_cases.setdefault(graph, {})
+                if grammar in grammars:
+                    parser.error(f"Duplicate selected case: {graph}/{grammar}")
+                grammars[grammar] = cases[graph][grammar]
+        if not selected_cases:
+            parser.error("--case-list contains no cases")
+        cases = selected_cases
     if args.graph and set(args.graph) - cases.keys():
         parser.error(f"Unknown graphs: {sorted(set(args.graph) - cases.keys())}")
     selected = sorted(set(args.graph or cases))
@@ -215,7 +231,7 @@ def main():
                 preparation_error = None
                 try:
                     graph_path, grammars = prepare(args.data / "graph" / f"{graph}.tar.gz",
-                                                   graph, cases[graph], Path(work))
+                                                   graph, catalog_cases[graph], Path(work))
                 except (OSError, EOFError, tarfile.TarError, ValueError) as error:
                     preparation_error = str(error)
                 for grammar, expected in sorted(cases[graph].items()):
