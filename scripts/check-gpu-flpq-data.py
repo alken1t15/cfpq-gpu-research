@@ -5,9 +5,11 @@ import csv
 import hashlib
 import json
 import os
+import platform
 from pathlib import Path, PurePosixPath
 import re
 import subprocess
+from statistics import mean, median, stdev
 import tarfile
 import tempfile
 import time
@@ -17,16 +19,41 @@ BUILD = ROOT / "build/gpu-mxm-alias"
 ALGORITHMS = ("base", "incremental", "lazy")
 
 
+def sha256(path):
+    digest = hashlib.sha256()
+    with path.open("rb") as file:
+        for chunk in iter(lambda: file.read(1024**2), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 def verify_build():
     manifest = ROOT / "experiments/2026-11-19-gpu-alias/manifest.json"
     hashes = json.loads(manifest.read_text())["sha256"]
     for name, expected in hashes.items():
-        digest = hashlib.sha256()
-        with (ROOT / name).open("rb") as binary:
-            for chunk in iter(lambda: binary.read(1024**2), b""):
-                digest.update(chunk)
-            if digest.hexdigest() != expected:
-                raise ValueError(f"Unexpected binary hash: {name}")
+        if sha256(ROOT / name) != expected:
+            raise ValueError(f"Unexpected binary hash: {name}")
+    return hashes
+
+
+def save_benchmark_manifest(out, hashes, args):
+    def capture(command):
+        try:
+            result = subprocess.run(command, capture_output=True, text=True, timeout=15)
+            return {"exit_code": result.returncode, "stdout": result.stdout, "stderr": result.stderr}
+        except (OSError, subprocess.TimeoutExpired) as error:
+            return {"error": str(error)}
+
+    manifest = {
+        "utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "source": capture(["git", "-C", str(ROOT), "rev-parse", "HEAD"]),
+        "status": capture(["git", "-C", str(ROOT), "status", "--porcelain"]),
+        "sha256": hashes, "platform": platform.platform(), "timeout_seconds": args.timeout,
+        "cpu": capture(["lscpu"]), "memory": capture(["free", "-b"]),
+        "gpu": capture(["nvidia-smi", "--query-gpu=name,memory.total,driver_version",
+                        "--format=csv"]), "build_cache": (BUILD / "CMakeCache.txt").read_text(),
+    }
+    (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
 
 def matrix_lines(source):
@@ -164,6 +191,15 @@ def grammar_error(path):
     return None
 
 
+def execute_case(command, expected, timeout, raw, sequence, allowed, error):
+    if not allowed:
+        return "skipped", "Correctness check did not pass", None, None, None, None
+    if error is not None:
+        return "input_error", error, None, None, None, None
+    stdout, stderr = raw / f"{sequence:04d}.stdout", raw / f"{sequence:04d}.stderr"
+    return (*run_case(command, expected, timeout, stdout, stderr), stdout, stderr)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data", type=Path, default=ROOT / "data/flpq-all/6.0.0")
@@ -173,10 +209,11 @@ def main():
     parser.add_argument("--case-list", type=Path, help="CSV with graph and grammar columns")
     parser.add_argument("--algo", choices=ALGORITHMS, action="append", help="Default: all three")
     parser.add_argument("--timeout", type=int, default=900, help="Seconds per solver invocation")
+    parser.add_argument("--benchmark", action="store_true", help="Check, warm up, and measure five repeats")
     args = parser.parse_args()
     if args.timeout <= 0:
         parser.error("--timeout must be positive")
-    verify_build()
+    hashes = verify_build()
 
     cases = {}
     with (args.data / "reachable_pairs.csv").open(newline="", encoding="utf-8-sig") as catalog:
@@ -212,10 +249,17 @@ def main():
     selected = sorted(set(args.graph or cases))
     algos = tuple(dict.fromkeys(args.algo or ALGORITHMS))
     planned = sum(len(cases[graph]) for graph in selected) * len(algos)
+    phases = ("check", "warmup", "measure", "measure", "measure", "measure", "measure")
+    if args.benchmark:
+        planned *= len(phases)
+    else:
+        phases = ("check",)
 
     args.out.mkdir(parents=True)
     raw = args.out / "raw"
     raw.mkdir()
+    if args.benchmark:
+        save_benchmark_manifest(args.out, hashes, args)
     counts = Counter()
     with (args.out / "summary.log").open("w", encoding="utf-8", buffering=1) as summary, (
         args.out / "results.jsonl"
@@ -234,34 +278,48 @@ def main():
                                                    graph, catalog_cases[graph], Path(work))
                 except (OSError, EOFError, tarfile.TarError, ValueError) as error:
                     preparation_error = str(error)
+                if args.benchmark and preparation_error is None:
+                    input_hashes = {name: sha256(grammars[name]) for name in cases[graph] if name in grammars}
+                    input_hashes["graph.txt"] = sha256(graph_path)
+                    (args.out / f"inputs-{graph}.json").write_text(json.dumps(input_hashes, indent=2) + "\n")
                 for grammar, expected in sorted(cases[graph].items()):
                     error = preparation_error
                     if error is None:
                         error = (grammar_error(grammars[grammar]) if grammar in grammars
                                  else "Catalog grammar missing from archive")
                     for algo in algos:
-                        key = f"{graph}/{grammar}/{algo}"
-                        stdout = stderr = None
-                        actual = seconds = None
-                        if error is not None:
-                            status, reason = "input_error", error
-                        else:
-                            stem = f"{sum(counts.values()) + 1:04d}"
-                            stdout, stderr = raw / f"{stem}.stdout", raw / f"{stem}.stderr"
-                            command = [str(BUILD / "cfra"), "--graph", str(graph_path),
-                                       "--grammar", str(grammars[grammar]), "--algo", algo]
-                            log(f"START {key}")
-                            status, reason, actual, seconds = run_case(
-                                command, expected, args.timeout, stdout, stderr)
-                        counts[status] += 1
-                        result = dict(graph=graph, grammar=grammar, algo=algo, status=status,
-                                      reason=reason, expected=expected, actual=actual, seconds=seconds,
-                                      stdout=str(stdout.relative_to(args.out)) if stdout else None,
-                                      stderr=str(stderr.relative_to(args.out)) if stderr else None)
-                        print(json.dumps(result), file=results)
-                        outcome = reason or f"{actual} pairs"
-                        duration = f" ({seconds:.2f}s)" if seconds is not None else ""
-                        log(f"[{sum(counts.values())}/{planned}] {status.upper()} {key}: {outcome}{duration}")
+                        repetitions = []
+                        check_passed = False
+                        for attempt, phase in enumerate(phases):
+                            command = None
+                            if error is None:
+                                command = [str(BUILD / "cfra"), "--graph", str(graph_path),
+                                           "--grammar", str(grammars[grammar]), "--algo", algo]
+                            log(f"START {graph}/{grammar}/{algo} {phase}")
+                            status, reason, actual, seconds, stdout, stderr = execute_case(
+                                command, expected, args.timeout, raw, sum(counts.values()) + 1,
+                                check_passed or phase == "check", error)
+                            if phase == "check":
+                                check_passed = status == "pass"
+                            if phase == "measure" and status == "pass":
+                                repetitions.append(seconds)
+                            counts[status] += 1
+                            result = dict(graph=graph, grammar=grammar, algo=algo, status=status,
+                                          reason=reason, expected=expected, actual=actual, seconds=seconds,
+                                          stdout=str(stdout.relative_to(args.out)) if stdout else None,
+                                          stderr=str(stderr.relative_to(args.out)) if stderr else None)
+                            if args.benchmark:
+                                result.update(phase=phase, repeat=attempt - 1 if phase == "measure" else None)
+                            print(json.dumps(result), file=results)
+                            outcome = reason or f"{actual} pairs"
+                            duration = f" ({seconds:.2f}s)" if seconds is not None else ""
+                            log(f"[{sum(counts.values())}/{planned}] {status.upper()} "
+                                f"{graph}/{grammar}/{algo} {phase}: {outcome}{duration}")
+                        if args.benchmark and repetitions:
+                            log(f"TIMING {graph}/{grammar}/{algo} successful={len(repetitions)}/5 "
+                                f"median={median(repetitions):.6f}s mean={mean(repetitions):.6f}s "
+                                f"min={min(repetitions):.6f}s max={max(repetitions):.6f}s "
+                                f"sample_sd={stdev(repetitions) if len(repetitions) > 1 else 'n/a'}")
         failures = planned - counts["pass"] - counts["no_reference"]
         log(f"TOTAL {planned}: passed={counts['pass']}, failed={failures}, "
             f"without_reference={counts['no_reference']}")

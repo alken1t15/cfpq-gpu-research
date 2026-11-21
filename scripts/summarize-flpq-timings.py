@@ -38,7 +38,7 @@ def read_runs(directory):
 def compare(runs):
     matched = defaultdict(dict)
     for run in runs:
-        if run["status"] == "pass":
+        if run["status"] == "pass" and "phase" not in run:
             matched[run["graph"], run["grammar"]][run["algo"]] = run
     for (graph, grammar), algorithms in sorted(matched.items()):
         base = algorithms.get("base")
@@ -64,7 +64,7 @@ def main():
     runs = list(read_runs(args.report))
     comparisons = list(compare(runs))
     write_csv(args.report / "timings.csv",
-              ("graph", "grammar", "algo", "status", "expected", "actual", "wall_seconds",
+              ("graph", "grammar", "algo", "phase", "repeat", "status", "expected", "actual", "wall_seconds",
                "analysis_seconds", "vertices", "labels", "edges", "reason", "stdout", "stderr"),
               runs)
     write_csv(args.report / "comparisons.csv",
