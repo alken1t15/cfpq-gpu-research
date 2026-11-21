@@ -63,10 +63,6 @@ def prepare(archive, graph, grammars, directory):
             if not label or any(char.isspace() for char in label):
                 raise ValueError(f"Invalid label: {label!r}")
             forward, reverse = label, label + "_r"
-            indexed = re.fullmatch(r"(load|store)_(\d+)", label)
-            if indexed:
-                kind, index = indexed.groups()
-                forward, reverse = f"{kind}_i_{index}", f"{kind}_r_i_{index}"
             if forward in labels or reverse in labels:
                 raise ValueError(f"Label collision: {label}")
             labels.update((forward, reverse))
@@ -96,13 +92,33 @@ def prepare(archive, graph, grammars, directory):
                 raise ValueError(f"{member.name}: {error}") from error
         if vertices is None:
             raise ValueError("No graph matrices found")
+        tokens = set().union(*(set(path.read_text().split()) for path in grammar_paths.values()))
         if highest < vertices - 1:
             # CFRA infers dimensions from the largest vertex ID in the edge list.
-            tokens = labels.union(*(set(path.read_text().split()) for path in grammar_paths.values()))
             marker = "__cfra_dimension"
-            while marker in tokens:
+            while marker in tokens or marker in labels:
                 marker += "_"
             edges.write(f"{vertices - 1} {vertices - 1} {marker}\n")
+    # FLPQ stores family_N, while CFRA expands family_i to family_i_N.
+    replacements = {}
+    for label in sorted(labels):
+        indexed = re.fullmatch(r"(.+)_(0|[1-9][0-9]*)(_r)?", label)
+        if not indexed:
+            continue
+        family, index, reverse = indexed.groups()
+        template = f"{family}{reverse or ''}_i"
+        if template in tokens:
+            target = f"{template}_{index}"
+            if label in tokens or target in labels:
+                raise ValueError(f"Ambiguous indexed label mapping: {label} -> {target}")
+            replacements[label] = target
+    if replacements:
+        adapted = graph_path.with_suffix(".adapted")
+        with graph_path.open() as original, adapted.open("w", buffering=1024**2) as edges:
+            for line in original:
+                src, dst, label = line.split()
+                edges.write(f"{src} {dst} {replacements.get(label, label)}\n")
+        adapted.replace(graph_path)
     return graph_path, grammar_paths
 
 
