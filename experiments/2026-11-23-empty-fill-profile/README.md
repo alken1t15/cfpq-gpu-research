@@ -38,4 +38,4 @@ python3 scripts/check-gpu-empty-fill-alias.py --graph apache
 python3 scripts/check-gpu-flpq-data.py --empty-fill --case-list experiments/2026-11-21-flpq-gpu-suite/benchmark-cases.csv --out data/flpq-all/gpu-empty-fill-catalog
 ```
 
-Первые три запуска на airflow вернули эталонные 91 350 пар. Полный итог ожидается после завершения серии.
+Все 21 контрольный запуск вернули эталонное число пар. Хеши подготовленных графов и грамматик совпали с исходной серией на всех семи графах.
