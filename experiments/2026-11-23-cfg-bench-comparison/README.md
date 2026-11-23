@@ -17,10 +17,26 @@ python3 scripts/prepare-cfg-bench.py --out data/flpq-all/cfg-bench-inputs
 python3 scripts/run-cfg-bench.py --repo /root/cfpq-homka/CFG_bench --inputs data/flpq-all/cfg-bench-inputs --out data/flpq-all/cfg-bench-runs
 ```
 
-Для запуска нужна сборка CFG_bench с GraphBLAS и LAGraph в пути загрузки библиотек. Сырые файлы остаются в каталоге данных. Библиотеки собраны в локальном префиксе WSL. GraphBLAS compact собран с CPU JIT и OpenMP, CUDA-компилятор отсутствовал, CUDA JIT отключён. Для CFG_bench использован GCC 13 с флагами Makefile и добавленным -D_GNU_SOURCE: без него на этой системе strchrnul не объявлялась и штатный тест падал при чтении CSV. Штатная проверка и сокращённая выборка прошли 16/16. На момент записи серия из семи запросов выполняется.
+Для запуска нужна сборка CFG_bench с GraphBLAS и LAGraph в пути загрузки библиотек. Сырые файлы остаются в каталоге данных. Библиотеки собраны в локальном префиксе WSL. GraphBLAS compact собран с CPU JIT и OpenMP, CUDA-компилятор отсутствовал, CUDA JIT отключён. Для CFG_bench использован GCC 13 с флагами Makefile и добавленным -D_GNU_SOURCE: без него на этой системе strchrnul не объявлялась и штатный тест падал при чтении CSV. Штатная проверка и сокращённая выборка прошли 16/16. Серия из семи запросов завершена.
 
 Промежуточную или итоговую таблицу сравнения можно собрать из накопленных результатов:
 
 ```bash
 python3 scripts/compare-cfg-bench.py --cfg-results data/flpq-all/cfg-bench-runs/results.jsonl --cfra-summary data/flpq-all/cuda-all-modes-summary.csv --out data/flpq-all/cfg-bench-comparison.csv
 ```
+
+## Результаты
+
+Все семь контролей CFL_adv совпали с эталоном. На шести графах прошли все пять измеряемых повторов. На apache контроль вернул 92 806 768 пар, а прогрев и пять измеряемых запусков завершились SIGKILL. В журнале ядра для этих запусков CFG_bench зарегистрировано исчерпание памяти. Сопоставимая CPU-медиана для apache отсутствует.
+
+| Граф | CFL_adv -efbl, CPU, с | CFRA incremental, GPU, с |
+|---|---:|---:|
+| airflow | 2,424 | 0,973 |
+| apache | OOM | 186,335 |
+| atom | 0,022 | 0,622 |
+| luindex | 0,553 | 184,239 |
+| unigraph_3 | 34,369 | 17,580 |
+| xz | 0,369 | 66,065 |
+| xz_field_sensitive_alias | 0,218 | 4,749 |
+
+Сравниваются медианы полного времени процесса из отдельных серий. Среди шести графов с сопоставимыми замерами CFRA incremental быстрее на двух, CFL_adv быстрее на четырёх. Самый большой разрыв наблюдался на luindex. Разложение времени по операциям требует отдельного профиля.
