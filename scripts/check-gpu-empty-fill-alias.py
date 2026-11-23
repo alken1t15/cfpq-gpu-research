@@ -1,4 +1,4 @@
-"""Compare CUDA baseline and empty-fill candidate on identical FLPQ inputs."""
+"""Compare CUDA cuBool builds on identical FLPQ inputs."""
 import argparse
 import json
 import os
@@ -25,22 +25,27 @@ CASES = {
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--graph", choices=CASES, default="luindex")
+    parser.add_argument("--count-host-bins", action="store_true",
+                        help="Compare count metadata reuse against the empty-fill build")
     args = parser.parse_args()
     graph_name = args.graph
     query, expected_pairs, reference_folder = CASES[graph_name]
-    out = DATA / ("gpu-empty-fill-alias" if graph_name == "luindex"
-                  else f"gpu-empty-fill-alias-{graph_name}")
+    tag = "gpu-count-host-bins" if args.count_host_bins else "gpu-empty-fill-alias"
+    out = DATA / (tag if graph_name == "luindex" else f"{tag}-{graph_name}")
     importer = runpy.run_path(str(ROOT / "scripts/check-gpu-flpq-data.py"))
     digest = importer["sha256"]
     importer["verify_build"]()
-    builds = {"baseline": BASE, "trial": TRIAL}
+    builds = ({"baseline": TRIAL, "trial": ROOT / "build/gpu-count-host-bins"}
+              if args.count_host_bins else {"baseline": BASE, "trial": TRIAL})
     libraries = {name: build / "cuBool/cubool/libcubool.so" for name, build in builds.items()}
     hashes = {name: {str(path.relative_to(ROOT)): digest(path)
                     for path in (build / "cfra", libraries[name])}
               for name, build in builds.items()}
-    if graph_name != "luindex":
+    if args.count_host_bins or graph_name != "luindex":
         verified = json.loads((DATA / "gpu-empty-fill-alias/manifest.json").read_text())
-        if hashes != verified["builds"]:
+        if args.count_host_bins and hashes["baseline"] != verified["builds"]["trial"]:
+            raise ValueError("The empty-fill baseline differs from the verified build")
+        if not args.count_host_bins and hashes != verified["builds"]:
             raise ValueError("Build hashes differ from the paired luindex run")
     environments = {}
     for name, library in libraries.items():
@@ -68,7 +73,7 @@ def main():
                            stdout=log, stderr=subprocess.STDOUT, check=True, timeout=900)
 
     pizza = ROOT / "data/trial-catalog/pizza"
-    smoke = subprocess.run([str(TRIAL / "cfra"), "--graph", str(pizza / "cfra-graph.txt"),
+    smoke = subprocess.run([str(builds["trial"] / "cfra"), "--graph", str(pizza / "cfra-graph.txt"),
                             "--grammar", str(pizza / "nested_parentheses_subClassOf_type.cnf"),
                             "--algo", "incremental"],
                            env=environments["trial"],

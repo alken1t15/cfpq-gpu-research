@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <thrust/device_ptr.h>
 #include <thrust/device_vector.h>
+#include <thrust/host_vector.h>
 #include <utility>
 #include <vector>
 
@@ -50,8 +51,8 @@ struct count_nz_functor_t {
       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
-      const container_t<index_type>& permutation_buffer, const container_t<index_type>& bin_offset,
-      const container_t<index_type>& bin_size, container_t<index_type>& row_idx,
+      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
+      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& row_idx,
       std::tuple<Borders...>) {
     constexpr size_t pwarp = 4;
 
@@ -73,8 +74,8 @@ struct count_nz_functor_t {
       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
-      const container_t<index_type>& permutation_buffer, thrust::host_vector<index_type> bin_offset,
-      thrust::host_vector<index_type> bin_size, container_t<index_type>& row_idx,
+      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
+      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& row_idx,
       std::tuple<Borders...>) {
     static_assert(meta::all_of<(Borders::config_t::block_size % 32 == 0)...>);
 
@@ -93,7 +94,7 @@ struct count_nz_functor_t {
       const container_t<index_type>& c_row_idx, const container_t<index_type>& a_col_idx,
       const container_t<index_type>& a_row_idx, const container_t<index_type>& b_col_idx,
       const container_t<index_type>& b_row_idx, const container_t<index_type>& permutation_buffer,
-      const container_t<index_type>& bin_offset, const container_t<index_type>& bin_size,
+      const thrust::host_vector<index_type>& bin_offset, const thrust::host_vector<index_type>& bin_size,
       container_t<index_type>& row_idx, std::tuple<Border>) {
     index_type size = bin_size[Border::bin_index];
 
@@ -207,17 +208,21 @@ struct count_nz_functor_t {
                        rows_in_bins[bin_offset[bin] + curr_bin_size] = tid;
                      });
 
+    // All launch paths use the same metadata produced by the permutation pass.
+    const thrust::host_vector<index_type> host_bin_offset = bin_offset;
+    const thrust::host_vector<index_type> host_bin_size = bin_size;
+
     exec_pwarp_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
-                   permutation_buffer, bin_offset, bin_size, products_per_row,
+                   permutation_buffer, host_bin_offset, host_bin_size, products_per_row,
                    meta::filter<meta::pwarp_row, Borders...>);
 
     exec_block_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
-                   permutation_buffer, bin_offset, bin_size, products_per_row,
+                   permutation_buffer, host_bin_offset, host_bin_size, products_per_row,
                    meta::filter<meta::block_row, Borders...>);
 
     auto global_hash_table_state =
         exec_global_row(n_cols, c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
-                        permutation_buffer, bin_offset, bin_size, products_per_row,
+                        permutation_buffer, host_bin_offset, host_bin_size, products_per_row,
                         meta::filter<meta::global_row, Borders...>);
     cudaDeviceSynchronize();
     thrust::exclusive_scan(products_per_row.begin(), products_per_row.end(),
