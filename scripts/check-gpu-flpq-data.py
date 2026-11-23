@@ -16,6 +16,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / "build/gpu-mxm-alias"
+EMPTY_FILL_BUILD = ROOT / "build/gpu-empty-fill-alias"
 ALGORITHMS = ("base", "incremental", "lazy")
 
 
@@ -30,13 +31,17 @@ def sha256(path):
 def verify_build():
     manifest = ROOT / "experiments/2026-11-19-gpu-alias/manifest.json"
     hashes = json.loads(manifest.read_text())["sha256"]
-    for name, expected in hashes.items():
-        if sha256(ROOT / name) != expected:
-            raise ValueError(f"Unexpected binary hash: {name}")
+    verify_hashes(hashes)
     return hashes
 
 
-def save_benchmark_manifest(out, hashes, args):
+def verify_hashes(hashes):
+    for name, expected in hashes.items():
+        if sha256(ROOT / name) != expected:
+            raise ValueError(f"Unexpected binary hash: {name}")
+
+
+def save_benchmark_manifest(out, hashes, args, build):
     def capture(command):
         try:
             result = subprocess.run(command, capture_output=True, text=True, timeout=15)
@@ -51,7 +56,7 @@ def save_benchmark_manifest(out, hashes, args):
         "sha256": hashes, "platform": platform.platform(), "timeout_seconds": args.timeout,
         "cpu": capture(["lscpu"]), "memory": capture(["free", "-b"]),
         "gpu": capture(["nvidia-smi", "--query-gpu=name,memory.total,driver_version",
-                        "--format=csv"]), "build_cache": (BUILD / "CMakeCache.txt").read_text(),
+                        "--format=csv"]), "build_cache": (build / "CMakeCache.txt").read_text(),
     }
     (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
@@ -149,9 +154,9 @@ def prepare(archive, graph, grammars, directory):
     return graph_path, grammar_paths
 
 
-def run_case(command, expected, timeout, stdout_path, stderr_path):
+def run_case(command, expected, timeout, stdout_path, stderr_path, build=BUILD):
     start = time.monotonic()
-    env = dict(os.environ, LD_LIBRARY_PATH=str(BUILD / "cuBool/cubool"))
+    env = dict(os.environ, LD_LIBRARY_PATH=str(build / "cuBool/cubool"))
     env.pop("LD_PRELOAD", None)
     with stdout_path.open("wb") as stdout, stderr_path.open("wb") as stderr:
         try:
@@ -191,13 +196,13 @@ def grammar_error(path):
     return None
 
 
-def execute_case(command, expected, timeout, raw, sequence, allowed, error):
+def execute_case(command, expected, timeout, raw, sequence, allowed, error, build):
     if not allowed:
         return "skipped", "Correctness check did not pass", None, None, None, None
     if error is not None:
         return "input_error", error, None, None, None, None
     stdout, stderr = raw / f"{sequence:04d}.stdout", raw / f"{sequence:04d}.stderr"
-    return (*run_case(command, expected, timeout, stdout, stderr), stdout, stderr)
+    return (*run_case(command, expected, timeout, stdout, stderr, build), stdout, stderr)
 
 
 def main():
@@ -210,10 +215,17 @@ def main():
     parser.add_argument("--algo", choices=ALGORITHMS, action="append", help="Default: all three")
     parser.add_argument("--timeout", type=int, default=900, help="Seconds per solver invocation")
     parser.add_argument("--benchmark", action="store_true", help="Check, warm up, and measure five repeats")
+    parser.add_argument("--empty-fill", action="store_true", help="Use the verified CUDA empty-fill candidate")
     args = parser.parse_args()
     if args.timeout <= 0:
         parser.error("--timeout must be positive")
-    hashes = verify_build()
+    build = EMPTY_FILL_BUILD if args.empty_fill else BUILD
+    if args.empty_fill:
+        manifest = ROOT / "data/flpq-all/gpu-empty-fill-alias/manifest.json"
+        hashes = json.loads(manifest.read_text())["builds"]["trial"]
+        verify_hashes(hashes)
+    else:
+        hashes = verify_build()
 
     cases = {}
     with (args.data / "reachable_pairs.csv").open(newline="", encoding="utf-8-sig") as catalog:
@@ -258,8 +270,8 @@ def main():
     args.out.mkdir(parents=True)
     raw = args.out / "raw"
     raw.mkdir()
-    if args.benchmark:
-        save_benchmark_manifest(args.out, hashes, args)
+    if args.benchmark or args.empty_fill:
+        save_benchmark_manifest(args.out, hashes, args, build)
     counts = Counter()
     with (args.out / "summary.log").open("w", encoding="utf-8", buffering=1) as summary, (
         args.out / "results.jsonl"
@@ -278,7 +290,7 @@ def main():
                                                    graph, catalog_cases[graph], Path(work))
                 except (OSError, EOFError, tarfile.TarError, ValueError) as error:
                     preparation_error = str(error)
-                if args.benchmark and preparation_error is None:
+                if (args.benchmark or args.empty_fill) and preparation_error is None:
                     input_hashes = {name: sha256(grammars[name]) for name in cases[graph] if name in grammars}
                     input_hashes["graph.txt"] = sha256(graph_path)
                     (args.out / f"inputs-{graph}.json").write_text(json.dumps(input_hashes, indent=2) + "\n")
@@ -293,12 +305,12 @@ def main():
                         for attempt, phase in enumerate(phases):
                             command = None
                             if error is None:
-                                command = [str(BUILD / "cfra"), "--graph", str(graph_path),
+                                command = [str(build / "cfra"), "--graph", str(graph_path),
                                            "--grammar", str(grammars[grammar]), "--algo", algo]
                             log(f"START {graph}/{grammar}/{algo} {phase}")
                             status, reason, actual, seconds, stdout, stderr = execute_case(
                                 command, expected, args.timeout, raw, sum(counts.values()) + 1,
-                                check_passed or phase == "check", error)
+                                check_passed or phase == "check", error, build)
                             if phase == "check":
                                 check_passed = status == "pass"
                             if phase == "measure" and status == "pass":
