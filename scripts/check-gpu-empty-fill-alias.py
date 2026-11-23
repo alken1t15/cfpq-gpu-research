@@ -1,4 +1,5 @@
-"""Compare CUDA baseline and empty-fill candidate on identical luindex inputs."""
+"""Compare CUDA baseline and empty-fill candidate on identical FLPQ inputs."""
+import argparse
 import json
 import os
 from pathlib import Path
@@ -14,10 +15,21 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "build/gpu-mxm-alias"
 TRIAL = ROOT / "build/gpu-empty-fill-alias"
 DATA = ROOT / "data/flpq-all"
-OUT = DATA / "gpu-empty-fill-alias"
+CASES = {
+    "luindex": ("java_points_to.cnf", 9677, "cuda-baseline-resume"),
+    "xz": ("aa.cnf", 358834, "cuda-baseline-resume"),
+    "apache": ("c_alias.cnf", 92806768, "cuda-baseline"),
+}
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--graph", choices=CASES, default="luindex")
+    args = parser.parse_args()
+    graph_name = args.graph
+    query, expected_pairs, reference_folder = CASES[graph_name]
+    out = DATA / ("gpu-empty-fill-alias" if graph_name == "luindex"
+                  else f"gpu-empty-fill-alias-{graph_name}")
     importer = runpy.run_path(str(ROOT / "scripts/check-gpu-flpq-data.py"))
     digest = importer["sha256"]
     importer["verify_build"]()
@@ -26,6 +38,10 @@ def main():
     hashes = {name: {str(path.relative_to(ROOT)): digest(path)
                     for path in (build / "cfra", libraries[name])}
               for name, build in builds.items()}
+    if graph_name != "luindex":
+        verified = json.loads((DATA / "gpu-empty-fill-alias/manifest.json").read_text())
+        if hashes != verified["builds"]:
+            raise ValueError("Build hashes differ from the paired luindex run")
     environments = {}
     for name, library in libraries.items():
         env = dict(os.environ, LD_LIBRARY_PATH=str(library.parent))
@@ -35,18 +51,18 @@ def main():
                    for line in dependencies.splitlines()):
             raise ValueError(f"Unexpected cuBool library for {name}: {dependencies}")
         environments[name] = env
-    OUT.mkdir()
-    (OUT / "manifest.json").write_text(json.dumps({
+    out.mkdir()
+    (out / "manifest.json").write_text(json.dumps({
         "source": subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip(),
         "builds": hashes, "timeout_seconds": 900,
     }, indent=2) + "\n")
     for script, flags in (
         ("check-cubool-mxm-pairs.py", ["--gpu", "--collect-failures"]),
         ("probe-matrix-primitives.py", ["--gpu"]),
-        ("check-gpu-mxm-boundaries.py", [str(OUT / "boundaries.json")]),
+        ("check-gpu-mxm-boundaries.py", [str(out / "boundaries.json")]),
     ):
         print("REGRESSION", script, flush=True)
-        with (OUT / (script + ".log")).open("w") as log:
+        with (out / (script + ".log")).open("w") as log:
             subprocess.run([sys.executable, str(ROOT / "scripts" / script),
                             str(libraries["trial"]), *flags],
                            stdout=log, stderr=subprocess.STDOUT, check=True, timeout=900)
@@ -57,33 +73,32 @@ def main():
                             "--algo", "incremental"],
                            env=environments["trial"],
                            capture_output=True, text=True, timeout=900)
-    (OUT / "pizza.stdout").write_text(smoke.stdout)
-    (OUT / "pizza.stderr").write_text(smoke.stderr)
+    (out / "pizza.stdout").write_text(smoke.stdout)
+    (out / "pizza.stderr").write_text(smoke.stderr)
     if smoke.returncode or not re.search(r"^#SEdges:\s*1356\s*$", smoke.stdout, re.MULTILINE):
         raise RuntimeError("Pizza correctness check failed")
     print("PASS pizza incremental: 1356 pairs", flush=True)
 
-    query = "java_points_to.cnf"
-    folder = DATA / "cuda-baseline-resume"
-    reference = json.loads((folder / "inputs-luindex.json").read_text())
+    folder = DATA / reference_folder
+    reference = json.loads((folder / f"inputs-{graph_name}.json").read_text())
     samples = {name: [] for name in builds}
     schedule = [("warmup", name) for name in builds]
     for pair in range(5):
         order = ("baseline", "trial") if pair % 2 == 0 else ("trial", "baseline")
         schedule.extend((f"pair-{pair + 1}", name) for name in order)
 
-    with TemporaryDirectory() as scratch, (OUT / "results.jsonl").open("w", buffering=1) as results:
-        graph, grammars = importer["prepare"](DATA / "6.0.0/graph/luindex.tar.gz",
-                                             "luindex", {query}, Path(scratch))
+    with TemporaryDirectory() as scratch, (out / "results.jsonl").open("w", buffering=1) as results:
+        graph, grammars = importer["prepare"](DATA / "6.0.0/graph" / f"{graph_name}.tar.gz",
+                                             graph_name, {query}, Path(scratch))
         grammar = grammars[query]
         if {"graph.txt": digest(graph), query: digest(grammar)} != reference:
-            raise ValueError("luindex input hashes differ from benchmark")
-        (OUT / "inputs.json").write_text(json.dumps(reference, indent=2) + "\n")
+            raise ValueError(f"{graph_name} input hashes differ from benchmark")
+        (out / "inputs.json").write_text(json.dumps(reference, indent=2) + "\n")
         for phase, label in schedule:
             print("START", phase, label, flush=True)
             command = [str(BASE / "cfra"), "--graph", str(graph),
                        "--grammar", str(grammar), "--algo", "incremental"]
-            stdout_path, stderr_path = [OUT / f"{phase}-{label}.{ext}" for ext in ("stdout", "stderr")]
+            stdout_path, stderr_path = [out / f"{phase}-{label}.{ext}" for ext in ("stdout", "stderr")]
             start = time.monotonic()
             code = None
             with stdout_path.open("wb") as stdout, stderr_path.open("wb") as stderr:
@@ -96,8 +111,8 @@ def main():
             output = stdout_path.read_text(errors="replace")
             match = re.search(r"^#SEdges:\s*(\d+)\s*$", output, re.MULTILINE)
             actual = int(match[1]) if match else None
-            status = "timeout" if code is None else "pass" if code == 0 and actual == 9677 else "failure"
-            print(json.dumps(dict(phase=phase, build=label, seconds=seconds, expected=9677,
+            status = "timeout" if code is None else "pass" if code == 0 and actual == expected_pairs else "failure"
+            print(json.dumps(dict(phase=phase, build=label, seconds=seconds, expected=expected_pairs,
                                   actual=actual, exit_code=code, status=status,
                                   stdout=stdout_path.name, stderr=stderr_path.name)), file=results)
             print("END", phase, label, status, actual, f"{seconds:.3f}s", flush=True)
@@ -111,7 +126,7 @@ def main():
                 raise ValueError(f"Changed {name} artifact: {path}")
     summary = {label: dict(samples=times, median=median(times)) for label, times in samples.items()}
     summary["baseline_over_trial"] = summary["baseline"]["median"] / summary["trial"]["median"]
-    (OUT / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+    (out / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps(summary), flush=True)
     return 0
 
