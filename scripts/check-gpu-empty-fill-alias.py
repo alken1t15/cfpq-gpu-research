@@ -25,23 +25,34 @@ CASES = {
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--graph", choices=CASES, default="luindex")
-    parser.add_argument("--count-host-bins", action="store_true",
+    candidates = parser.add_mutually_exclusive_group()
+    candidates.add_argument("--count-host-bins", action="store_true",
                         help="Compare count metadata reuse against the empty-fill build")
+    candidates.add_argument("--fill-host-bins", action="store_true",
+                            help="Compare fill metadata batching against the verified count build")
     args = parser.parse_args()
     graph_name = args.graph
     query, expected_pairs, reference_folder = CASES[graph_name]
     tag = "gpu-count-host-bins" if args.count_host_bins else "gpu-empty-fill-alias"
+    if args.fill_host_bins:
+        tag = "gpu-fill-host-bins"
     out = DATA / (tag if graph_name == "luindex" else f"{tag}-{graph_name}")
     importer = runpy.run_path(str(ROOT / "scripts/check-gpu-flpq-data.py"))
     digest = importer["sha256"]
     importer["verify_build"]()
     builds = ({"baseline": TRIAL, "trial": ROOT / "build/gpu-count-host-bins"}
               if args.count_host_bins else {"baseline": BASE, "trial": TRIAL})
+    if args.fill_host_bins:
+        builds = {"baseline": ROOT / "build/gpu-count-host-bins", "trial": ROOT / "build" / tag}
     libraries = {name: build / "cuBool/cubool/libcubool.so" for name, build in builds.items()}
     hashes = {name: {str(path.relative_to(ROOT)): digest(path)
                     for path in (build / "cfra", libraries[name])}
               for name, build in builds.items()}
-    if args.count_host_bins or graph_name != "luindex":
+    if args.fill_host_bins:
+        verified = json.loads((DATA / "gpu-count-host-bins/manifest.json").read_text())
+        if hashes["baseline"] != verified["builds"]["trial"]:
+            raise ValueError("The count baseline differs from the verified build")
+    elif args.count_host_bins or graph_name != "luindex":
         verified = json.loads((DATA / "gpu-empty-fill-alias/manifest.json").read_text())
         if args.count_host_bins and hashes["baseline"] != verified["builds"]["trial"]:
             raise ValueError("The empty-fill baseline differs from the verified build")
