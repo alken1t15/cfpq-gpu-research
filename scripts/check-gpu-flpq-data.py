@@ -215,13 +215,17 @@ def main():
     parser.add_argument("--algo", choices=ALGORITHMS, action="append", help="Default: all three")
     parser.add_argument("--timeout", type=int, default=900, help="Seconds per solver invocation")
     parser.add_argument("--benchmark", action="store_true", help="Check, warm up, and measure five repeats")
-    parser.add_argument("--empty-fill", action="store_true", help="Use the verified CUDA empty-fill candidate")
+    candidates = parser.add_mutually_exclusive_group()
+    candidates.add_argument("--empty-fill", action="store_true", help="Use the verified CUDA empty-fill candidate")
+    candidates.add_argument("--count-host-bins", action="store_true", help="Use the verified CUDA count candidate")
     args = parser.parse_args()
     if args.timeout <= 0:
         parser.error("--timeout must be positive")
-    build = EMPTY_FILL_BUILD if args.empty_fill else BUILD
-    if args.empty_fill:
-        manifest = ROOT / "data/flpq-all/gpu-empty-fill-alias/manifest.json"
+    candidate = args.empty_fill or args.count_host_bins
+    build = ROOT / "build/gpu-count-host-bins" if args.count_host_bins else (
+        EMPTY_FILL_BUILD if args.empty_fill else BUILD)
+    if candidate:
+        manifest = ROOT / "data/flpq-all" / build.name / "manifest.json"
         hashes = json.loads(manifest.read_text())["builds"]["trial"]
         verify_hashes(hashes)
     else:
@@ -270,7 +274,7 @@ def main():
     args.out.mkdir(parents=True)
     raw = args.out / "raw"
     raw.mkdir()
-    if args.benchmark or args.empty_fill:
+    if args.benchmark or candidate:
         save_benchmark_manifest(args.out, hashes, args, build)
     counts = Counter()
     with (args.out / "summary.log").open("w", encoding="utf-8", buffering=1) as summary, (
@@ -290,7 +294,7 @@ def main():
                                                    graph, catalog_cases[graph], Path(work))
                 except (OSError, EOFError, tarfile.TarError, ValueError) as error:
                     preparation_error = str(error)
-                if (args.benchmark or args.empty_fill) and preparation_error is None:
+                if (args.benchmark or candidate) and preparation_error is None:
                     input_hashes = {name: sha256(grammars[name]) for name in cases[graph] if name in grammars}
                     input_hashes["graph.txt"] = sha256(graph_path)
                     (args.out / f"inputs-{graph}.json").write_text(json.dumps(input_hashes, indent=2) + "\n")
