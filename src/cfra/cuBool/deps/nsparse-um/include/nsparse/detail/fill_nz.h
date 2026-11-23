@@ -88,6 +88,11 @@ struct fill_nz_functor_t {
                                      const container_t<index_type>& b_row_idx,
                                      const container_t<index_type>& row_idx,
                                      std::tuple<Borders...>) {
+    // The final CSR row offset is the number of entries to fill.
+    const index_type values_count = row_idx.back();
+    if (values_count == 0)
+      return {};
+
     constexpr size_t bin_count = sizeof...(Borders);
     constexpr size_t unused_bin = meta::max_bin<Borders...> + 1;
 
@@ -124,8 +129,6 @@ struct fill_nz_functor_t {
           auto curr_bin_size = atomicAdd(bin_size.get() + bin, 1);
           rows_in_bins[bin_offset[bin] + curr_bin_size] = tid;
         });
-
-    index_type values_count = row_idx.back();
 
     container_t<index_type> col_idx(values_count, std::numeric_limits<index_type>::max());
 
