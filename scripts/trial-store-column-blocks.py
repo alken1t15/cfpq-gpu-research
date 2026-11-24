@@ -1,5 +1,6 @@
 """Build and run an isolated CFRA column-block trial on luindex."""
 import argparse
+import csv
 import json
 import os
 from pathlib import Path
@@ -108,7 +109,11 @@ def build_trial(work, phase_timing=False, single_unpack=False, cache=False, nvtx
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", required=True, type=Path)
-    parser.add_argument("--graph", choices=("luindex", "lusearch"), default="luindex")
+    report_cases = ROOT / "experiments/2026-11-21-flpq-gpu-suite/benchmark-cases.csv"
+    with report_cases.open(newline="") as file:
+        queries = {row["graph"]: row["grammar"] for row in csv.DictReader(file)}
+    queries["lusearch"] = "java_points_to.cnf"
+    parser.add_argument("--graph", choices=tuple(queries), default="luindex")
     parser.add_argument("--phase-timing", action="store_true", help="Measure host-observed block phases in a diagnostic run")
     parser.add_argument("--single-unpack", action="store_true", help="Partition a single extraction of the packed result")
     parser.add_argument("--pairs", type=int, default=1)
@@ -121,9 +126,17 @@ def main():
     parser.add_argument("--nvtx-include", type=Path,
                         help="Add per-operation NVTX ranges using this NVTX include directory")
     args = parser.parse_args()
-    if args.graph == "lusearch" and not args.compare_cache:
-        parser.error("lusearch is supported for --compare-cache")
-    expected_pairs = {"luindex": 9677, "lusearch": 9242}[args.graph]
+    if args.graph != "luindex" and not args.compare_cache:
+        parser.error("Graphs other than luindex require --compare-cache")
+    query = queries[args.graph]
+    with (DATA / "6.0.0/reachable_pairs.csv").open(newline="", encoding="utf-8-sig") as file:
+        references = [row["num_reachable_pairs"] for row in csv.DictReader(file)
+                      if row["graph"] == args.graph and row["grammar"] == query
+                      and row["query_class"] == "cfpq"]
+    if len(references) != 1 or not references[0].strip():
+        parser.error(f"Missing unique CFPQ reference for {args.graph}/{query}")
+    expected_pairs = int(references[0])
+    expect_hits = args.graph in ("luindex", "lusearch")
     if args.profile and (not args.compare_cache or args.pairs != 1):
         parser.error("--profile requires --compare-cache with one pair")
     if args.nvtx_include:
@@ -155,14 +168,17 @@ def main():
             separate = work / "separate"
             separate.mkdir()
             baseline = build_trial(separate, single_unpack=args.compare_cache, nvtx_include=args.nvtx_include)
-        query = "java_points_to.cnf"
         archive = DATA / "6.0.0/graph" / f"{args.graph}.tar.gz"
         graph, grammars = importer["prepare"](archive, args.graph, {query}, work)
         digest = importer["sha256"]
         inputs = {"graph.txt": digest(graph), query: digest(grammars[query])}
-        if args.graph == "luindex" and inputs != json.loads(
-                (DATA / "cuda-baseline-resume/inputs-luindex.json").read_text()):
-            raise ValueError("Input hashes differ from benchmark")
+        if args.graph != "lusearch":
+            benchmark_inputs = [DATA / group / f"inputs-{args.graph}.json"
+                                for group in ("cuda-baseline", "cuda-baseline-resume")]
+            recorded = [json.loads(path.read_text()) for path in benchmark_inputs if path.is_file()]
+            if not recorded or any(any(hashes.get(key) != value for key, value in inputs.items())
+                                   for hashes in recorded):
+                raise ValueError(f"Input hashes differ from report for {args.graph}")
         (out / "manifest.json").write_text(json.dumps(dict(inputs=inputs, build=hashes,
             graph=args.graph, expected_pairs=expected_pairs, archive_sha256=digest(archive),
             header_sha256=digest(HEADER), trial_sha256=digest(trial), phase_timing=args.phase_timing,
@@ -200,6 +216,9 @@ def main():
                 start = time.monotonic()
                 try:
                     result = subprocess.run(command, env=env, stdout=stdout, stderr=stderr, timeout=900)
+                    exit_code, reason = result.returncode, ""
+                except subprocess.TimeoutExpired:
+                    exit_code, reason = None, "Timeout after 900 seconds"
                 finally:
                     seconds = time.monotonic() - start
                     monitor.terminate()
@@ -211,7 +230,7 @@ def main():
             samples = [int(value) for value in prefix.with_suffix(".vram.csv").read_text().splitlines()
                        if value.strip().isdigit()]
             row = dict(build=label, phase=phase, wall_seconds=seconds, pairs=int(match[1]) if match else None,
-                       mxm=int(calls[1]) if calls else None, exit_code=result.returncode,
+                       mxm=int(calls[1]) if calls else None, exit_code=exit_code, reason=reason,
                        sampled_device_peak_mib=max(samples, default=None))
             if args.phase_timing:
                 phases = re.search(r"^BlockPhases: (\d+) (\S+) (\S+) (\S+)$", stderr, re.M)
@@ -225,15 +244,15 @@ def main():
                 row["cache_census"] = dict(immutable_store=census[1] == "1",
                     packages=int(census[2]), unique=int(census[3]), repeats=int(census[4]),
                     csr_bytes=int(census[5]), repeated_packing_seconds=float(census[6]))
-            if args.compare_cache and label == "trial":
+            if args.compare_cache and label == "trial" and exit_code == 0:
                 stats = re.search(r"^PackageCache: (\d+) (\d+) (\d+)$", stderr, re.M)
-                if not stats or not int(stats[1]):
+                if not stats or (expect_hits and not int(stats[1])):
                     raise ValueError(f"Expected cache hits on {args.graph}")
                 row["cache"] = dict(hits=int(stats[1]), entries=int(stats[2]), csr_bytes=int(stats[3]))
             rows.append(row)
             (out / "results.json").write_text(json.dumps(rows, indent=2) + "\n")
             print(json.dumps(row), flush=True)
-            if row["pairs"] != expected_pairs or row["exit_code"]:
+            if row["pairs"] != expected_pairs or exit_code != 0:
                 return 1
             if args.compare_unpack or args.compare_cache:
                 if not row["mxm"] or (expected_mxm is not None and row["mxm"] != expected_mxm):

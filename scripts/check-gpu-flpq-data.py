@@ -56,8 +56,10 @@ def save_benchmark_manifest(out, hashes, args, build):
         "sha256": hashes, "platform": platform.platform(), "timeout_seconds": args.timeout,
         "cpu": capture(["lscpu"]), "memory": capture(["free", "-b"]),
         "gpu": capture(["nvidia-smi", "--query-gpu=name,memory.total,driver_version",
-                        "--format=csv"]), "build_cache": (build / "CMakeCache.txt").read_text(),
+                        "--format=csv"]),
     }
+    cache = build / "CMakeCache.txt"
+    manifest["build_cache"] = cache.read_text() if cache.is_file() else None
     (out / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
 
@@ -218,12 +220,18 @@ def main():
     candidates = parser.add_mutually_exclusive_group()
     candidates.add_argument("--empty-fill", action="store_true", help="Use the verified CUDA empty-fill candidate")
     candidates.add_argument("--count-host-bins", action="store_true", help="Use the verified CUDA count candidate")
+    candidates.add_argument("--fill-host-bins", action="store_true", help="Use the verified CUDA fill candidate")
     args = parser.parse_args()
     if args.timeout <= 0:
         parser.error("--timeout must be positive")
-    candidate = args.empty_fill or args.count_host_bins
-    build = ROOT / "build/gpu-count-host-bins" if args.count_host_bins else (
-        EMPTY_FILL_BUILD if args.empty_fill else BUILD)
+    build = BUILD
+    if args.fill_host_bins:
+        build = ROOT / "build/gpu-fill-host-bins"
+    elif args.count_host_bins:
+        build = ROOT / "build/gpu-count-host-bins"
+    elif args.empty_fill:
+        build = EMPTY_FILL_BUILD
+    candidate = build != BUILD
     if candidate:
         manifest = ROOT / "data/flpq-all" / build.name / "manifest.json"
         hashes = json.loads(manifest.read_text())["builds"]["trial"]
@@ -298,6 +306,14 @@ def main():
                     input_hashes = {name: sha256(grammars[name]) for name in cases[graph] if name in grammars}
                     input_hashes["graph.txt"] = sha256(graph_path)
                     (args.out / f"inputs-{graph}.json").write_text(json.dumps(input_hashes, indent=2) + "\n")
+                    if args.fill_host_bins and args.case_list:
+                        references = (ROOT / "data/flpq-all" / folder / f"inputs-{graph}.json"
+                                      for folder in ("cuda-baseline", "cuda-baseline-resume"))
+                        recorded = [json.loads(path.read_text()) for path in references if path.is_file()]
+                        if not recorded or any(any(reference.get(key) != value
+                                                   for key, value in input_hashes.items())
+                                               for reference in recorded):
+                            preparation_error = "Prepared input hashes differ from the report"
                 for grammar, expected in sorted(cases[graph].items()):
                     error = preparation_error
                     if error is None:
