@@ -54,3 +54,9 @@ The isolated fill candidate passed its recorded correctness gates and was faster
 python3 scripts/check-gpu-empty-fill-alias.py --fill-host-bins --graph xz
 python3 scripts/diagnose-count-host-bins.py --indexed-rules data/flpq-all/luindex-indexed-mxm
 ```
+
+### Итог дополнительных прогонов
+
+На xz оба прогрева и все пять пар вернули 358 834. Медианы полного времени 45,206 → 43,400 с (−4,0%), кандидат быстрее в двух из пяти пар. Диапазоны 39,133–46,562 с и 39,935–46,155 с перекрываются. Устойчивое ускорение на xz этой серией не подтверждено.
+
+На luindex диагностический запуск вернул 9 677 пар за 42 итерации и 96 039 вызовов MxM. На индексированные правила приходится 95 812 вызовов (99,76%), на остальные — 227. Два самых частых семейства связаны со store и дают по 17 520 вызовов: `Al_store_i → Al store_i` и `st_PTh_i → store_i PTh`. Выбор конкретной схемы группирования требует проверки семантики и памяти. Доля вызовов сама по себе не измеряет долю времени и не предсказывает ускорение. Локальные результаты: data/flpq-all/gpu-fill-host-bins-xz и data/flpq-all/luindex-indexed-mxm.
