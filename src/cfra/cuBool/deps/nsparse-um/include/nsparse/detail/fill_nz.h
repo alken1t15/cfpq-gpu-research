@@ -1,3 +1,4 @@
+#include <thrust/host_vector.h>
 #pragma once
 #include <nsparse/detail/fill_nz.cuh>
 #include <nsparse/detail/util.h>
@@ -21,8 +22,8 @@ struct fill_nz_functor_t {
       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
-      const container_t<index_type>& permutation_buffer, const container_t<index_type>& bin_offset,
-      const container_t<index_type>& bin_size, container_t<index_type>& col_idx,
+      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
+      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& col_idx,
       const container_t<index_type>& row_idx, std::tuple<Borders...>) {
     constexpr index_type pwarp = 4;
     EXPAND_SIDE_EFFECTS(
@@ -41,8 +42,8 @@ struct fill_nz_functor_t {
       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
-      const container_t<index_type>& permutation_buffer, const container_t<index_type>& bin_offset,
-      const container_t<index_type>& bin_size, container_t<index_type>& col_idx,
+      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
+      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& col_idx,
       const container_t<index_type>& row_idx, std::tuple<Borders...>) {
     static_assert(meta::all_of<(Borders::config_t::block_size % 32 == 0)...>);
 
@@ -61,8 +62,8 @@ struct fill_nz_functor_t {
       const container_t<index_type>& c_col_idx, const container_t<index_type>& c_row_idx,
       const container_t<index_type>& a_col_idx, const container_t<index_type>& a_row_idx,
       const container_t<index_type>& b_col_idx, const container_t<index_type>& b_row_idx,
-      const container_t<index_type>& permutation_buffer, const container_t<index_type>& bin_offset,
-      const container_t<index_type>& bin_size, container_t<index_type>& col_idx,
+      const container_t<index_type>& permutation_buffer, const thrust::host_vector<index_type>& bin_offset,
+      const thrust::host_vector<index_type>& bin_size, container_t<index_type>& col_idx,
       const container_t<index_type>& row_idx, std::tuple<Borders...>) {
     static_assert(sizeof...(Borders) <= 1);
 
@@ -132,16 +133,19 @@ struct fill_nz_functor_t {
 
     container_t<index_type> col_idx(values_count, std::numeric_limits<index_type>::max());
 
+    const thrust::host_vector<index_type> host_bin_offset = bin_offset;
+    const thrust::host_vector<index_type> host_bin_size = bin_size;
+
     exec_pwarp_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
-                   permutation_buffer, bin_offset, bin_size, col_idx, row_idx,
+                   permutation_buffer, host_bin_offset, host_bin_size, col_idx, row_idx,
                    meta::filter<meta::pwarp_row, Borders...>);
 
     exec_block_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
-                   permutation_buffer, bin_offset, bin_size, col_idx, row_idx,
+                   permutation_buffer, host_bin_offset, host_bin_size, col_idx, row_idx,
                    meta::filter<meta::block_row, Borders...>);
 
     exec_global_row(c_col_idx, c_row_idx, a_col_idx, a_row_idx, b_col_idx, b_row_idx,
-                    permutation_buffer, bin_offset, bin_size, col_idx, row_idx,
+                    permutation_buffer, host_bin_offset, host_bin_size, col_idx, row_idx,
                     meta::filter<meta::global_row, Borders...>);
 
     return std::move(col_idx);
