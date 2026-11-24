@@ -73,7 +73,11 @@ def main():
     parser.add_argument("--phase-timing", action="store_true", help="Measure host-observed block phases in a diagnostic run")
     parser.add_argument("--single-unpack", action="store_true", help="Partition a single extraction of the packed result")
     parser.add_argument("--pairs", type=int, default=1)
+    parser.add_argument("--compare-unpack", action="store_true",
+                        help="Compare per-block extraction against single-pass unpacking")
     args = parser.parse_args()
+    if args.compare_unpack and (args.phase_timing or args.single_unpack):
+        parser.error("--compare-unpack selects both unpacking variants and disables phase timing")
     if args.pairs < 1 or (args.phase_timing and args.pairs != 1):
         parser.error("Expected positive pairs; phase timing runs once")
     out = args.out.resolve()
@@ -88,7 +92,12 @@ def main():
     rows = []
     with TemporaryDirectory() as folder:
         work = Path(folder)
-        trial = build_trial(work, args.phase_timing, args.single_unpack)
+        trial = build_trial(work, args.phase_timing, args.single_unpack or args.compare_unpack)
+        baseline = BASE / "cfra"
+        if args.compare_unpack:
+            separate = work / "separate"
+            separate.mkdir()
+            baseline = build_trial(separate)
         query = "java_points_to.cnf"
         graph, grammars = importer["prepare"](
             DATA / "6.0.0/graph/luindex.tar.gz", "luindex", {query}, work)
@@ -98,8 +107,9 @@ def main():
             raise ValueError("Input hashes differ from benchmark")
         (out / "manifest.json").write_text(json.dumps(dict(inputs=inputs, build=hashes,
             header_sha256=digest(HEADER), trial_sha256=digest(trial), phase_timing=args.phase_timing,
-            single_unpack=args.single_unpack, pairs=args.pairs), indent=2))
-        binaries = {"baseline": BASE / "cfra", "trial": trial}
+            baseline_sha256=digest(baseline), single_unpack=args.single_unpack or args.compare_unpack,
+            compare_unpack=args.compare_unpack, pairs=args.pairs), indent=2))
+        binaries = {"baseline": baseline, "trial": trial}
         schedule = [("diagnostic", "trial")] if args.phase_timing else []
         if not args.phase_timing:
             if args.pairs > 1:
@@ -149,6 +159,8 @@ def main():
             print(json.dumps(row), flush=True)
             if row["pairs"] != 9677 or row["exit_code"]:
                 return 1
+            if args.compare_unpack and row["mxm"] != 79639:
+                raise ValueError("Unexpected MxM calls for the blocked luindex workload")
     if not args.phase_timing:
         medians = {label: median(row["wall_seconds"] for row in rows
                                 if row["build"] == label and row["phase"].startswith("pair-"))
