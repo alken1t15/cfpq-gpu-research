@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <chrono>
 #include <limits>
+#include <map>
 #include <set>
 #include <memory>
 #include <string_view>
@@ -45,10 +46,21 @@ inline auto make_matrix(cuBool_Index rows, cuBool_Index cols) {
         matrix, &cuBool_Matrix_Free);
 }
 
+#ifdef STORE_BLOCK_CACHE
+struct PackageCache {
+    std::map<std::vector<std::string>, decltype(make_matrix(1, 1))> matrices;
+    size_t hits = 0;
+    unsigned long long csr_bytes = 0;
+};
+#endif
+
 inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
                                    const std::vector<Operand>& rights
 #ifdef STORE_BLOCK_TIMING
                                    , bool census
+#endif
+#ifdef STORE_BLOCK_CACHE
+                                   , PackageCache* cache
 #endif
                                    ) {
     constexpr size_t batch_limit = 16;
@@ -70,6 +82,22 @@ inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
         auto phase_start = Clock::now();
         ++batches;
 #endif
+        const auto packed_columns = static_cast<cuBool_Index>(width * n);
+#ifdef STORE_BLOCK_CACHE
+        std::vector<std::string> key;
+        cuBool_Matrix cached = nullptr;
+        if (cache) {
+            for (size_t i = 0; i < width; ++i)
+                key.push_back(*rights[begin + i].output);
+            auto found = cache->matrices.find(key);
+            if (found != cache->matrices.end()) {
+                ++cache->hits;
+                cached = found->second.get();
+            }
+        }
+        decltype(make_matrix(1, 1)) packed(nullptr, &cuBool_Matrix_Free);
+        if (!cached) {
+#endif
         std::vector<cuBool_Index> rows, cols;
         for (size_t i = 0; i < width; ++i) {
             cuBool_Index count = 0;
@@ -87,9 +115,11 @@ inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
                     cols[k] += static_cast<cuBool_Index>(i * n);
             }
         }
-        const auto packed_columns = static_cast<cuBool_Index>(width * n);
+#ifndef STORE_BLOCK_CACHE
         auto packed = make_matrix(n, packed_columns);
-        auto product = make_matrix(n, packed_columns);
+#else
+        packed = make_matrix(n, packed_columns);
+#endif
         CB_CHECK(cuBool_Matrix_Build(packed.get(), rows.data(), cols.data(),
                                     static_cast<cuBool_Index>(rows.size()), CUBOOL_HINT_NO));
 #ifdef STORE_BLOCK_TIMING
@@ -109,7 +139,22 @@ inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
         }
         phase_start = now;
 #endif
+#ifdef STORE_BLOCK_CACHE
+        const auto bytes = (static_cast<unsigned long long>(n) + 1 + rows.size()) * sizeof(cuBool_Index);
+        cached = packed.get();
+        constexpr auto budget = 8ULL * 1024 * 1024;
+        if (cache && cache->matrices.size() < 32 && bytes <= budget - cache->csr_bytes) {
+            cache->matrices.emplace(std::move(key), std::move(packed));
+            cache->csr_bytes += bytes;
+        }
+        }
+#endif
+        auto product = make_matrix(n, packed_columns);
+#ifdef STORE_BLOCK_CACHE
+        CB_CHECK(cuBool_MxM(product.get(), left, cached, CUBOOL_HINT_NO));
+#else
         CB_CHECK(cuBool_MxM(product.get(), left, packed.get(), CUBOOL_HINT_NO));
+#endif
         ++calls;
         cuBool_Index count = 0;
         CB_CHECK(cuBool_Matrix_Nvals(product.get(), &count));

@@ -17,7 +17,7 @@ BASE = ROOT / "build/gpu-mxm-alias"
 HEADER = ROOT / "experiments/2026-11-24-store-column-blocks/store_column_blocks.hpp"
 
 
-def build_trial(work, phase_timing=False, single_unpack=False):
+def build_trial(work, phase_timing=False, single_unpack=False, cache=False):
     source = ROOT / "src/cfra/src/incremental_algo/incremental_algo.cpp"
     code = '#include "store_column_blocks.hpp"\n' + source.read_text()
     code = code.replace("    int iter = 0;", "    unsigned long long calls = 0;\n    int iter = 0;")
@@ -32,6 +32,8 @@ def build_trial(work, phase_timing=False, single_unpack=False):
         census = ""
         if phase_timing:
             census = ", false" if lhs == "mb" else ", immutable_store"
+        if cache:
+            census = ", nullptr" if lhs == "mb" else ", immutable_store ? &package_cache : nullptr"
         code = code.replace(old, f"""            if (store_blocks::matches(a, b, c)) {{
                 {group}.push_back({{&a, {rhs}}});
                 continue;
@@ -43,8 +45,7 @@ def build_trial(work, phase_timing=False, single_unpack=False):
 """)
     code = code.replace("    result.iterations   = iter;",
                         '    std::cerr << "TrialMxM: " << calls << "\\n";\n    result.iterations   = iter;')
-    if phase_timing:
-        code = "#define STORE_BLOCK_TIMING\n" + code
+    if phase_timing or cache:
         code = code.replace("    int iter = 0;", """
     const auto writes_store = [](const auto& rule) { return std::get<0>(rule).starts_with("store_i_"); };
     const bool immutable_store =
@@ -54,6 +55,15 @@ def build_trial(work, phase_timing=False, single_unpack=False):
         && std::none_of(grammar.simple_rules().begin(), grammar.simple_rules().end(), writes_store)
         && std::none_of(grammar.complex_rules().begin(), grammar.complex_rules().end(), writes_store);
     int iter = 0;""")
+    if cache:
+        code = "#define STORE_BLOCK_CACHE\n" + code
+        code = code.replace("    int iter = 0;", "    store_blocks::PackageCache package_cache;\n    int iter = 0;")
+        code = code.replace("    result.iterations   = iter;", """
+    std::cerr << "PackageCache: " << package_cache.hits << " " << package_cache.matrices.size()
+        << " " << package_cache.csr_bytes << "\\n";
+    result.iterations   = iter;""")
+    if phase_timing:
+        code = "#define STORE_BLOCK_TIMING\n" + code
         code = code.replace("    result.iterations   = iter;", """
     std::cerr << "BlockPhases: " << store_blocks::batches
         << " " << std::chrono::duration<double>(store_blocks::packing).count()
@@ -91,7 +101,11 @@ def main():
     parser.add_argument("--pairs", type=int, default=1)
     parser.add_argument("--compare-unpack", action="store_true",
                         help="Compare per-block extraction against single-pass unpacking")
+    parser.add_argument("--compare-cache", action="store_true",
+                        help="Compare single-pass unpacking with and without a package cache")
     args = parser.parse_args()
+    if args.compare_cache and (args.compare_unpack or args.phase_timing or args.single_unpack):
+        parser.error("--compare-cache selects both cache variants and disables phase timing")
     if args.compare_unpack and (args.phase_timing or args.single_unpack):
         parser.error("--compare-unpack selects both unpacking variants and disables phase timing")
     if args.pairs < 1 or (args.phase_timing and args.pairs != 1):
@@ -108,12 +122,13 @@ def main():
     rows = []
     with TemporaryDirectory() as folder:
         work = Path(folder)
-        trial = build_trial(work, args.phase_timing, args.single_unpack or args.compare_unpack)
+        single_unpack = args.single_unpack or args.compare_unpack or args.compare_cache
+        trial = build_trial(work, args.phase_timing, single_unpack, args.compare_cache)
         baseline = BASE / "cfra"
-        if args.compare_unpack:
+        if args.compare_unpack or args.compare_cache:
             separate = work / "separate"
             separate.mkdir()
-            baseline = build_trial(separate)
+            baseline = build_trial(separate, single_unpack=args.compare_cache)
         query = "java_points_to.cnf"
         graph, grammars = importer["prepare"](
             DATA / "6.0.0/graph/luindex.tar.gz", "luindex", {query}, work)
@@ -123,8 +138,8 @@ def main():
             raise ValueError("Input hashes differ from benchmark")
         (out / "manifest.json").write_text(json.dumps(dict(inputs=inputs, build=hashes,
             header_sha256=digest(HEADER), trial_sha256=digest(trial), phase_timing=args.phase_timing,
-            baseline_sha256=digest(baseline), single_unpack=args.single_unpack or args.compare_unpack,
-            compare_unpack=args.compare_unpack, pairs=args.pairs), indent=2))
+            baseline_sha256=digest(baseline), single_unpack=single_unpack,
+            compare_unpack=args.compare_unpack, compare_cache=args.compare_cache, pairs=args.pairs), indent=2))
         binaries = {"baseline": baseline, "trial": trial}
         schedule = [("diagnostic", "trial")] if args.phase_timing else []
         if not args.phase_timing:
@@ -176,12 +191,17 @@ def main():
                 row["cache_census"] = dict(immutable_store=census[1] == "1",
                     packages=int(census[2]), unique=int(census[3]), repeats=int(census[4]),
                     csr_bytes=int(census[5]), repeated_packing_seconds=float(census[6]))
+            if args.compare_cache and label == "trial":
+                stats = re.search(r"^PackageCache: (\d+) (\d+) (\d+)$", stderr, re.M)
+                if not stats or not int(stats[1]):
+                    raise ValueError("Expected cache hits in the luindex workload")
+                row["cache"] = dict(hits=int(stats[1]), entries=int(stats[2]), csr_bytes=int(stats[3]))
             rows.append(row)
             (out / "results.json").write_text(json.dumps(rows, indent=2) + "\n")
             print(json.dumps(row), flush=True)
             if row["pairs"] != 9677 or row["exit_code"]:
                 return 1
-            if args.compare_unpack and row["mxm"] != 79639:
+            if (args.compare_unpack or args.compare_cache) and row["mxm"] != 79639:
                 raise ValueError("Unexpected MxM calls for the blocked luindex workload")
     if not args.phase_timing:
         medians = {label: median(row["wall_seconds"] for row in rows
