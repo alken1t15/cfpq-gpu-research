@@ -103,7 +103,11 @@ def main():
                         help="Compare per-block extraction against single-pass unpacking")
     parser.add_argument("--compare-cache", action="store_true",
                         help="Compare single-pass unpacking with and without a package cache")
+    parser.add_argument("--profile", action="store_true",
+                        help="Capture CUDA traces for a single cache comparison pair")
     args = parser.parse_args()
+    if args.profile and (not args.compare_cache or args.pairs != 1):
+        parser.error("--profile requires --compare-cache with one pair")
     if args.compare_cache and (args.compare_unpack or args.phase_timing or args.single_unpack):
         parser.error("--compare-cache selects both cache variants and disables phase timing")
     if args.compare_unpack and (args.phase_timing or args.single_unpack):
@@ -139,7 +143,8 @@ def main():
         (out / "manifest.json").write_text(json.dumps(dict(inputs=inputs, build=hashes,
             header_sha256=digest(HEADER), trial_sha256=digest(trial), phase_timing=args.phase_timing,
             baseline_sha256=digest(baseline), single_unpack=single_unpack,
-            compare_unpack=args.compare_unpack, compare_cache=args.compare_cache, pairs=args.pairs), indent=2))
+            compare_unpack=args.compare_unpack, compare_cache=args.compare_cache,
+            profile=args.profile, pairs=args.pairs), indent=2))
         binaries = {"baseline": baseline, "trial": trial}
         schedule = [("diagnostic", "trial")] if args.phase_timing else []
         if not args.phase_timing:
@@ -158,6 +163,9 @@ def main():
                        "--algo", "incremental"]
             print("START", phase, label, flush=True)
             prefix = out / f"{phase}-{label}"
+            if args.profile:
+                command = ["nsys", "profile", "--trace=cuda", "--sample=none", "--cpuctxsw=none",
+                           f"--output={prefix}", *command]
             monitor = None
             with prefix.with_suffix(".stdout").open("wb") as stdout, prefix.with_suffix(".stderr").open("wb") as stderr, prefix.with_suffix(".vram.csv").open("wb") as memory:
                 monitor = subprocess.Popen(["nvidia-smi", "--query-gpu=memory.used",
@@ -203,7 +211,12 @@ def main():
                 return 1
             if (args.compare_unpack or args.compare_cache) and row["mxm"] != 79639:
                 raise ValueError("Unexpected MxM calls for the blocked luindex workload")
-    if not args.phase_timing:
+            if args.profile:
+                with prefix.with_suffix(".stats.csv").open("wb") as stats, prefix.with_suffix(".stats.stderr").open("wb") as stderr:
+                    subprocess.run(["nsys", "stats", "--report=cuda_api_sum,cuda_gpu_kern_sum,cuda_gpu_mem_time_sum",
+                                    "--format=csv", str(prefix.with_suffix(".nsys-rep"))],
+                                   stdout=stats, stderr=stderr, timeout=600, check=True)
+    if not args.phase_timing and not args.profile:
         medians = {label: median(row["wall_seconds"] for row in rows
                                 if row["build"] == label and row["phase"].startswith("pair-"))
                    for label in binaries}
