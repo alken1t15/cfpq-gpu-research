@@ -29,6 +29,9 @@ def build_trial(work, phase_timing=False, single_unpack=False):
         index = code.rindex(marker, 0, code.index(old))
         code = code[:index] + f"        std::vector<store_blocks::Operand> {group};\n" + code[index:]
         left_store = "M" if lhs == "mb" else "DM"
+        census = ""
+        if phase_timing:
+            census = ", false" if lhs == "mb" else ", immutable_store"
         code = code.replace(old, f"""            if (store_blocks::matches(a, b, c)) {{
                 {group}.push_back({{&a, {rhs}}});
                 continue;
@@ -36,17 +39,30 @@ def build_trial(work, phase_timing=False, single_unpack=False):
             ++calls;
 {old}
         if (!{group}.empty())
-            calls += store_blocks::multiply(tmp, {left_store}.get("Al"), {group});
+            calls += store_blocks::multiply(tmp, {left_store}.get("Al"), {group}{census});
 """)
     code = code.replace("    result.iterations   = iter;",
                         '    std::cerr << "TrialMxM: " << calls << "\\n";\n    result.iterations   = iter;')
     if phase_timing:
         code = "#define STORE_BLOCK_TIMING\n" + code
+        code = code.replace("    int iter = 0;", """
+    const auto writes_store = [](const auto& rule) { return std::get<0>(rule).starts_with("store_i_"); };
+    const bool immutable_store =
+        std::none_of(grammar.epsilon_rules().begin(), grammar.epsilon_rules().end(),
+            [](const auto& symbol) { return symbol.starts_with("store_i_"); })
+        && std::none_of(grammar.terminal_rules().begin(), grammar.terminal_rules().end(), writes_store)
+        && std::none_of(grammar.simple_rules().begin(), grammar.simple_rules().end(), writes_store)
+        && std::none_of(grammar.complex_rules().begin(), grammar.complex_rules().end(), writes_store);
+    int iter = 0;""")
         code = code.replace("    result.iterations   = iter;", """
     std::cerr << "BlockPhases: " << store_blocks::batches
         << " " << std::chrono::duration<double>(store_blocks::packing).count()
         << " " << std::chrono::duration<double>(store_blocks::product_time).count()
         << " " << std::chrono::duration<double>(store_blocks::unpacking).count() << "\\n";
+    std::cerr << "CacheCensus: " << immutable_store << " " << store_blocks::cache_packages
+        << " " << store_blocks::seen_packages.size() << " " << store_blocks::cache_hits
+        << " " << store_blocks::cache_bytes << " "
+        << std::chrono::duration<double>(store_blocks::repeated_packing).count() << "\\n";
     result.iterations   = iter;""")
     if single_unpack:
         code = "#define STORE_BLOCK_SINGLE_UNPACK\n" + code
@@ -154,6 +170,12 @@ def main():
                     raise ValueError("Missing phase timings; see trial.stderr")
                 row["phases"] = dict(batches=int(phases[1]), packing_seconds=float(phases[2]),
                                      multiply_seconds=float(phases[3]), unpacking_seconds=float(phases[4]))
+                census = re.search(r"^CacheCensus: ([01]) (\d+) (\d+) (\d+) (\d+) (\S+)$", stderr, re.M)
+                if not census:
+                    raise ValueError("Missing cache census; see trial.stderr")
+                row["cache_census"] = dict(immutable_store=census[1] == "1",
+                    packages=int(census[2]), unique=int(census[3]), repeats=int(census[4]),
+                    csr_bytes=int(census[5]), repeated_packing_seconds=float(census[6]))
             rows.append(row)
             (out / "results.json").write_text(json.dumps(rows, indent=2) + "\n")
             print(json.dumps(row), flush=True)

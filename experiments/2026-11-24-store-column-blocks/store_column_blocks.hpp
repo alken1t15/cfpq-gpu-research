@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <chrono>
 #include <limits>
+#include <set>
 #include <memory>
 #include <string_view>
 #include <type_traits>
@@ -17,6 +18,9 @@ namespace store_blocks {
 using Clock = std::chrono::steady_clock;
 inline Clock::duration packing{}, product_time{}, unpacking{};
 inline unsigned long long batches = 0;
+inline std::set<std::vector<std::string>> seen_packages;
+inline unsigned long long cache_hits = 0, cache_bytes = 0, cache_packages = 0;
+inline Clock::duration repeated_packing{};
 #endif
 
 struct Operand {
@@ -42,7 +46,11 @@ inline auto make_matrix(cuBool_Index rows, cuBool_Index cols) {
 }
 
 inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
-                                   const std::vector<Operand>& rights) {
+                                   const std::vector<Operand>& rights
+#ifdef STORE_BLOCK_TIMING
+                                   , bool census
+#endif
+                                   ) {
     constexpr size_t batch_limit = 16;
     const auto n = output.n();
     const size_t width_limit = std::min(batch_limit,
@@ -87,6 +95,18 @@ inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
 #ifdef STORE_BLOCK_TIMING
         auto now = Clock::now();
         packing += now - phase_start;
+        if (census) {
+            ++cache_packages;
+            std::vector<std::string> key;
+            for (size_t i = 0; i < width; ++i)
+                key.push_back(*rights[begin + i].output);
+            if (seen_packages.insert(std::move(key)).second)
+                cache_bytes += (static_cast<unsigned long long>(n) + 1 + rows.size()) * sizeof(cuBool_Index);
+            else {
+                ++cache_hits;
+                repeated_packing += now - phase_start;
+            }
+        }
         phase_start = now;
 #endif
         CB_CHECK(cuBool_MxM(product.get(), left, packed.get(), CUBOOL_HINT_NO));
