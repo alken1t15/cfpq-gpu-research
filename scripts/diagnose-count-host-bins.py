@@ -1,5 +1,6 @@
 """Count CFRA iterations and MxM calls, and correlate them with full Nsight traces."""
 import argparse
+from collections import Counter
 import json
 import os
 from pathlib import Path
@@ -15,16 +16,49 @@ DATA = ROOT / "data/flpq-all"
 BASE = ROOT / "build/gpu-mxm-alias"
 
 
+def summarize_rules(stderr, grammar, total):
+    templates = []
+    for line in grammar.split("Count:", 1)[0].splitlines():
+        symbols = line.split()
+        if len(symbols) != 3 or not any(s.endswith("_i") for s in symbols):
+            continue
+        parts = []
+        for symbol in symbols:
+            suffix = ""
+            if symbol.endswith("_i"):
+                suffix = r"_(?P=index)" if any("(?P<index>" in part for part in parts) else r"_(?P<index>\d+)"
+            parts.append(re.escape(symbol) + suffix)
+        templates.append((" ".join(symbols), re.compile(" ".join(parts))))
+    counts = Counter()
+    for line in stderr.splitlines():
+        if not line.startswith("CFRA_RULE "):
+            continue
+        _, first, second, third, count = line.split()
+        rule = " ".join((first, second, third))
+        families = [name for name, pattern in templates if pattern.fullmatch(rule)]
+        if len(families) > 1:
+            raise ValueError(f"Ambiguous template for {rule}")
+        counts[families[0] if families else "unindexed"] += int(count)
+    if sum(counts.values()) != total:
+        raise ValueError("Per-rule MxM counts do not sum to the overall counter")
+    return dict(counts)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("out", type=Path)
+    parser.add_argument("--indexed-rules", action="store_true",
+                        help="Run an unprofiled per-rule census with the verified fill library")
     args = parser.parse_args()
     out = args.out.resolve()
     out.mkdir(parents=True)
     importer = runpy.run_path(str(ROOT / "scripts/check-gpu-flpq-data.py"))
     importer["verify_build"]()
-    builds = json.loads((DATA / "gpu-count-host-bins/manifest.json").read_text())["builds"]
+    tag = "gpu-fill-host-bins" if args.indexed_rules else "gpu-count-host-bins"
+    builds = json.loads((DATA / tag / "manifest.json").read_text())["builds"]
     importer["verify_hashes"]({**builds["baseline"], **builds["trial"]})
+    if args.indexed_rules:
+        builds = {"trial": builds["trial"]}
 
     source = ROOT / "src/cfra/src/incremental_algo/incremental_algo.cpp"
     code = "#include <iostream>\n" + source.read_text()
@@ -35,6 +69,18 @@ def main():
     code = code.replace("    result.iterations   = iter;",
                         '    std::cerr << "CFRA_COUNTS iterations=" << iter << " mxm=" << mxm_calls << "\\n";\n'
                         "    result.iterations   = iter;")
+    if args.indexed_rules:
+        code = "#include <map>\n#include <tuple>\n" + code
+        code = code.replace("    int iter = 0;",
+                            "    std::map<std::tuple<std::string, std::string, std::string>, unsigned long long> rule_calls;\n"
+                            "    int iter = 0;")
+        code = code.replace("            ++mxm_calls;",
+                            "            ++mxm_calls;\n            ++rule_calls[{a, b, c}];")
+        code = code.replace("    result.iterations   = iter;",
+                            '    for (const auto& [rule, count] : rule_calls) {\n'
+                            '        const auto& [a, b, c] = rule;\n'
+                            '        std::cerr << "CFRA_RULE " << a << " " << b << " " << c << " " << count << "\\n";\n'
+                            '    }\n    result.iterations   = iter;')
     query = "java_points_to.cnf"
     results = []
     with TemporaryDirectory() as scratch:
@@ -73,7 +119,7 @@ def main():
                 raise ValueError(f"Wrong loaded library for {label}")
             app = [str(binary), "--graph", str(graph), "--grammar", str(grammars[query]),
                    "--algo", "incremental"]
-            for profiled in (False, True):
+            for profiled in ((False,) if args.indexed_rules else (False, True)):
                 name = label + ("-profile" if profiled else "-plain")
                 prefix = out / name
                 command = app
@@ -84,10 +130,13 @@ def main():
                 with prefix.with_suffix(".stdout").open("wb") as stdout, prefix.with_suffix(".stderr").open("wb") as stderr:
                     subprocess.run(command, env=env, stdout=stdout, stderr=stderr,
                                    timeout=1200, check=True)
-                match = re.search(r"CFRA_COUNTS iterations=(\d+) mxm=(\d+)", prefix.with_suffix(".stderr").read_text())
+                stderr_text = prefix.with_suffix(".stderr").read_text()
+                match = re.search(r"CFRA_COUNTS iterations=(\d+) mxm=(\d+)", stderr_text)
                 if not match or not re.search(r"^#SEdges:\s*9677\s*$", prefix.with_suffix(".stdout").read_text(), re.M):
                     raise ValueError(f"Unexpected result from {name}")
                 row = dict(run=name, iterations=int(match[1]), mxm=int(match[2]), pairs=9677)
+                if args.indexed_rules:
+                    row["mxm_by_template"] = summarize_rules(stderr_text, grammars[query].read_text(), row["mxm"])
                 if profiled:
                     database = prefix.with_suffix(".sqlite")
                     subprocess.run(["nsys", "export", "--type=sqlite", f"--output={database}",

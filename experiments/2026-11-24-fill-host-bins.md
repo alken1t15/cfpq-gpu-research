@@ -43,3 +43,14 @@ In the earlier count-host-bins trace, Nsight-instrumented `AnalysisTime` was 154
 ## Conclusion and limits
 
 The isolated fill candidate passed its recorded correctness gates and was faster in all five same-input luindex pairs, with a 4.1% median wall-time reduction. This is a promising result from one graph and five pairs, not a broad performance claim. The xz gain belongs to the preceding count-host-bins change, not this fill change. The fill-specific D2H count has not been measured. Keep evaluating per-graph behavior and explain the profiler's count-kernel discrepancy before drawing conclusions from it.
+
+## Дополнительная проверка
+
+Запущены парные замеры fill-host-bins на xz. Хеши обеих сборок совпадают с серией luindex. Сценарий проверяет матричные регрессии, pizza и эталон xz (358 834 пары), выполняет по одному прогреву и пять чередующихся пар.
+
+После завершения отдельно запускается диагностический подсчёт умножений на luindex, на той же проверенной fill-библиотеке. Он учитывает оба места вызова MxM в incremental и группирует фактические вызовы по исходным шаблонам грамматики. Индексы в нескольких символах одного правила должны совпадать. Сумма по правилам сверяется с общим счётчиком. Времена диагностической сборки не используются для сравнения.
+
+```bash
+python3 scripts/check-gpu-empty-fill-alias.py --fill-host-bins --graph xz
+python3 scripts/diagnose-count-host-bins.py --indexed-rules data/flpq-all/luindex-indexed-mxm
+```

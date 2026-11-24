@@ -52,6 +52,10 @@ def main():
         verified = json.loads((DATA / "gpu-count-host-bins/manifest.json").read_text())
         if hashes["baseline"] != verified["builds"]["trial"]:
             raise ValueError("The count baseline differs from the verified build")
+        if graph_name != "luindex":
+            reference_builds = json.loads((DATA / tag / "manifest.json").read_text())["builds"]
+            if hashes != reference_builds:
+                raise ValueError("Build hashes differ from the paired luindex run")
     elif args.count_host_bins or graph_name != "luindex":
         verified = json.loads((DATA / "gpu-empty-fill-alias/manifest.json").read_text())
         if args.count_host_bins and hashes["baseline"] != verified["builds"]["trial"]:
