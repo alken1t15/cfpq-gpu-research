@@ -17,7 +17,7 @@ BASE = ROOT / "build/gpu-mxm-alias"
 HEADER = ROOT / "experiments/2026-11-24-store-column-blocks/store_column_blocks.hpp"
 
 
-def build_trial(work, phase_timing=False, single_unpack=False, cache=False):
+def build_trial(work, phase_timing=False, single_unpack=False, cache=False, nvtx_include=None):
     source = ROOT / "src/cfra/src/incremental_algo/incremental_algo.cpp"
     code = '#include "store_column_blocks.hpp"\n' + source.read_text()
     code = code.replace("    int iter = 0;", "    unsigned long long calls = 0;\n    int iter = 0;")
@@ -76,12 +76,24 @@ def build_trial(work, phase_timing=False, single_unpack=False, cache=False):
     result.iterations   = iter;""")
     if single_unpack:
         code = "#define STORE_BLOCK_SINGLE_UNPACK\n" + code
+    if nvtx_include:
+        pattern = r"CB_CHECK\((cuBool_\w+)(?=\()"
+        code = re.sub(pattern, r'CFRA_NVTX_CHECK("incremental/\1", \1', code)
+        header = re.sub(pattern, r'CFRA_NVTX_CHECK("store_blocks/\1", \1', HEADER.read_text())
+        (work / HEADER.name).write_text(header)
+        (work / "cfra_nvtx.hpp").write_text(
+            '#include <nvtx3/nvtx3.hpp>\n'
+            '#define CFRA_NVTX_CHECK(label, call) \\\n'
+            '    do { const nvtx3::scoped_range range{label}; CB_CHECK(call); } while (false)\n')
+        code = '#include "cfra_nvtx.hpp"\n' + code
     generated = work / source.name
     generated.write_text(code)
     flags = []
     for line in (BASE / "CMakeFiles/cfra.dir/flags.make").read_text().splitlines():
         if line.startswith(("CXX_DEFINES =", "CXX_INCLUDES =", "CXX_FLAGS =")):
             flags.extend(shlex.split(line.split("=", 1)[1]))
+    if nvtx_include:
+        flags.extend(["-I", str(nvtx_include)])
     obj, binary = work / "incremental.o", work / "cfra"
     command = ["/usr/bin/g++-13", *flags, "-I" + str(source.parent), "-I" + str(HEADER.parent),
                "-c", str(generated), "-o", str(obj)]
@@ -106,12 +118,18 @@ def main():
                         help="Compare single-pass unpacking with and without a package cache")
     parser.add_argument("--profile", action="store_true",
                         help="Capture CUDA traces for a single cache comparison pair")
+    parser.add_argument("--nvtx-include", type=Path,
+                        help="Add per-operation NVTX ranges using this NVTX include directory")
     args = parser.parse_args()
     if args.graph == "lusearch" and not args.compare_cache:
         parser.error("lusearch is supported for --compare-cache")
     expected_pairs = {"luindex": 9677, "lusearch": 9242}[args.graph]
     if args.profile and (not args.compare_cache or args.pairs != 1):
         parser.error("--profile requires --compare-cache with one pair")
+    if args.nvtx_include:
+        args.nvtx_include = args.nvtx_include.resolve()
+        if not args.profile or not (args.nvtx_include / "nvtx3/nvtx3.hpp").is_file():
+            parser.error("--nvtx-include requires --profile and a directory containing nvtx3/nvtx3.hpp")
     if args.compare_cache and (args.compare_unpack or args.phase_timing or args.single_unpack):
         parser.error("--compare-cache selects both cache variants and disables phase timing")
     if args.compare_unpack and (args.phase_timing or args.single_unpack):
@@ -131,12 +149,12 @@ def main():
     with TemporaryDirectory() as folder:
         work = Path(folder)
         single_unpack = args.single_unpack or args.compare_unpack or args.compare_cache
-        trial = build_trial(work, args.phase_timing, single_unpack, args.compare_cache)
+        trial = build_trial(work, args.phase_timing, single_unpack, args.compare_cache, args.nvtx_include)
         baseline = BASE / "cfra"
         if args.compare_unpack or args.compare_cache:
             separate = work / "separate"
             separate.mkdir()
-            baseline = build_trial(separate, single_unpack=args.compare_cache)
+            baseline = build_trial(separate, single_unpack=args.compare_cache, nvtx_include=args.nvtx_include)
         query = "java_points_to.cnf"
         archive = DATA / "6.0.0/graph" / f"{args.graph}.tar.gz"
         graph, grammars = importer["prepare"](archive, args.graph, {query}, work)
@@ -150,7 +168,7 @@ def main():
             header_sha256=digest(HEADER), trial_sha256=digest(trial), phase_timing=args.phase_timing,
             baseline_sha256=digest(baseline), single_unpack=single_unpack,
             compare_unpack=args.compare_unpack, compare_cache=args.compare_cache,
-            profile=args.profile, pairs=args.pairs), indent=2))
+            profile=args.profile, nvtx=bool(args.nvtx_include), pairs=args.pairs), indent=2))
         binaries = {"baseline": baseline, "trial": trial}
         schedule = [("diagnostic", "trial")] if args.phase_timing else []
         if not args.phase_timing:
@@ -171,7 +189,8 @@ def main():
             print("START", phase, label, flush=True)
             prefix = out / f"{phase}-{label}"
             if args.profile:
-                command = ["nsys", "profile", "--trace=cuda", "--sample=none", "--cpuctxsw=none",
+                trace = "cuda,nvtx" if args.nvtx_include else "cuda"
+                command = ["nsys", "profile", f"--trace={trace}", "--sample=none", "--cpuctxsw=none",
                            f"--output={prefix}", *command]
             monitor = None
             with prefix.with_suffix(".stdout").open("wb") as stdout, prefix.with_suffix(".stderr").open("wb") as stderr, prefix.with_suffix(".vram.csv").open("wb") as memory:
