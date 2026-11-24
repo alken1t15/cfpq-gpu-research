@@ -4,6 +4,7 @@
 #include "common.hpp"
 
 #include <algorithm>
+#include <chrono>
 #include <limits>
 #include <memory>
 #include <string_view>
@@ -11,6 +12,12 @@
 #include <vector>
 
 namespace store_blocks {
+
+#ifdef STORE_BLOCK_TIMING
+using Clock = std::chrono::steady_clock;
+inline Clock::duration packing{}, product_time{}, unpacking{};
+inline unsigned long long batches = 0;
+#endif
 
 struct Operand {
     const std::string* output;
@@ -51,6 +58,10 @@ inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
             ++calls;
             continue;
         }
+#ifdef STORE_BLOCK_TIMING
+        auto phase_start = Clock::now();
+        ++batches;
+#endif
         std::vector<cuBool_Index> rows, cols;
         for (size_t i = 0; i < width; ++i) {
             cuBool_Index count = 0;
@@ -73,13 +84,44 @@ inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
         auto product = make_matrix(n, packed_columns);
         CB_CHECK(cuBool_Matrix_Build(packed.get(), rows.data(), cols.data(),
                                     static_cast<cuBool_Index>(rows.size()), CUBOOL_HINT_NO));
+#ifdef STORE_BLOCK_TIMING
+        auto now = Clock::now();
+        packing += now - phase_start;
+        phase_start = now;
+#endif
         CB_CHECK(cuBool_MxM(product.get(), left, packed.get(), CUBOOL_HINT_NO));
         ++calls;
         cuBool_Index count = 0;
         CB_CHECK(cuBool_Matrix_Nvals(product.get(), &count));
+#ifdef STORE_BLOCK_TIMING
+        now = Clock::now();
+        product_time += now - phase_start;
+        phase_start = now;
+#endif
         if (!count)
             continue;
+#ifdef STORE_BLOCK_SINGLE_UNPACK
+        std::vector<cuBool_Index> result_rows(count), result_cols(count);
+        CB_CHECK(cuBool_Matrix_ExtractPairs(product.get(), result_rows.data(), result_cols.data(), &count));
+        struct SlicePairs {
+            std::vector<cuBool_Index> rows, cols;
+        };
+        std::vector<SlicePairs> slices(width);
+        for (cuBool_Index i = 0; i < count; ++i) {
+            auto& slice = slices.at(result_cols[i] / n);
+            slice.rows.push_back(result_rows[i]);
+            slice.cols.push_back(result_cols[i] % n);
+        }
+#endif
         for (size_t i = 0; i < width; ++i) {
+#ifdef STORE_BLOCK_SINGLE_UNPACK
+            const auto& values = slices[i];
+            if (values.rows.empty())
+                continue;
+            auto slice = make_matrix(n, n);
+            CB_CHECK(cuBool_Matrix_Build(slice.get(), values.rows.data(), values.cols.data(),
+                                        static_cast<cuBool_Index>(values.rows.size()), CUBOOL_HINT_NO));
+#else
             auto slice = make_matrix(n, n);
             CB_CHECK(cuBool_Matrix_ExtractSubMatrix(slice.get(), product.get(), 0,
                 static_cast<cuBool_Index>(i * n), n, n, CUBOOL_HINT_NO));
@@ -87,6 +129,7 @@ inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
             CB_CHECK(cuBool_Matrix_Nvals(slice.get(), &size));
             if (!size)
                 continue;
+#endif
             const auto& key = *rights[begin + i].output;
             if (output.is_empty(key)) {
                 output.replace(key, slice.release());
@@ -97,6 +140,9 @@ inline unsigned long long multiply(MatrixStore& output, cuBool_Matrix left,
                 output.replace(key, merged.release());
             }
         }
+#ifdef STORE_BLOCK_TIMING
+        unpacking += Clock::now() - phase_start;
+#endif
     }
     return calls;
 }

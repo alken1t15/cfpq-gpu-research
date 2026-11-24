@@ -13,7 +13,7 @@ INDEX = C.c_uint
 MATRIX = C.c_void_p
 
 
-def check_blocks(lib, n, left, rights, targets):
+def check_blocks(lib, n, left, rights, targets, single_unpack):
     with ExitStack() as cleanup:
         def new(rows, cols):
             matrix = MATRIX()
@@ -40,12 +40,19 @@ def check_blocks(lib, n, left, rights, targets):
         build(a, left)
         build(packed, {(u, v + n * i) for i, right in enumerate(rights) for u, v in right})
         lib.cuBool_MxM(product, a, packed, 0)
+        if single_unpack:
+            slices = [set() for _ in rights]
+            for row, col in pairs(product):
+                block, local_col = divmod(col, n)
+                slices[block].add((row, local_col))
         for i, (right, old) in enumerate(zip(rights, targets)):
             unpacked, previous, merged, separate, b = [new(n, n) for _ in range(5)]
             build(previous, old)
             build(separate, old)
             build(b, right)
-            if left and any(rights):
+            if single_unpack:
+                build(unpacked, slices[i])
+            elif left and any(rights):
                 lib.cuBool_Matrix_ExtractSubMatrix(unpacked, product, 0, i * n, n, n, 0)
             lib.cuBool_Matrix_EWiseAdd(merged, previous, unpacked, 0)
             lib.cuBool_MxM(separate, a, b, 8)
@@ -57,6 +64,7 @@ def check_blocks(lib, n, left, rights, targets):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--single-unpack", action="store_true")
     args = parser.parse_args()
     importer = runpy.run_path(str(ROOT / "scripts/check-gpu-flpq-data.py"))
     hashes = json.loads((DATA / "gpu-fill-host-bins/manifest.json").read_text())["builds"]["trial"]
@@ -94,12 +102,13 @@ def main():
                     left = sample()
                     rights = [sample() if i % 3 != 1 else set() for i in range(width)]
                     targets = [sample() for _ in range(width)]
-                    check_blocks(lib, n, left, rights, targets)
+                    check_blocks(lib, n, left, rights, targets, args.single_unpack)
                     cases += 1
                     blocks += width
     finally:
         lib.cuBool_Finalize()
-    result = dict(cases=cases, blocks=blocks, library=str(library), sha256=hashes, seed=20261124)
+    result = dict(cases=cases, blocks=blocks, library=str(library), sha256=hashes, seed=20261124,
+                  single_unpack=args.single_unpack)
     with args.out.open("x") as output:
         json.dump(result, output, indent=2)
     print(json.dumps(result))
