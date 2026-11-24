@@ -96,6 +96,7 @@ def build_trial(work, phase_timing=False, single_unpack=False, cache=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--graph", choices=("luindex", "lusearch"), default="luindex")
     parser.add_argument("--phase-timing", action="store_true", help="Measure host-observed block phases in a diagnostic run")
     parser.add_argument("--single-unpack", action="store_true", help="Partition a single extraction of the packed result")
     parser.add_argument("--pairs", type=int, default=1)
@@ -106,6 +107,9 @@ def main():
     parser.add_argument("--profile", action="store_true",
                         help="Capture CUDA traces for a single cache comparison pair")
     args = parser.parse_args()
+    if args.graph == "lusearch" and not args.compare_cache:
+        parser.error("lusearch is supported for --compare-cache")
+    expected_pairs = {"luindex": 9677, "lusearch": 9242}[args.graph]
     if args.profile and (not args.compare_cache or args.pairs != 1):
         parser.error("--profile requires --compare-cache with one pair")
     if args.compare_cache and (args.compare_unpack or args.phase_timing or args.single_unpack):
@@ -134,13 +138,15 @@ def main():
             separate.mkdir()
             baseline = build_trial(separate, single_unpack=args.compare_cache)
         query = "java_points_to.cnf"
-        graph, grammars = importer["prepare"](
-            DATA / "6.0.0/graph/luindex.tar.gz", "luindex", {query}, work)
+        archive = DATA / "6.0.0/graph" / f"{args.graph}.tar.gz"
+        graph, grammars = importer["prepare"](archive, args.graph, {query}, work)
         digest = importer["sha256"]
         inputs = {"graph.txt": digest(graph), query: digest(grammars[query])}
-        if inputs != json.loads((DATA / "cuda-baseline-resume/inputs-luindex.json").read_text()):
+        if args.graph == "luindex" and inputs != json.loads(
+                (DATA / "cuda-baseline-resume/inputs-luindex.json").read_text()):
             raise ValueError("Input hashes differ from benchmark")
         (out / "manifest.json").write_text(json.dumps(dict(inputs=inputs, build=hashes,
+            graph=args.graph, expected_pairs=expected_pairs, archive_sha256=digest(archive),
             header_sha256=digest(HEADER), trial_sha256=digest(trial), phase_timing=args.phase_timing,
             baseline_sha256=digest(baseline), single_unpack=single_unpack,
             compare_unpack=args.compare_unpack, compare_cache=args.compare_cache,
@@ -153,6 +159,7 @@ def main():
             for pair in range(args.pairs):
                 order = ("baseline", "trial") if pair % 2 == 0 else ("trial", "baseline")
                 schedule.extend((f"pair-{pair + 1}", label) for label in order)
+        expected_mxm = 79639 if args.graph == "luindex" else None
         for phase, label in schedule:
             binary = binaries[label]
             deps = subprocess.check_output(["ldd", str(binary)], env=env, text=True)
@@ -202,15 +209,17 @@ def main():
             if args.compare_cache and label == "trial":
                 stats = re.search(r"^PackageCache: (\d+) (\d+) (\d+)$", stderr, re.M)
                 if not stats or not int(stats[1]):
-                    raise ValueError("Expected cache hits in the luindex workload")
+                    raise ValueError(f"Expected cache hits on {args.graph}")
                 row["cache"] = dict(hits=int(stats[1]), entries=int(stats[2]), csr_bytes=int(stats[3]))
             rows.append(row)
             (out / "results.json").write_text(json.dumps(rows, indent=2) + "\n")
             print(json.dumps(row), flush=True)
-            if row["pairs"] != 9677 or row["exit_code"]:
+            if row["pairs"] != expected_pairs or row["exit_code"]:
                 return 1
-            if (args.compare_unpack or args.compare_cache) and row["mxm"] != 79639:
-                raise ValueError("Unexpected MxM calls for the blocked luindex workload")
+            if args.compare_unpack or args.compare_cache:
+                if not row["mxm"] or (expected_mxm is not None and row["mxm"] != expected_mxm):
+                    raise ValueError(f"Unexpected MxM calls on {args.graph}")
+                expected_mxm = row["mxm"]
             if args.profile:
                 with prefix.with_suffix(".stats.csv").open("wb") as stats, prefix.with_suffix(".stats.stderr").open("wb") as stderr:
                     subprocess.run(["nsys", "stats", "--report=cuda_api_sum,cuda_gpu_kern_sum,cuda_gpu_mem_time_sum",
