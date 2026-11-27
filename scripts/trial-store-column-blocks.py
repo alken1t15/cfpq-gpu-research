@@ -110,10 +110,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", required=True, type=Path)
     report_cases = ROOT / "experiments/2026-11-21-flpq-gpu-suite/benchmark-cases.csv"
-    with report_cases.open(newline="") as file:
-        queries = {row["graph"]: row["grammar"] for row in csv.DictReader(file)}
-    queries["lusearch"] = "java_points_to.cnf"
-    parser.add_argument("--graph", choices=tuple(queries), default="luindex")
+    parser.add_argument("--case-list", type=Path, default=report_cases)
+    parser.add_argument("--graph", default="luindex")
     parser.add_argument("--phase-timing", action="store_true", help="Measure host-observed block phases in a diagnostic run")
     parser.add_argument("--single-unpack", action="store_true", help="Partition a single extraction of the packed result")
     parser.add_argument("--pairs", type=int, default=1)
@@ -126,6 +124,11 @@ def main():
     parser.add_argument("--nvtx-include", type=Path,
                         help="Add per-operation NVTX ranges using this NVTX include directory")
     args = parser.parse_args()
+    with args.case_list.open(newline="", encoding="utf-8-sig") as file:
+        queries = {row["graph"]: row["grammar"] for row in csv.DictReader(file)}
+    queries.setdefault("lusearch", "java_points_to.cnf")
+    if args.graph not in queries:
+        parser.error(f"Unknown graph: {args.graph}")
     if args.graph != "luindex" and not args.compare_cache:
         parser.error("Graphs other than luindex require --compare-cache")
     query = queries[args.graph]
@@ -172,7 +175,7 @@ def main():
         graph, grammars = importer["prepare"](archive, args.graph, {query}, work)
         digest = importer["sha256"]
         inputs = {"graph.txt": digest(graph), query: digest(grammars[query])}
-        if args.graph != "lusearch":
+        if args.graph != "lusearch" and args.case_list == report_cases:
             benchmark_inputs = [DATA / group / f"inputs-{args.graph}.json"
                                 for group in ("cuda-baseline", "cuda-baseline-resume")]
             recorded = [json.loads(path.read_text()) for path in benchmark_inputs if path.is_file()]

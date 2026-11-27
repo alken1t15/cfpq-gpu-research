@@ -15,6 +15,7 @@ CASES = ROOT / "experiments/2026-11-21-flpq-gpu-suite/benchmark-cases.csv"
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--case-list", type=Path, default=CASES)
     args = parser.parse_args()
     out = args.out.resolve()
     importer = runpy.run_path(str(ROOT / "scripts/check-gpu-flpq-data.py"))
@@ -23,7 +24,7 @@ def main():
         for row in csv.DictReader(catalog):
             if row["query_class"] == "cfpq":
                 cases.setdefault(row["graph"], {})[row["grammar"]] = row["num_reachable_pairs"]
-    with CASES.open(newline="", encoding="utf-8-sig") as selection:
+    with args.case_list.open(newline="", encoding="utf-8-sig") as selection:
         selected = list(csv.DictReader(selection))
     out.mkdir(parents=True)
     configs = []
