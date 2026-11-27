@@ -18,7 +18,8 @@ BASE = ROOT / "build/gpu-mxm-alias"
 HEADER = ROOT / "experiments/2026-11-24-store-column-blocks/store_column_blocks.hpp"
 
 
-def build_trial(work, phase_timing=False, single_unpack=False, cache=False, nvtx_include=None):
+def build_trial(work, phase_timing=False, single_unpack=False, cache=False, nvtx_include=None,
+                progress=False):
     source = ROOT / "src/cfra/src/incremental_algo/incremental_algo.cpp"
     code = '#include "store_column_blocks.hpp"\n' + source.read_text()
     code = code.replace("    int iter = 0;", "    unsigned long long calls = 0;\n    int iter = 0;")
@@ -77,6 +78,12 @@ def build_trial(work, phase_timing=False, single_unpack=False, cache=False, nvtx
     result.iterations   = iter;""")
     if single_unpack:
         code = "#define STORE_BLOCK_SINGLE_UNPACK\n" + code
+    if progress:
+        code = code.replace("    int iter = 0;", '    std::cerr << "PROGRESS initialized\\n";\n    int iter = 0;')
+        code = code.replace("        iter++;", '        iter++;\n        std::cerr << "PROGRESS begin " << iter << "\\n";')
+        code = code.replace("        if (dm_total == 0)", '''
+        std::cerr << "PROGRESS end " << iter << " mxm=" << calls << " delta=" << dm_total << "\\n";
+        if (dm_total == 0)''')
     if nvtx_include:
         pattern = r"CB_CHECK\((cuBool_\w+)(?=\()"
         code = re.sub(pattern, r'CFRA_NVTX_CHECK("incremental/\1", \1', code)
@@ -112,6 +119,8 @@ def main():
     report_cases = ROOT / "experiments/2026-11-21-flpq-gpu-suite/benchmark-cases.csv"
     parser.add_argument("--case-list", type=Path, default=report_cases)
     parser.add_argument("--graph", default="luindex")
+    parser.add_argument("--timeout", type=int, default=900)
+    parser.add_argument("--progress", action="store_true", help="Log incremental iteration boundaries for diagnostics")
     parser.add_argument("--phase-timing", action="store_true", help="Measure host-observed block phases in a diagnostic run")
     parser.add_argument("--single-unpack", action="store_true", help="Partition a single extraction of the packed result")
     parser.add_argument("--pairs", type=int, default=1)
@@ -124,6 +133,8 @@ def main():
     parser.add_argument("--nvtx-include", type=Path,
                         help="Add per-operation NVTX ranges using this NVTX include directory")
     args = parser.parse_args()
+    if args.timeout <= 0:
+        parser.error("--timeout must be positive")
     with args.case_list.open(newline="", encoding="utf-8-sig") as file:
         queries = {row["graph"]: row["grammar"] for row in csv.DictReader(file)}
     queries.setdefault("lusearch", "java_points_to.cnf")
@@ -165,12 +176,14 @@ def main():
     with TemporaryDirectory() as folder:
         work = Path(folder)
         single_unpack = args.single_unpack or args.compare_unpack or args.compare_cache
-        trial = build_trial(work, args.phase_timing, single_unpack, args.compare_cache, args.nvtx_include)
+        trial = build_trial(work, args.phase_timing, single_unpack, args.compare_cache, args.nvtx_include,
+                            args.progress)
         baseline = BASE / "cfra"
         if args.compare_unpack or args.compare_cache:
             separate = work / "separate"
             separate.mkdir()
-            baseline = build_trial(separate, single_unpack=args.compare_cache, nvtx_include=args.nvtx_include)
+            baseline = build_trial(separate, single_unpack=args.compare_cache, nvtx_include=args.nvtx_include,
+                                   progress=args.progress)
         archive = DATA / "6.0.0/graph" / f"{args.graph}.tar.gz"
         graph, grammars = importer["prepare"](archive, args.graph, {query}, work)
         digest = importer["sha256"]
@@ -187,7 +200,8 @@ def main():
             header_sha256=digest(HEADER), trial_sha256=digest(trial), phase_timing=args.phase_timing,
             baseline_sha256=digest(baseline), single_unpack=single_unpack,
             compare_unpack=args.compare_unpack, compare_cache=args.compare_cache,
-            profile=args.profile, nvtx=bool(args.nvtx_include), pairs=args.pairs), indent=2))
+            profile=args.profile, nvtx=bool(args.nvtx_include), pairs=args.pairs,
+            progress=args.progress, timeout_seconds=args.timeout), indent=2))
         binaries = {"baseline": baseline, "trial": trial}
         schedule = [("diagnostic", "trial")] if args.phase_timing else []
         if not args.phase_timing:
@@ -218,10 +232,10 @@ def main():
                                            stdout=memory, stderr=stderr)
                 start = time.monotonic()
                 try:
-                    result = subprocess.run(command, env=env, stdout=stdout, stderr=stderr, timeout=900)
+                    result = subprocess.run(command, env=env, stdout=stdout, stderr=stderr, timeout=args.timeout)
                     exit_code, reason = result.returncode, ""
                 except subprocess.TimeoutExpired:
-                    exit_code, reason = None, "Timeout after 900 seconds"
+                    exit_code, reason = None, f"Timeout after {args.timeout} seconds"
                 finally:
                     seconds = time.monotonic() - start
                     monitor.terminate()
